@@ -1,20 +1,16 @@
 // import * from '../actions'
 import { combineReducers } from 'redux'
+import undoable from 'redux-undo'
 
 import hobbys from './hobbys'
 import words from './words'
 import skills from './skills'
-import attrs from './attrs'
+import * as attrs from './attrs'
 
-const { birthday, education, name } = attrs
-
-const app = combineReducers({
-	birthday,
-	education,
-	name,
+const app = combineReducers(Object.assign({}, attrs ,{
 	hobbys,
 	words,
 	skills
-})
+}))
 
-export default app
+export default undoable(app)

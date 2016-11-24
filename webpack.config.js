@@ -16,6 +16,9 @@ function gPlugins(){
     new ExtractTextPlugin("css/[name].css", {
       allChunks: true
     }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify( pro ? 'production' : 'development')
+    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
@@ -41,8 +44,8 @@ function gPlugins(){
 }
 
 module.exports = {
-  devtool: pro ? 'cheap-module-source-map' : 'source-map',
-  // devtool: 'cheap-module-source-map',
+  // devtool: pro ? 'cheap-module-source-map' : 'source-map',
+  devtool: 'source-map',
 
  //  entry: { 
  //    app: './frontend/js/index.js',
@@ -58,7 +61,7 @@ module.exports = {
   output: {
     path: __dirname + '/public/',
     filename: 'js/index.js',
-    publicPath: '/public/'
+    publicPath: '/'
   },
 
   // entry: './frontend/html/index.html',
@@ -91,6 +94,22 @@ module.exports = {
             }
           }
         }
+      },
+      {
+        test: /[^|\_b]\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          // 'url?limit=10240&name=img/[hash:8].[name].[ext]',
+          'file?hash=sha512&digest=hex&name=img/[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
+      },
+      {
+        test: /\_b\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          'url?name=img/[hash:8].[name].[ext]',
+          // 'file?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
       },
       {
         test: /\.css$/,

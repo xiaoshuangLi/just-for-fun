@@ -1,16 +1,103 @@
-$bodyColor: #f7ead8;
-$maxWidth: 640px;
+// Tag
+input,textarea,*{
+  padding:0;
+  margin:0;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  box-sizing: border-box;
+  outline: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: none;
+  -webkit-perspective: 100%;
+}
+
+input, textarea{
+  -webkit-appearance: none;
+}
 
 body{
-  margin: 10px 20px 10px 20px;
-  /* reduce color values */
-  color: #ff0000;
-  /* drop outdated vendor prefixes */
-  -webkit-border-radius: 16px;
-  border-radius: 16px;
-  /* remove duplicated properties */
-  font-weight: normal;
-  font-weight: normal;
-  /* reduce position values */
-  background-position: bottom right;
+  color: #666;
+  font-family: "Hiragino Sans GB","Microsoft YaHei",simsun, Helvetica;
+  background-color: #f3f3f3;
+  font-size: 12px;
+  font-weight: 100;
+  min-height: 100%;
+}
+
+// Public Attr
+%absolute{
+  position: absolute;
+}
+
+%relative{
+  position: relative;
+}
+
+%inline-block{
+  display: inline-block;
+}
+
+%block{
+  display: block;
+}
+
+%none{
+  display: none;
+}
+
+%w100{
+  width: 100%;
+}
+
+%h100{
+  height: 100%;
+}
+
+%fullwidth{
+  left: 0;
+  right: 0;
+
+  @extend %absolute;
+}
+
+%fullheight{
+  top: 0;
+  bottom: 0;
+
+  @extend %absolute;
+}
+
+%noscroll{
+  &::-webkit-scrollbar{
+    background: transparent;
+    opacity: 0;
+    display: none;
+  }
+}
+
+%percenter{
+  left: 50%;  
+  top: 50%;  
+  transform: translate(-50%, -50%);
+
+  @extend %absolute;
+}
+
+// Public val
+$blue: rgb(194, 229, 156);
+$green: rgb(100, 179, 244);
+
+// Public mixin
+@mixin linearGradient($a: to left, $b: $blue, $c: $green) {
+  background: -webkit-linear-gradient($a, $b , $c);
+  background: linear-gradient($a, $b, $c);
+}
+
+// Public Class
+.body{
+  @extend %fullwidth;
+  @extend %fullheight;
+  @extend %noscroll;
+
+  @include linearGradient;
 }
