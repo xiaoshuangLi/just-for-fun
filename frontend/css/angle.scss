@@ -1,0 +1,71 @@
+$peroffset: (pow(2, 0.5) - 1)/2;
+$offset: percentage($peroffset);
+$offsetPX: 0px;
+
+.left-icon{
+	width: 45px;
+	height: 45px;
+	border-radius: 0 0 5px 0;
+  box-shadow: 1px 1px 5px rgba(0,0,0, .2);
+  z-index: 5;
+
+	@extend %relative;
+	@extend %inline-block;
+	@extend %ohidden;
+	@extend %bg-grey;
+
+	.top,.bottom{
+		width: 200%;
+    height: 200%;
+    transform: rotate(45deg);
+		@extend %absolute;
+
+		.icon{
+	    top: 50%;
+	    transform: translate(-50%, -50%);
+	    transition: .2s;
+
+			@extend %absolute;
+		}
+
+		&:hover{
+			.icon{
+		    transform: translate(-50%, -50%) rotate(-45deg);
+			}
+		}
+
+		&.active{
+			.icon{
+				@extend %fblue;
+			}
+		}
+
+		&.invalid{
+			@extend %pnone;
+			
+			.icon{
+				@extend %ifred;
+			}
+		}
+	}
+
+	.top{
+    right: calc(#{$offset} + #{$offsetPX});
+    bottom: calc(#{$offset} + #{$offsetPX});
+
+    .icon{
+	    left: 85%;
+    }
+	}
+
+	.bottom{
+		background-color: white;
+
+    top: calc(#{$offset} + #{$offsetPX});
+    left: calc(#{$offset} + #{$offsetPX});
+
+    .icon{
+	    right: 75%;
+    }
+	}
+}

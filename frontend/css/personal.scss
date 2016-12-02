@@ -1,0 +1,224 @@
+.personal-container{
+	background-color: rgba(0,0,0,.3);
+
+	@extend %transparent;
+	@extend %full;
+}
+
+.avatar-container{
+	position: fixed;
+	top: 50px;
+  left: 75px;
+  width: 90px;
+  height: 90px;
+  border: 4px solid white;
+	border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0,0,0,.6);
+
+  @extend %ohidden;
+
+	.img{
+		@include bg;
+		@extend %full;
+	}
+}
+
+.input-list{
+	padding: 50px 0 0 200px;
+}
+
+.input-item{
+  width: 260px;
+
+	@extend %relative;
+
+	&.lg{
+		.input,.label{
+			line-height: 2;
+			font-size: 1.4em;
+		}
+
+		.input{
+			&:focus + .label, &.active + .label, &.error + .label{
+				font-size: 1.1em;
+				line-height: 1;
+			}
+		}
+	}
+
+	&.skill{
+		$scoreWidth: 40px;
+
+		.input{
+			&.val{
+				width: calc(100% - #{$scoreWidth + 5px});
+			}
+
+			&.score{
+				width: $scoreWidth;
+				right: 0;
+				bottom: 0;
+				padding-right: 5px;
+
+				@extend %absolute;
+				@extend %tright;
+			}
+		}
+	}
+
+	.input,.label{
+		line-height: 1.9;
+		font-size: 1.2em;
+
+		@extend %w100;
+	}
+
+	%label-active{
+		font-size: 1em;
+		transform: translate(0, -100%);
+		opacity: .8;
+		line-height: 1.5;
+
+		&:after{
+			opacity: 0;
+		}
+	}
+
+	.input{
+		border: none;
+    border-bottom: 1px solid rgba(255,255,255, .6);
+    background-color: transparent;
+    resize: none;
+    
+		@extend %fwhite;
+
+		&:focus + .label, &.active + .label, &.error + .label{
+			@extend	%label-active; 
+		}
+
+		&.error + .label {
+			.icon{
+				&.invalid{
+			    transform: translate(0, -50%);
+				}
+			}
+		}
+
+		&.active + .label{
+			.icon{
+				&.remove{
+			    transform: translate(0, -50%);
+				}
+			}
+		}
+
+		&.text{
+			font-size: 1.1em;
+		}
+
+		&:disabled{
+			border-bottom: none;
+		}
+	}
+
+	.label{
+		left: 0;
+		top: 0;
+		transition: .2s;
+
+		@extend %absolute;
+		@extend %pnone;
+		@extend %fwhite;
+		@extend %ohidden;
+
+		&.active{
+			@extend	%label-active; 
+		}
+
+		&:before, &:after{
+			@extend %inline-block;
+		}
+
+		&:before{
+			content: attr(content);
+		}
+
+		&:after{
+			content: '...';
+			transition: .2s;
+			opacity: 1;
+		}
+
+		@for $i from 1 through 4{
+			.icon:nth-child(#{$i}) {
+				right: #{ $i * 20px - 20px}
+			}
+		}
+
+		.icon{
+			transition: .4s;
+			top: 50%;
+			font-size: 12px;
+			transform: translate(0, -50%);
+
+			@extend %absolute;
+			@extend %pointer;
+			@extend %pall;
+
+			&.invalid{
+				right: 0;
+		    transform-origin: 100% 100%;
+		    transform: translate(0, -50%)  rotate(90deg);
+			}
+
+			&.remove{
+				right: 20px;
+				transform: translate(0, -150%);
+			}
+		}
+
+	}
+
+	&+.input-item{
+		margin-top: 25px;
+	}
+}
+
+.hobby-list{
+  padding-top: 5px;
+
+	@include clearBoth;
+}
+
+$hobbyNum: 5;
+$hobbySpace: 0.2;
+
+$hobbyWidth: (1 - $hobbySpace)/$hobbyNum;
+$hobbyMargin: $hobbySpace/($hobbyNum - 1);
+
+$perHobbyWidth: percentage($hobbyWidth);
+$perHobbyMargin: percentage($hobbyMargin);
+
+.hobby-item{
+  width: $perHobbyWidth;
+  padding-bottom: $perHobbyWidth;
+	margin-bottom: 8px;
+  border-radius: 4px;
+
+	@extend %left;
+	@extend %relative;
+  @extend %inline-block;
+  @extend %bgwhite;
+
+  svg{
+  	@extend %percenter;
+  }
+
+  & + .hobby-item{
+  	margin-left: $perHobbyMargin;
+  }
+
+  &:nth-child(#{$hobbyNum}n + 1){
+  	margin-left: 0%;
+  }
+}

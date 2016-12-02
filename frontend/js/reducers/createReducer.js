@@ -1,4 +1,4 @@
-import {Ad, Ed, Tog, Re} from '../actions/types'
+import {Ad, Ed, Tog, Del, Re} from '../actions/types'
 import {isUndefined} from '../common'
 
 function creater (initState, handlers) {
@@ -33,6 +33,13 @@ export function createItem(name = 'fun', attrs = ['name', 'val', 'id']){
 			return Object.assign({}, state, {
 				hide: !state.hide
 			})
+		},
+		[`${Ed}_${name}`](state, action) {
+			if(state.id != action.id) {
+				return state
+			}
+
+			return Object.assign({}, state, action.val)
 		}
 	})
 }
@@ -45,9 +52,19 @@ export function createList(name = 'fun', item){
 			  item(undefined, action)
 			]
 		},
+		[`${Ed}_${name}`] (state, action) {
+			return state.map(t =>
+			  item(t, action) 
+			)
+		},
 		[`${Tog}_${name}`] (state, action) {
 			return state.map(t =>
 			  item(t, action) 
+			)
+		},
+		[`${Del}_${name}`] (state, action) {
+			return state.filter(t =>
+			  (t.id != action.id) 
 			)
 		}
 	})

@@ -1,4 +1,9 @@
 export const Ad = 'add'
 export const Ed = 'edit'
-export const Tog = 'Toggle'
+export const Del = 'delete'
+export const Tog = 'toggle'
 export const Re = 'retrive'
+export const Valid = 'valid'
+export const Invalid = 'invalid'
+
+

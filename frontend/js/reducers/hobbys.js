@@ -3,7 +3,7 @@ import creater, {createItem, createList} from './createReducer'
 
 const hobby = createItem('hobby', ['name', 'val', 'id', {
 	name: 'icon',
-	dVal: 'fa fa-user-secret'
+	dVal: ''
 }])
 const hobbys = createList('hobby', hobby)
 
