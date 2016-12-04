@@ -8,11 +8,11 @@ import App from './containers/App'
 import configureStore from './store/configureStore'
 import {add, edit, toggle, valid} from './actions'
 import { getState } from './common'
+import data from './common/data'
 
 import '../css/index.scss'
 
-let present = getState()
-
+let present = Object.assign({}, data, getState()) 
 const store = configureStore({present})
 
 // let unsubscribe = store.subscribe(() =>

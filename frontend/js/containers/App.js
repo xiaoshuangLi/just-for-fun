@@ -10,6 +10,7 @@ import Personal from '../components/Personal'
 
 import { setState } from '../common'
 import * as actions from '../actions'
+import icons from '../common/icons'
 
 class App extends Component {
 	constructor(props) {
@@ -29,8 +30,10 @@ class App extends Component {
 	}
 
 	loads(){
-		const { actions } = this.props
-		actions.loads('http://source.cloudin9.com/aojin/img/rice/rule_g.png')
+		const { actions , present} = this.props
+		let imgs = [];
+		imgs.push(present.avatar.val)
+		actions.loads(imgs)
 	}
 
 	enterEdit(){
@@ -49,9 +52,11 @@ class App extends Component {
 		const { present, actions } = this.props
 		const { web } = present
 		const { isLoaded, isEditing } = web
+		const { Style } = icons
 
 		return (
 			<div className="body">
+			  <Style className="svg-hide" width="0" height="0"/>
 				<Loading show={!isLoaded}>
 					<Preload present={present}/>
 				</Loading>

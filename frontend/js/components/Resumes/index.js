@@ -7,7 +7,9 @@ export default class Resumes extends Slowshow {
   	
   	return(
   		<div className="resume-list">
-        
+	  		<div className="resume-item">1</div>
+	  		<div className="resume-item">2</div>
+	  		
   		</div>
   	)
   }

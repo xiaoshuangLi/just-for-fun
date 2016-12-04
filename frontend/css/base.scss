@@ -39,6 +39,10 @@ $grey: #f3f3f3;
   position: relative;
 }
 
+%fixed{
+  position: fixed;
+}
+
 %inline-block{
   display: inline-block;
 }
@@ -180,6 +184,12 @@ $grey: #f3f3f3;
   @extend %absolute;
 }
 
+%ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 // Tag
 input,textarea,*{
   padding:0;
@@ -220,10 +230,20 @@ body{
 
 // Public Class
 .body{
+
   @extend %full;
   @extend %noscroll;
 
   @include linearGradient;
+}
+
+.ng-hide{
+  @extend %none;
+}
+
+.svg-hide{
+  @extend %transparent;
+  @extend %absolute;
 }
 
 .hidden{

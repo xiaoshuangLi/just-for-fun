@@ -90,11 +90,11 @@ module.exports = {
         include: path.join(__dirname, 'frontend/js')
       },
       {
-        test: /\_inline\.svg$/,
+        test: /\_inline\.svg$/i,
         loader: 'babel?presets[]=es2015,presets[]=react!svg-react'
       },
       {
-        test: /[^|\_b|\_inline]\.(jpe?g|png|gif|svg)$/i,
+        test: /^(?!.*(\_b|\_inline)).*\.svg$/i,
         loaders: [
           // 'url?limit=10240&name=img/[hash:8].[name].[ext]',
           'file?hash=sha512&digest=hex&name=img/[hash].[ext]',

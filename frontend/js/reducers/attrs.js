@@ -22,6 +22,7 @@ export const school = attr('school', '学校')
 export const desc = attr('desc', '自我介绍')
 export const experience = attr('experience', '项目经验')
 export const avatar = attr('avatar', '头像')
+export const editing = attr('editing', '种族天赋')
 
 const attrs = {
 	name,
@@ -32,7 +33,8 @@ const attrs = {
 	school,
 	desc,
 	experience,
-	avatar
+	avatar,
+	editing
 }
 
 export default attrs

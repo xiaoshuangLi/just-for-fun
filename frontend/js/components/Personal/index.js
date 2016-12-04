@@ -5,6 +5,7 @@ import Slowshow from '../animation/Slowshow'
 import InputItem from './InputItem'
 import SkillItem from './SkillItem'
 import HobbyList from './HobbyList'
+import WordList from './WordList'
 
 import {validAttrs, validInput} from '../../common'
 
@@ -14,6 +15,7 @@ export default class Personal extends Slowshow{
 
 		this.edit = this.edit.bind(this)
 		this.del = this.del.bind(this)
+		this.addWord = this.addWord.bind(this)
 	}
 	edit(){
 		const { actions } = this.props
@@ -24,6 +26,15 @@ export default class Personal extends Slowshow{
 		const { actions } = this.props
 		actions.edit({valid: validInput(findDOMNode(this.refs.form))},	 'web')
 		actions.del.apply(null, arguments)
+	}
+	addWord(){
+		const { present, actions} = this.props
+		const { add, edit } = actions
+		const { editing } = present
+		const { val } = editing
+
+		add( { name: val, val}, 'word')
+		edit( '', 'editing')
 	}
 	render(){
 		const { present, actions} = this.props
@@ -41,6 +52,7 @@ export default class Personal extends Slowshow{
 				{ actionType: 'desc', text: true }
 			],
 			experience: { actionType: 'experience', text: true },
+			editing: { actionType: 'editing' },
 			skill: {
 				data: {
 					val: '专业技能',
@@ -61,7 +73,8 @@ export default class Personal extends Slowshow{
 
 				attrs: {
 					lg: true,
-					disabled: true
+					maxLength: 8,
+					minLength: 0
 				}
 			}
 		}
@@ -91,7 +104,9 @@ export default class Personal extends Slowshow{
 							</div>
 							<div className="equal">
 							  <InputItem data={attrs.wanna.data} {...attrs.wanna.attrs}/>
-							  <HobbyList data={present.hobbys}></HobbyList>
+							  <HobbyList data={present.hobbys} toggle={actions.toggle}></HobbyList>
+							  <InputItem enter={this.addWord} edit={this.edit} {...attrs.editing} data={present['editing']} {...validAttrs.editing}/>
+							  <WordList del={this.del} data={present.words}></WordList>
 							</div>
 						</div>
 					</form>

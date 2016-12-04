@@ -6,4 +6,10 @@
   border-radius: 50%;
 
 	@extend %percenter;
+
+	svg{
+		fill: rgba(0,0,0,.55);
+
+		@extend %percenter
+	}
 }

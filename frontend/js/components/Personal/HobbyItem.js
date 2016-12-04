@@ -6,6 +6,13 @@ import icons from '../../common/icons'
 export default class HobbyItem extends Component {
 	constructor(props) {
 		super(props)
+
+		this.toggle = this.toggle.bind(this)
+	}
+
+	toggle(){
+		const { toggle, data = {} } = this.props
+		toggle(data.id, 'hobby')
 	}
 
 	render(){
@@ -14,8 +21,8 @@ export default class HobbyItem extends Component {
 		const Svg = icons[icon]
 
 		return (
-			<div className="hobby-item">
-			  <Svg className="active" width="50%" height="50%"/>
+			<div className={`hobby-item ${!data.hide && 'active'}`} onClick={this.toggle}>
+			  <Svg width="50%" height="50%"/>
 			</div>
 		)
 	}
