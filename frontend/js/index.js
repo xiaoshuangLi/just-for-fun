@@ -16,10 +16,9 @@ let present = Object.assign({}, data, getState())
 const store = configureStore({present})
 
 // let unsubscribe = store.subscribe(() =>
-// 	console.log(store.getState().present.web.invalid)
+// 	console.log(store.getState().present.web)
 // )
 
-// store.dispatch(add({name: 'xiaoshuang', val: 'eeee'}, 'hobby'))
 // store.dispatch(valid('131979130', 'phone'))
 // store.dispatch(valid('13197913032', 'phone'))
 // store.dispatch(UndoActionCreators.undo())

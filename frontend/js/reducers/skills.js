@@ -1,4 +1,3 @@
-import {Ad, Tog} from '../actions/types'
 import creater, {createItem, createList} from './createReducer'
 
 const skill = createItem('skill', ['name', 'val', 'id', {

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import Preload from '../components/Preload'
 import Resumes from '../components/Resumes'
+import Detail from '../components/Resumes/detail'
 import Angle from '../components/Angle'
 import Loading from '../components/Loading'
 import Personal from '../components/Personal'
@@ -16,7 +17,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.enterEdit = this.enterEdit.bind(this)
+		this.leftClick = this.leftClick.bind(this)
 	}
 
 	componentDidMount() {
@@ -36,10 +37,14 @@ class App extends Component {
 		actions.loads(imgs)
 	}
 
-	enterEdit(){
+	leftClick(){
 		const { actions, present} = this.props
 		const { web } = present
-		const { isEditing, valid } = web
+		const { isEditing, valid , detail} = web
+
+		if( detail ){
+			return actions.edit({detail: ''}, 'web')
+		}
 
 		if(isEditing && valid) {
 			setState(present)
@@ -62,11 +67,15 @@ class App extends Component {
 				</Loading>
 
 				<Loading show={isLoaded}>
-					<Resumes present={present} />
+					<Resumes present={present} actions={actions}/>
+				</Loading>
+
+				<Loading show={web.detail}>
+					<Detail present={present} actions={actions}/>
 				</Loading>
 
 				<Loading show={isLoaded}>
-					<Angle left={true} right={true} leftClick={this.enterEdit} present={present} />
+					<Angle left={true} right={true} leftClick={this.leftClick} present={present} />
 				</Loading>
 
 				<Loading show={isEditing}>

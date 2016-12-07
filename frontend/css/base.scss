@@ -139,6 +139,18 @@ $grey: #f3f3f3;
   color: $fontBlue !important;
 }
 
+%overauto{
+  overflow: auto;
+}
+
+%overhidden{
+  overflow: hidden;
+}
+
+%transitionlight{
+  transition-timing-function: cubic-bezier(1,1,1,1);
+}
+
 %fa{
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -190,6 +202,21 @@ $grey: #f3f3f3;
   text-overflow: ellipsis;
 }
 
+%row{
+  &:before, &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+%bg{
+  background-color: rgba(0,0,0,.3);
+
+  @extend %full;
+  @extend %fixed;
+}
+
 // Tag
 input,textarea,*{
   padding:0;
@@ -201,6 +228,7 @@ input,textarea,*{
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: none;
   -webkit-perspective: 100%;
+  border-radius: 0px;
 }
 
 input, textarea{
@@ -230,7 +258,6 @@ body{
 
 // Public Class
 .body{
-
   @extend %full;
   @extend %noscroll;
 
@@ -252,6 +279,10 @@ body{
 
 .pointer{
   @extend %pointer;
+}
+
+.bg{
+  @extend %bg;
 }
 
 .table{

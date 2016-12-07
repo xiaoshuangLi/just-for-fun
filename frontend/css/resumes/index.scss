@@ -1,0 +1,78 @@
+@import "./one.scss";
+
+$maxResume: 8;
+
+.resume-conatiner{
+	padding: 20px 40px 70px;
+	transition: .5s;
+	filter: blur(0px);
+
+	@extend %transparent;
+	@extend %transitionlight;
+
+	&.blur{
+		filter: blur(3px);
+	}
+}
+
+.detail-container{
+	@extend %full;
+	@extend %fixed;
+}
+
+.resume-list{
+	@extend %row;
+
+	.resume-item{
+		border-radius: 7px;
+    border: 5px solid white;
+    box-shadow: 0 0px 5px rgba(0,0,0, .2);
+    width: 220px;
+    height: 300px;
+
+    @extend %bgwhite;
+    @extend %left;
+    @extend %pointer;
+    @extend %relative;
+	}
+}
+
+@for $i from 1 through 8 {
+	@media (min-width: #{ 121px + 320px * ($i - 1) }) and (max-width: #{ 120px + 320px * $i }) {
+		$width: 1/($i + 1);
+		$widthPer: percentage($width);
+
+		.resume-item{
+			margin: 50px 0 0px calc(#{$widthPer} - #{220px * ($i/($i+1))});
+		}
+	}
+}
+
+@media (min-aspect-ratio: 4/5) {
+	$resumeWidth: 75vh;
+
+  .resume-body{
+  	position: absolute;
+  	top: 0;
+  	width: 75vh;
+  	height: 100vh;
+  	left: 50%;
+  	background-color: white;
+
+  	max-height: 100%;
+  	max-width: 100%;
+
+  	transform: translate(-50%, 0);
+  }	
+}
+
+@media (max-aspect-ratio: 4/5) {
+  .resume-body{
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	right: 0;
+  	bottom: 0;
+  	background-color: white;
+  }	
+}

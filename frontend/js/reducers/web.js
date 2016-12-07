@@ -1,12 +1,7 @@
 import { Ed, Valid, Invalid } from '../actions/types'
+import { dWeb } from '../common/data'
 
-const dVal = { 
-	isLoaded: true,
-	isEditing: false,
-	valid: true
-}
-
-const web = (state = dVal, action) => {
+const web = (state = dWeb, action) => {
 	const { val } = action
 	let invalid
 

@@ -1,6 +1,5 @@
 import { loadAll } from '../common' 
 import { Valid, Invalid } from './types'
-import { validAttr } from '../common'
 
 import {
 	Ad,
@@ -20,26 +19,6 @@ export function edit(val, name = 'fun') {
 		val
 	}
 }
-
-// export function valid(val, name = 'func') {
-// 	let validRes = validAttr(val, name)
-// 	const { id = '' } = val
-
-// 	return {
-// 		type: `${validRes?Valid:Invalid}_web`, 
-// 		val : {
-// 			attr: `name${id&&'.'}${id}`
-// 		}
-// 	}
-// }
-
-// export function edit(val, name = 'func') {
-// 	return (dispatch, getState) => {
-
-// 		dispatch(valid(val, name))
-// 		return dispatch(editSingle(val, name))
-// 	}
-// }
 
 export function add(data, name = 'fun') {
 	return Object.assign({}, {
@@ -79,7 +58,7 @@ export function loads(list = []) {
 		let num = 0
 		list = list instanceof Array ? list : [list]
 
-		const urls = list.map(item => (item.url || item));
+		const urls = list.map((item = '') => (item.url || item))
 		loadAll(urls, () => {
 			return setTimeout(() => {
 				dispatch({ type: `${Ed}_web`, val: { isLoaded: true }})

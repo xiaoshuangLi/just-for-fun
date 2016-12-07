@@ -1,8 +1,6 @@
 .personal-container{
-	background-color: rgba(0,0,0,.3);
-
-	@extend %transparent;
-	@extend %full;
+	@extend %bg;
+  @extend %transparent;
 }
 
 .avatar-container{

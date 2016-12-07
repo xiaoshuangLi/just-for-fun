@@ -1,5 +1,13 @@
 @import "./base.scss";
 @import "./loading.scss";
-@import "./resumes.scss";
+@import "./resumes/index.scss";
 @import "./personal.scss";
 @import "./angle.scss";
+
+body{
+	@extend %overhidden;
+}
+
+.body{
+	@extend %overauto;
+}

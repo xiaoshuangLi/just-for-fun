@@ -1,5 +1,4 @@
 import { Ed } from '../actions/types'
-import common from '../common'
 import creater from './createReducer'
 
 const attr = function(name = 'fun', title: '晓爽') {

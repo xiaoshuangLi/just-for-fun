@@ -1,4 +1,3 @@
-import {Ad, Ed, Tog, Re} from '../actions/types'
 import creater, {createItem, createList} from './createReducer'
 
 const hobby = createItem('hobby', ['name', 'val', 'id', {

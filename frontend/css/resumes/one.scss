@@ -1,0 +1,18 @@
+$oneGreen: #097984;
+
+.one-body{
+	color: $oneGreen;
+
+	&:before{
+		content: '';
+		top: 4%;
+		bottom: 4%;
+		left: 50%;
+		border-left: 1px dashed;
+		opacity: .4;
+
+		@extend %pnone;
+		@extend %inline-block;
+		@extend %absolute;
+	}
+}

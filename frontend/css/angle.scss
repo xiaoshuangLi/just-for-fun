@@ -23,16 +23,23 @@ $offsetPX: 0px;
 		@extend %absolute;
 
 		.icon{
-	    top: 50%;
 	    transform: translate(-50%, -50%);
 	    transition: .2s;
 
 			@extend %absolute;
+
+			&:first-child{
+		    top: 50%;
+			}
 		}
 
 		&:hover{
 			.icon{
 		    transform: translate(-50%, -50%) rotate(-45deg);
+
+		    &.fa-times-circle{
+			    transform: translate(-50%, -50%) rotate(45deg);
+		    }
 			}
 		}
 
@@ -54,9 +61,29 @@ $offsetPX: 0px;
 	.top{
     right: calc(#{$offset} + #{$offsetPX});
     bottom: calc(#{$offset} + #{$offsetPX});
+    transition: .6s;
 
-    .icon{
+    &.rotate{
+    	transform: rotate(135deg);
+    }
+
+    .icon:first-child{
 	    left: 85%;
+    }
+
+    .icon:nth-child(2){
+	    top: 15%;
+	    left: 50%;
+
+	    &.fa-times-circle{
+	    	&:before{
+				  font-size: 1.1em;
+	    		width: 11.5px;
+	    		height: 11.5px;
+
+	    		@extend %inline-block;
+	    	}
+	    }
     }
 	}
 
