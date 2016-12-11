@@ -18,6 +18,8 @@ import Walk from '../../img/icon/walk_inline.svg'
 import Resume from '../../img/icon/resume_inline.svg'
 import Style from '../../img/icon/style_inline.svg'
 
+// import Test from '../../img/icon/test_inline.svg'
+
 const icons = {
 	Bug,
 	Camera,
@@ -37,7 +39,8 @@ const icons = {
 	SM,
 	Walk,
 	Resume,
-	Style
+	Style,
+	// Test
 }
 
 export default icons

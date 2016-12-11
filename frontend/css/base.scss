@@ -30,6 +30,13 @@ $grey: #f3f3f3;
   }
 }
 
+@mixin ellipsisMul($num: 1, $hei: ''){
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+}
+
 // Public Attr
 %absolute{
   position: absolute;
@@ -147,6 +154,10 @@ $grey: #f3f3f3;
   overflow: hidden;
 }
 
+%wnowrap{
+  white-space: nowrap;
+}
+
 %transitionlight{
   transition-timing-function: cubic-bezier(1,1,1,1);
 }
@@ -197,9 +208,9 @@ $grey: #f3f3f3;
 }
 
 %ellipsis{
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
+  @extend %wnowrap;
+  @extend %ohidden;
 }
 
 %row{
@@ -208,6 +219,12 @@ $grey: #f3f3f3;
     display: table;
     clear: both;
   }
+}
+
+%testflex{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 %bg{
@@ -262,6 +279,7 @@ body{
   @extend %noscroll;
 
   @include linearGradient;
+  // @include bg(cover, 'http://192.168.0.110:8000/trees-houses.jpg', 50%, 0);
 }
 
 .ng-hide{
@@ -285,6 +303,22 @@ body{
   @extend %bg;
 }
 
+.row{
+  @extend %row;
+}
+
+.text-center{
+  @extend %tcenter;
+}
+
+.text-left{
+  @extend %tleft;
+}
+
+.text-right{
+  @extend %tright;
+}
+
 .table{
   display: table;
   @extend %w100;
@@ -300,6 +334,23 @@ body{
   &.center{
     >*{
       @extend %vmiddle;
+    }
+  }
+}
+
+@for $i from 1 through 20 {
+
+  .fw-#{$i * 5} {
+    $fwWidth : $i/20;
+
+    width: percentage($fwWidth);
+    @extend %left;
+  }
+
+  @media (max-width: 640px) {
+    .fw-#{$i * 5}{
+      width: 100%;
+      padding: 0 15px;
     }
   }
 }

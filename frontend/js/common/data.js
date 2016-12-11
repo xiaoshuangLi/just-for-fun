@@ -25,11 +25,11 @@ const data = {
 	},
 	"desc": {
 		"name": "自我介绍",
-		"val": "一个好人"
+		"val": "一个程序猿，一个爱睡懒觉的程序猿，一个爱睡懒觉还热爱游戏的程序猿，一个爱睡懒觉还热爱抖M游戏的程序猿，好吧，就是个抖M而已，热爱前端，习惯胡思乱想，嘴笨的要死，眉毛胡子很重的程序猿。"
 	},
 	"experience": {
 		"name": "项目经验",
-		"val": "这个改一下\n那个不好看\n你就不能确定在改吗"
+		"val": "这个网站主要是用React + Redux。由Redux进行状态管理(ps: 个人感觉相当于后台统一管理数据)，通过React进行渲染。动画方面主要使用css3 + TweenMax。本项目使用ES6编写，通过webpack编译完成。"
 	},
 	"avatar": {
 		"name": "头像",
@@ -38,6 +38,10 @@ const data = {
 	"editing": {
 		"name": "种族天赋",
 		"val": ""
+	},
+	"wanna": {
+		"name": "Wanna Be",
+		"val": "千段攻城狮"
 	},
 	"hobbys": [{
 		"id": 1480951591078,
@@ -148,8 +152,8 @@ const data = {
 		"id": 1480953095431,
 		"hide": false
 	}, {
-		"name": "一颗赛艇",
-		"val": "一颗赛艇",
+		"name": "一个赛艇",
+		"val": "一个赛艇",
 		"id": 1480953095432,
 		"hide": false
 	}, {
@@ -170,7 +174,12 @@ const data = {
 	}, {
 		"name": "异性恋",
 		"val": "异性恋",
-		"id": 1480953095436,
+		"id": 1480953329019,
+		"hide": false
+	}, {
+		"name": "胡子大叔",
+		"val": "胡子大叔",
+		"id": 1480953329020,
 		"hide": false
 	}],
 	"skills": [{
@@ -210,12 +219,18 @@ const data = {
 		"score": "100",
 		"hide": false
 	}],
-	"resumes":[{
+	"resumes": [{
 		"name": "第一份简历",
 		"val": "One",
 		"id": 1480951591173,
 		"hide": false
-	}]
+	}],
+	"web": {
+		"isLoaded": true,
+		"isEditing": false,
+		"valid": true,
+		"detail": ""
+	}
 }
 
 export const dWeb = {

@@ -1,18 +1,320 @@
 $oneGreen: #097984;
+$oneGreenLight: rgba(9, 121, 132, 0.19);
+$oneGreenLighter: #87cdaa;
+$oneBorderColor: #cee4e6;
+$onePadding: 5px;
+$oneImg: '../img/resumes/One/img.jpeg';
+// $oneImg: '../img/icon/test.svg';
+
+%onebg{
+	background-color: $oneGreenLight;
+}
+
+%onecolor{
+	color: $oneGreen;
+}
 
 .one-body{
-	color: $oneGreen;
+	@extend %onecolor;
 
 	&:before{
 		content: '';
 		top: 4%;
 		bottom: 4%;
 		left: 50%;
-		border-left: 1px dashed;
-		opacity: .4;
+		border-left: 1px dashed $oneBorderColor;
 
 		@extend %pnone;
 		@extend %inline-block;
 		@extend %absolute;
 	}
+
+	.left-part, .right-part{
+		width: 50%;
+		padding: $onePadding;
+
+		@extend %fullheight;
+		@extend %testflex;
+	}
+
+	.left-part{
+		left: 0;
+	}
+
+	.right-part{
+		right: 0;
+		padding: $onePadding 20px;
+	}
+
+	.part-1{
+		margin: #{0px - $onePadding } 0 5px #{0px - $onePadding };
+		padding: 5px;
+
+		@extend %onebg; 
+		@extend %tcenter; 
+	}
+
+	.part{
+		margin-top: 10px;
+
+		.title{
+			font-size: 1.3em;
+		}
+	}
+
+	.name{
+		font-size: 1.7em;
+		font-weight: bold;
+		margin: 5px 0;
+
+		@extend %inline-block; 
+		@extend %relative; 
+
+		&:before, &:after{
+			content: '';
+			height: 3px;
+			border-top: 1px solid;
+			border-bottom: 1px solid;
+
+			@extend %fullwidth;
+		}
+
+		&:before{
+			top: -3px;
+			opacity: .6;
+		}
+
+		&:after{
+			bottom: -3px;
+			opacity: .3;
+		}
+	}
+
+	.words-list{
+		margin-top: 5px;
+
+		.item{
+			margin: 0 5px 5px 0;
+			@extend %inline-block;
+
+			&:first-letter{
+				font-size: 1.2em;
+			}
+		}
+	}
+
+	.skills-list{
+		.item{
+			margin-top: 5px;
+
+			>*{
+				@extend %inline-block;
+				@extend %vmiddle;
+			}
+
+			.title{
+				font-size: 1em;
+				width: 95px;
+
+				@extend %ellipsis;
+			}
+
+			.score{
+				width: calc(100% - 100px);
+
+				@extend %row;
+				@extend %relative;
+
+				.shadow{
+					content: '';
+					background-color: rgba(255, 255, 255, .7);
+					right: 0;
+					transition: .2s;
+
+					@extend %inline-block;
+					@extend %fullheight;
+					@extend %pnone;
+				}
+
+				.icon{
+					font-size: 1.5em;
+					opacity: 1;
+					margin-left: calc(20% - 16px);
+					width: 15px;
+					height: 15px;
+
+					@extend %left;
+				}
+			}
+		}
+	}
+
+	.experience{
+		text-indent: 1em;
+		margin-top: 5px;
+		line-height: 1.6em;
+		min-height: 100px;
+
+		@include ellipsisMul(6);
+	}
+
+	.part-desc{
+		margin-top: 10px;
+	  border-top: 1px dotted;
+	  padding-top: 10px;
+
+		.img{
+			height: 65px;
+			width: 65px;
+			border-radius: 50%;
+			margin: 10px;
+			border: 5px solid $oneGreenLighter;
+
+			box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.5), inset -1px 2px 1px rgba(0, 0, 0, 0.35);
+			shape-outside: circle(39px at 51.3% 49.4%);
+
+			@extend %left;
+			@include bg;
+		}
+	}
+
+	.wanna{
+		font-size: 1.1em;
+	}
+
+	.part-hobby{
+		margin-top: 20px;
+	}
+
+	.hobbys-list{
+		margin-top: 5px;
+
+		@extend %row;
+		@extend %tcenter;
+
+		.item{
+			width: 30px;
+			margin-bottom: 5px;
+
+			@extend %left;
+
+			&:not(:nth-child(4n)){
+				margin-right: calc(33.33% - 40px);
+			}
+
+			svg{
+				width: 100%;
+				height: 100%;
+				padding: 2.5px;
+				fill: $oneGreen;
+			}
+
+			.title{
+				font-size: 1em;
+			}
+		}
+	}
+
+	.part-img{
+		margin: 10px 0;
+		padding-top: 120%;
+
+		@include bg(contain, $oneImg);
+	}
+
+	.part-2{
+		background-color: $oneGreenLight;
+		padding: 8px 0;
+		margin: 0 -20px -5px -15px;
+
+		@extend %tcenter;
+	}
+
+	.part-info-list{
+		@extend %inline-block;
+
+		.item{
+			&:not(:last-child){
+				margin-bottom: 10px;
+			}
+
+			@extend %tleft;
+			@extend %wnowrap;
+
+			>*{
+				@extend %inline-block;
+				@extend %vmiddle;
+			}
+
+			.icon{
+				width: 25px;
+				height: 24px;
+				border-radius: 50%;
+				border: 1px solid;
+				box-shadow: 0 0 1px $oneGreen;
+				font-size: 1.15em;
+				margin-right: 5px;
+
+				@extend %bgwhite;
+				@extend %relative;
+
+				&:before{
+					@extend %percenter;
+				}
+			}
+		}
+	}
+}
+
+.one-body{
+	&.fight{
+		.words-list{
+			.item{
+				&:nth-child(2n+1){
+					animation: fireflyOne 5s infinite;
+				}
+
+				&:nth-child(2n){
+					animation: fireflyTwo 5s infinite;
+				}
+			}
+
+			$oneTime: 0.5s;
+
+			.item:nth-child(2n){
+				animation-delay: 7*$oneTime;
+			}
+
+			.item:nth-child(3n){
+				animation-delay: 5*$oneTime;
+			}
+
+			.item:nth-child(5n){
+				animation-delay: 3*$oneTime;
+			}
+
+			.item:nth-child(7n){
+				animation-delay: 2*$oneTime;
+			}
+		}
+	}
+}
+
+@mixin firefly($a: 0.9, $b: 2deg) {
+	0%, 100% {
+		opacity: 1.5;
+	}
+
+	50%{
+		opacity: 0.3;
+		transform: scale($a) rotate($b);
+	}
+}
+
+@keyframes fireflyOne{
+	@include firefly;
+}
+
+@keyframes fireflyTwo{
+	@include firefly(1.1, -2deg);
 }

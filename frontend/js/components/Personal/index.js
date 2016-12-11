@@ -65,45 +65,36 @@ export default class Personal extends Slowshow{
 					actionType: 'skill'
 				}
 			},
-			wanna: {
-				data: {
-					val: '千段攻城狮',
-					name: 'Wanna Be'
-				},
-
-				attrs: {
-					lg: true,
-					maxLength: 8,
-					minLength: 0
-				}
-			}
+			wanna: {lg: true}
 		}
 
 		return (
-			<div className="personal-container">
-				<div className="avatar-container">
-					<div className="img" style={{backgroundImage: 'url(' + (present.avatar.val||'') + ')'}}></div>
-				</div>
+			<div className="personal-container row">
+			  <div className="fw-20 text-center">
+					<div className="avatar-container">
+						<div className="img" style={{backgroundImage: 'url(' + (present.avatar.val||'') + ')'}}></div>
+					</div>
+			  </div>
 
-				<div className="input-list">
+				<div className="input-list fw-80">
 					<form ref="form">
-						<div className="table">
-							<div className="equal">
+						<div className="row">
+							<div className="input-list-body  fw-35">
 							  { attrs.list.map((item, index) =>{
 							    item = typeof item == 'string' ? { actionType: item } : item
 							    const obj = validAttrs[item.actionType]
 							  	return <InputItem key={index} edit={this.edit} data={present[item.actionType]} {...item} {...obj}/>
 							  })}
 							</div>
-							<div className="equal">
+							<div className="input-list-body  fw-35">
 							  <InputItem showAdd={present.skills.length < 6} add={actions.add} data={attrs.skill.data} {...attrs.skill.attrs}/>
 							  { skills.map((item, index) => 
 							  	<SkillItem key={index} index={index} edit={this.edit} del={this.del} data={item} {...item}/>
 							  )}
 							  <InputItem edit={this.edit} data={present['experience']} {...attrs.experience} {...validAttrs['experience']}/>
 							</div>
-							<div className="equal">
-							  <InputItem data={attrs.wanna.data} {...attrs.wanna.attrs}/>
+							<div className="input-list-body  fw-30">
+							  <InputItem actionType="wanna" edit={this.edit} data={present.wanna} {...validAttrs.wanna}/>
 							  <HobbyList data={present.hobbys} toggle={actions.toggle}></HobbyList>
 							  <InputItem enter={this.addWord} edit={this.edit} {...attrs.editing} data={present['editing']} {...validAttrs.editing}/>
 							  <WordList del={this.del} data={present.words}></WordList>

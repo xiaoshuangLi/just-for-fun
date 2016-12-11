@@ -27,7 +27,7 @@ export default class Resume extends Slowshow {
 		return (
 			<div className="detail-container">
 			  <div className="bg" onClick={this.edit}></div>
-			  <Resume />
+			  <Resume present={present} className="fight"/>
 			</div>
 		)
 	}

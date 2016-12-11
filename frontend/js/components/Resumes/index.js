@@ -25,7 +25,9 @@ export default class Resumes extends Slowshow {
         <div className="resume-list">
           { resumes.map(item => {
             const Resume = list[item.val]
-            return <div className="resume-item" onClick={(e) => this.detail(item.id)} key={item.id}><Resume {...present}/></div> 
+            return (<div className="resume-item" onClick={(e) => this.detail(item.id)} key={item.id}>
+              <Resume present={present}/>
+            </div>)
           }) }
         </div>
       </div>

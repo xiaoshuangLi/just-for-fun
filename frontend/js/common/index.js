@@ -91,6 +91,18 @@ export function getFromArr(arr = [],attr = 'id', val = '', index = false ) {
 	return index ? -1 : {}
 }
 
+export function timeout(cb, time) {
+	if (!cb) {
+		return;
+	}
+	time = time || 0;
+
+	var timeout = setTimeout(function() {
+		cb();
+		clearTimeout(timeout);
+	}, time)
+}
+
 export const validAttrs = {
   name: {
   	minLength: 0,
@@ -123,5 +135,9 @@ export const validAttrs = {
   experience: {
   	minLength: 0,
   	maxLength: 140,
+  },
+  wanna: {
+  	minLength: 0,
+  	maxLength: 8,
   },
 }

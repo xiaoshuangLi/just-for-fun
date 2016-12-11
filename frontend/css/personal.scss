@@ -1,19 +1,24 @@
+$bodyMinWidth: 260px;
+$contentWidth: $bodyMinWidth - 20px;
+
 .personal-container{
+	overflow-y: scroll;
+
 	@extend %bg;
   @extend %transparent;
+  @extend %noscroll;
 }
 
 .avatar-container{
-	position: fixed;
-	top: 50px;
-  left: 75px;
   width: 90px;
   height: 90px;
   border: 4px solid white;
+  margin: 20px auto;
 	border-radius: 50%;
   box-shadow: 0 0 5px rgba(0,0,0,.6);
 
   @extend %ohidden;
+  @extend %relative;
 
 	.img{
 		@include bg;
@@ -22,11 +27,16 @@
 }
 
 .input-list{
-	padding: 50px 0 0 200px;
+	padding: 50px 0 0;
+
+	.input-list-body{
+		min-width: $bodyMinWidth;
+		margin-bottom: 30px;
+	}
 }
 
 .input-item{
-  width: 260px;
+  width: $contentWidth;
 
 	@extend %relative;
 
@@ -97,6 +107,7 @@
 		&.error + .label {
 			.icon{
 				&.invalid{
+					opacity: 1;
 			    transform: translate(0, -50%);
 				}
 			}
@@ -137,6 +148,7 @@
 		left: 0;
 		top: 0;
 		transition: .2s;
+		z-index: 1;
 
 		@extend %absolute;
 		@extend %pnone;
@@ -179,6 +191,7 @@
 
 			&.invalid{
 				right: 0;
+				opacity: 0;
 		    transform-origin: 100% 100%;
 		    transform: translate(0, -50%)  rotate(90deg);
 			}
@@ -269,7 +282,7 @@ $perHobbyMargin: percentage($hobbyMargin);
 
 .word-list{
 	margin-top: 5px;
-  width: 260px;
+  width: $contentWidth;
 
 	.word-item{
 		padding: 2px 5px;
@@ -288,4 +301,14 @@ $perHobbyMargin: percentage($hobbyMargin);
 	  	color: rgba(255,255,255, 1);
 	  }
 	}
+}
+
+@media (max-width: 640px) {
+	.input-item{
+		margin: 0 auto;
+	}
+
+	 .word-list{
+	 	margin: 5px auto 0;
+	 }
 }
