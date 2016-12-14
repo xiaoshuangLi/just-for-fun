@@ -9,7 +9,7 @@ export default class Slowshow extends Component {
 
 	componentWillEnter(cb){
 		const el = findDOMNode(this)
-		TweenMax.to(el, 1, { 
+		TweenMax.to(el, .5, { 
 			opacity: 1,
 			onComplete: cb
 		})
@@ -18,7 +18,7 @@ export default class Slowshow extends Component {
 	componentWillLeave(cb) {
 		const el = findDOMNode(this)
 
-		TweenMax.to(el, 1, { 
+		TweenMax.to(el, .5, { 
 			opacity: 0,
 			onComplete: cb
 		})

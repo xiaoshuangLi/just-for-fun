@@ -225,9 +225,14 @@ const data = {
 		"id": 1480951591173,
 		"hide": false
 	},{
-		"name": "No.2",
+		"name": "Fight Club",
 		"val": "Two",
 		"id": 1480951591174,
+		"hide": false
+	},{
+		"name": "No.3",
+		"val": "Three",
+		"id": 1480951591175,
 		"hide": false
 	}],
 	"web": {
@@ -242,7 +247,8 @@ export const dWeb = {
 	isLoaded: true,
 	isEditing: false,
 	valid: true,
-	detail: ''
+	detail: '',
+	bg: '../img/bg.jpg'
 }
 
 export default data

@@ -10,7 +10,7 @@ $red: #ff5d5d;
 $grey: #f3f3f3;
 
 // Public mixin
-@mixin linearGradient($a: to left, $b: $blue, $c: $green) {
+@mixin linearGradient($b: $blue, $c: $green, $a: to left) {
   background: -webkit-linear-gradient($a, $b , $c);
   background: linear-gradient($a, $b, $c);
 }
@@ -237,10 +237,30 @@ $grey: #f3f3f3;
   }
 }
 
-%testflex{
+%dflex{
   display: flex;
-  flex-direction: column;
+}
+
+%j-space-between{
   justify-content: space-between;
+}
+
+%j-space-around{
+  justify-content: space-around;
+}
+
+%testflex{
+  flex-direction: column;
+
+  @extend %dflex;
+  @extend %j-space-between;
+}
+
+%testflex-around{
+  flex-direction: column;
+  
+  @extend %dflex;
+  @extend %j-space-around;
 }
 
 %bg{

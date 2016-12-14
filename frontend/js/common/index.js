@@ -26,7 +26,7 @@ export function loadAll(list = [], cb){
 			num++
 
 			if(num <= len) {
-				return cb && cb()
+				return cb && $.timeout(cb, 3000)
 			}
 		})
 	})

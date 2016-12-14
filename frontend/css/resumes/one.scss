@@ -15,6 +15,7 @@ $oneImg: '../img/resumes/One/img.jpeg';
 
 .one-body{
 	@extend %onecolor;
+	@extend %bgwhite;
 
 	&:before{
 		content: '';
@@ -215,7 +216,7 @@ $oneImg: '../img/resumes/One/img.jpeg';
 	}
 
 	.part-img{
-		margin: 10px 0;
+		margin: 5px 0;
 		padding-top: 120%;
 
 		@include bg(contain, $oneImg);

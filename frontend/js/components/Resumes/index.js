@@ -21,7 +21,7 @@ export default class Resumes extends Slowshow {
     const { isEditing, detail } = web
   	
   	return(
-      <div className={`resume-conatiner ${(isEditing || detail)&&'blur'}`}>
+      <div className={`resume-conatiner ${(isEditing || detail)&&'blur'} ${web.bg && 'has-bg'}`}>
         <div className="resume-list">
           { resumes.map(item => {
             const Resume = list[item.val]

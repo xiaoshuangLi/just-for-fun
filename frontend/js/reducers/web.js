@@ -12,20 +12,6 @@ const web = (state = dWeb, action) => {
 	switch (action.type) {
 		case `${Ed}_web`: 
 		  return Object.assign({}, state, val)
-		// case `${Valid}_web`: 
-		//   invalid =  new Set(state.invalid)
-		//   invalid.delete(val.attr)
-
-		//   return Object.assign({}, state, {
-		//   	invalid
-		//   })
-		// case `${Invalid}_web`:
-		//   invalid =  new Set(state.invalid)
-		//   invalid.add(val.attr)
-
-		//   return Object.assign({}, state, {
-		//   	invalid
-		//   })
 		default: 
 		  return state
 	}

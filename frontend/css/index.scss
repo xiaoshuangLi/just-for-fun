@@ -1,5 +1,6 @@
 @import "./base.scss";
 @import "./loading.scss";
+@import "./bg.scss";
 @import "./heart.scss";
 
 @import "./resumes/index.scss";
@@ -7,11 +8,12 @@
 @import "./angle.scss";
 
 body{
-  @include linearGradient;
+  @include linearGradient(#3a7bd5, #3a6073);
 
 	&, &>*{
 		@extend %noscroll;
 	}
+	
 }
 
 html{

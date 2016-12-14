@@ -1,0 +1,15 @@
+$threeBgColor: #181c1e;
+
+%three-f-color{
+	color: $threeBgColor;
+}
+
+%three-bg-color{
+	background-color: $threeBgColor !important;
+
+	@extend %fwhite;
+}
+
+.three-body{
+	@extend %three-bg-color;
+}

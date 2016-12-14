@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import Preload from '../components/Preload'
+import Bg from '../components/Bg'
+
 import Resumes from '../components/Resumes'
 import Detail from '../components/Resumes/detail'
 import Angle from '../components/Angle'
@@ -12,6 +14,7 @@ import Personal from '../components/Personal'
 import { setState } from '../common'
 import * as actions from '../actions'
 import icons from '../common/icons'
+import imgs from '../common/imgs'
 
 class App extends Component {
 	constructor(props) {
@@ -32,8 +35,9 @@ class App extends Component {
 
 	loads(){
 		const { actions , present} = this.props
-		let imgs = [];
+		let imgs = [...imgs];
 		imgs.push(present.avatar.val)
+		present.web.bg && !!~present.web.bg.indexOf('http') && imgs.push(present.web.bg)
 		actions.loads(imgs)
 	}
 
@@ -64,6 +68,10 @@ class App extends Component {
 			  <Style className="svg-hide" width="0" height="0"/>
 				<Loading show={!isLoaded}>
 					<Preload present={present}/>
+				</Loading>
+
+				<Loading show={isLoaded && web.bg}>
+					<Bg present={present}/>
 				</Loading>
 
 				<Loading show={isLoaded}>

@@ -1,5 +1,4 @@
 require('dotenv').config({ silent: true });
-global.env = 'development';
 
 var express = require('express');
 var webpack = require('webpack')
@@ -10,9 +9,11 @@ var config = require('./webpack.config')
 var app = new (require('express'))()
 var port = 3000;
 
-var compiler = webpack(config);
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
-app.use(webpackHotMiddleware(compiler))
+if(global.env == 'development') {
+	var compiler = webpack(config);
+	app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
+	app.use(webpackHotMiddleware(compiler))
+}
 
 app.use(express.static('./public'));
 app.use(express.static('./node_modules'));

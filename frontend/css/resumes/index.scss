@@ -1,9 +1,12 @@
 @import "./one.scss";
 @import "./two.scss";
+@import "./three.scss";
 
 $resumeWidth: 247.5px;
-$resumeHeight: 325px;
+$resumeBorderWidth: 5px;
 
+$resumeBorderTwice: $resumeBorderWidth * 2;
+$resumeHeight: 1px + $resumeBorderTwice + ($resumeWidth - $resumeBorderTwice)/0.75;
 $calcResumeWidth: $resumeWidth + 50px;
 
 $maxResume: 8;
@@ -17,7 +20,8 @@ $maxResume: 8;
 	@extend %transitionlight;
 
 	&.blur{
-		filter: blur(3px);
+    filter: blur(3px);
+		-webkit-filter: blur(3px);
 	}
 }
 
@@ -31,7 +35,7 @@ $maxResume: 8;
 
 	.resume-item{
 		border-radius: 7px;
-    border: 5px solid white;
+    border: $resumeBorderWidth solid white;
     box-shadow: 0 0px 5px rgba(0,0,0, .2);
     width: $resumeWidth;
     height: $resumeHeight;
@@ -50,6 +54,8 @@ $maxResume: 8;
       transform: translate(-50%, 0) scale(0.5233334);
 
       left: 50% !important;
+
+      @extend %bgwhite;
     }
 	}
 }
@@ -82,7 +88,6 @@ $maxResume: 8;
   	width: 75vh;
   	height: 100vh;
   	left: 50%;
-  	background-color: white;
 
   	max-height: 100%;
   	max-width: 100%;
@@ -98,6 +103,5 @@ $maxResume: 8;
   	left: 0;
   	right: 0;
   	bottom: 0;
-  	background-color: white;
   }	
 }
