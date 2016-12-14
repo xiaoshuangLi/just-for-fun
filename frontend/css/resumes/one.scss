@@ -4,7 +4,6 @@ $oneGreenLighter: #87cdaa;
 $oneBorderColor: #cee4e6;
 $onePadding: 5px;
 $oneImg: '../img/resumes/One/img.jpeg';
-// $oneImg: '../img/icon/test.svg';
 
 %onebg{
 	background-color: $oneGreenLight;
@@ -257,10 +256,66 @@ $oneImg: '../img/resumes/One/img.jpeg';
 
 				@extend %bgwhite;
 				@extend %relative;
+				@extend %ohidden;
+				@extend %pointer;
+				@extend %z-1;
 
 				&:before{
 					@extend %percenter;
 				}
+			}
+		}
+	}
+
+	.icon-body{
+		height: 100px;
+		width: 100px;
+		bottom: -1px;
+		left: 50%;
+		margin-left: -50px;
+
+		@extend %absolute;
+
+		&:hover, &.active{
+			animation: rotateOne 6s linear 0.5s;
+		}
+
+		@for $i from 2 through 10 {
+			&.num-#{$i} {
+				>*{
+					@for $m from 1 through $i {
+						$oneAngle: 360deg/$i;
+
+						&:nth-child(#{$m}){
+							transform: translate(-50%, 0) rotate(#{$oneAngle * ($m - 1)})
+						}
+					}
+				}
+			}
+		}
+
+		>*{
+			width: 25px;
+			height: 24px;
+			bottom: 0%;
+			left: 50%;
+			border-radius: 50%;
+			transform-origin: 50% -25px;
+
+			@extend %absolute;
+
+			&:before{
+				@extend %percenter;
+			}
+
+			&:not(:first-child) {
+				background-color: $oneGreen;
+				@extend %fwhite;
+			}
+
+			&:not(.fa):before{
+				content: attr(data-before);
+			  font-size: 12px;
 			}
 		}
 	}
@@ -317,4 +372,13 @@ $oneImg: '../img/resumes/One/img.jpeg';
 
 @keyframes fireflyTwo{
 	@include firefly(1.1, -2deg);
+}
+
+@keyframes rotateOne{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
 }

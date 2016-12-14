@@ -29,7 +29,7 @@ const data = {
 	},
 	"experience": {
 		"name": "项目经验",
-		"val": "这个网站主要是用React + Redux。由Redux进行状态管理(ps: 个人感觉相当于后台统一管理数据)，通过React进行渲染。动画方面主要使用css3 + TweenMax。本项目使用ES6编写，通过webpack编译完成。"
+		"val": "想做一个没有限制，可以任意发挥的网站，不需要考虑需求，只专注做一个充满惊喜，让用的人时时刻刻都感觉到一种心意，一直让人快乐的暖暖心意。ps: 采用react + redux, css3 + html5。使用es6编写，通过webpack编译完成。"
 	},
 	"avatar": {
 		"name": "头像",
@@ -223,6 +223,11 @@ const data = {
 		"name": "第一份简历",
 		"val": "One",
 		"id": 1480951591173,
+		"hide": false
+	},{
+		"name": "No.2",
+		"val": "Two",
+		"id": 1480951591174,
 		"hide": false
 	}],
 	"web": {

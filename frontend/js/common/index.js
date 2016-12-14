@@ -1,4 +1,4 @@
-import { dWeb } from './data'
+import { dWeb, resumes } from './data'
 
 export function load(src = '', cb){
 	if(!src) {
@@ -38,8 +38,7 @@ export function getState(){
 }
 
 export function setState(data = {}){
-	data = Object.assign({}, data)
-	data.web = dWeb
+	data = Object.assign({}, data, {web: dWeb, resumes})
 	window.localStorage.setItem('JFF', JSON.stringify(data))
 }
 

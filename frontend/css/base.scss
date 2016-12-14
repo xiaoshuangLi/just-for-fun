@@ -37,6 +37,18 @@ $grey: #f3f3f3;
   display: -webkit-box;
 }
 
+@mixin marginLeft($w: 40px, $num: 8) {
+  $m: 1/($num - 1);
+  $perM: percentage($m);
+
+  margin-left: calc(#{$perM} - #{$w*$num/($num - 2)});
+  float: left;
+
+  &:first-child{
+    margin-left: 0px;
+  }
+}
+
 // Public Attr
 %absolute{
   position: absolute;
@@ -154,6 +166,10 @@ $grey: #f3f3f3;
   overflow: hidden;
 }
 
+%bhidden{
+  backface-visibility: hidden;
+}
+
 %wnowrap{
   white-space: nowrap;
 }
@@ -234,6 +250,10 @@ $grey: #f3f3f3;
   @extend %fixed;
 }
 
+%z-1{
+  z-index: 1
+}
+
 // Tag
 input,textarea,*{
   padding:0;
@@ -268,18 +288,14 @@ body{
   font-family: "Hiragino Sans GB","Microsoft YaHei",simsun, Helvetica;
   font-size: 12px;
   font-weight: 100;
-  min-height: 100%;
+  height: 100vh;
 
   @extends %bg-grey;
 }
 
 // Public Class
 .body{
-  @extend %full;
-  @extend %noscroll;
-
-  @include linearGradient;
-  // @include bg(cover, 'http://192.168.0.110:8000/trees-houses.jpg', 50%, 0);
+  @extend %relative;
 }
 
 .ng-hide{
@@ -307,6 +323,14 @@ body{
   @extend %row;
 }
 
+.right{
+  @extend %right;
+}
+
+.left{
+  @extend %left;
+}
+
 .text-center{
   @extend %tcenter;
 }
@@ -319,6 +343,15 @@ body{
   @extend %tright;
 }
 
+.z-1{
+  @extend %z-1;
+  @extend %relative;
+}
+
+.transparent{
+  opacity: 0;
+}
+
 .table{
   display: table;
   @extend %w100;
@@ -327,7 +360,7 @@ body{
     display: table-cell;
 
     &.equal{
-      width: 10%;
+      width: 50%;
     }
   }
 
@@ -348,7 +381,7 @@ body{
   }
 
   @media (max-width: 640px) {
-    .fw-#{$i * 5}{
+    .fw-#{$i * 5}:not(.all){
       width: 100%;
       padding: 0 15px;
     }

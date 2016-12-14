@@ -7,9 +7,13 @@
 @import "./angle.scss";
 
 body{
-	@extend %overhidden;
+  @include linearGradient;
+
+	&, &>*{
+		@extend %noscroll;
+	}
 }
 
-.body{
-	@extend %overauto;
+html{
+	@extend %noscroll;
 }

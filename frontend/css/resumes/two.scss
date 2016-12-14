@@ -1,0 +1,522 @@
+$twoRed: #e9335b;
+$twoRedDeep: #ac1d39;
+$twoRice: #f7f0d6;
+$twoGrey: #a19890;
+$twoLightGrey: #6e6f71;
+
+$twoColor1: #ede4d3;
+$twoColor2: #e8dfc9;
+$twoColor3: rgba(255,255,255,0);
+
+$tayler: '../img/resumes/Two/tayler.svg';
+$durden: '../img/resumes/Two/durden.svg';
+
+%twobgred{
+	color: $twoRice;
+	background-color: $twoRed;
+}
+
+%twofred{
+	color: $twoRed;
+}
+
+%before-border{
+	&:before{
+		content: '';
+		height: 100%;
+		width: 1px;
+		border-right: 1px dashed $twoRed;
+
+		@extend %percenter;
+	}
+}
+
+.wave{
+  @extend %relative;
+  @extend %ohidden;
+
+  &:before, &:after{
+	  content: "";
+	  left: -1px;
+	  bottom: -1px;
+	  right: -1px;
+	  background-repeat: repeat;
+
+	  @extend %absolute;
+  }
+
+  &:before{
+	  height: 10px;
+	  background-size: 20px 20px;
+	  background-image:
+	    radial-gradient(circle at 10px -5px, rgba(0,0,0,0) 12px, $twoColor1 13px);
+  }
+}
+
+.two-body{
+	background:
+	radial-gradient($twoColor2 15%, rgba(0,0,0,0) 15%) 0 0,
+	radial-gradient($twoColor2 15%, rgba(0,0,0,0) 15%) 8px 8px,
+	radial-gradient($twoColor3 15%, rgba(0,0,0,0) 20%) 0 1px,
+	radial-gradient($twoColor3 15%, rgba(0,0,0,0) 20%) 8px 9px;
+	background-color:$twoColor1 !important;
+	background-size:16px 16px;
+
+	.fightclub{
+		font-size: 12px;
+
+		@extend %inline-block;
+
+		.before, .after{
+			line-height: 1.3;
+			@extend %block;
+		}
+
+		.before{
+			font-size: 1.25em;
+			font-weight: bold;
+		}
+
+		.after{
+		}
+	}
+
+	$twoFadeTime : 0.5s;
+	$twoRotateTime: 0.5s;
+
+	.words{
+
+		&:not(.init){
+			text-align: center;
+			height: 20px;
+			font-size: 1.1em;
+
+			@extend %relative;
+
+			.word{
+				transform-origin: 50% 300px;
+				@extend %absolute;
+			}
+
+			$twoAngel: 8deg;
+
+			@for $i from 2 through 10 {
+				$twoPerAngel: $twoAngel * 2 / ($i - 1);
+				&.num-#{$i} {
+					@for $m from 1 through $i {
+						.word:nth-child(#{$m}){
+							transform: rotate(#{0 - $twoAngel +  $twoPerAngel * ($m - 1)})
+						}
+					}
+				}
+			}
+		}
+
+		.word{
+			&.rotate {
+				&:before, &:after{
+					transition: $twoRotateTime;
+				}
+
+				&:before{
+					opacity: 1;
+				}
+
+				&:after{
+					opacity: 0;
+				}
+			}
+
+			&.fade{
+				opacity: 0;
+				transition: $twoFadeTime;
+
+				@for $i from 0 through 30{
+					&[data-index='#{$i}']{
+						transition-delay: ($twoFadeTime - 0.45s)*($i);
+					}
+				}
+			}
+		}
+
+		&:hover, &.active{
+			.word{
+				&.rotate {
+					@for $i from 0 through 10{
+						&[data-index='#{$i}']{
+							&:before, &:after{
+								transition-delay: ($twoRotateTime - 0.45s)*($i);
+							}
+						}
+					}
+
+					&:before{
+						opacity: 0;
+						transform:rotateY(180deg);
+					}
+
+					&:after{
+						opacity: 1;
+						transform:rotateY(0deg);
+					}
+				}
+
+				&.fade{
+					transform: translate(0,0);
+					opacity: 1;
+				}
+			}
+		}
+
+		.word{
+			@extend %relative;
+			@extend %inline-block;
+
+			&:before{
+				content: attr(data-before);
+			}
+
+			&:after{
+				content: attr(data-after);
+				transform: rotateY(180deg);
+			}
+
+			&:before,&:after{
+				transition-timing-function: cubic-bezier(0.485, 0.140, 0.370, 1);
+
+				@extend %inline-block;
+			  @extend %bhidden;
+				@extend %full;
+			}
+		}
+	}
+
+	.part-line{
+		margin: 5px 0 15px;
+
+		@extend %tcenter;
+
+		.left-line, .right-line{
+			opacity: .8;
+
+			.line{
+				height: 1px;
+				background-color: $twoGrey;
+			}
+
+			@extend %relative;
+
+			&:before, &:after{
+				content: '';
+				width: 4px;
+				height: 4px;
+				background-color: $twoGrey;
+				top: 50%;
+				transform: translate(0%, calc(-50% - 0.5px)) rotate(45deg);
+
+				@extend %absolute;
+				@extend %inline-block;
+			}
+		}
+
+		.left-line{
+			&:before{
+				right: 0px;
+			}
+			&:after{
+				right: 15px;
+			}
+
+			.top, .bottom{
+				right: 0;
+				transform-origin: 100% 50%;
+				@extend %tright;
+			}
+		}
+
+		.right-line{
+			&:before{
+				left: 0px;
+			}
+			&:after{
+				left: 15px;
+			}
+
+			.top, .bottom{
+				left: 0;
+				transform-origin: 0% 50%;
+				@extend %tleft;
+			}
+		}
+
+		.top{
+			bottom: 55%;
+
+			.word{
+				transform: translate(0, -15px);
+			}
+		}
+
+		.bottom{
+			top: 55%;
+
+			.word{
+				transform: translate(0, 15px);
+			}
+		}
+
+		.top, .bottom{
+			font-size: 12px;
+			transform: scale(.7);
+
+			@extend %absolute;
+			@extend %wnowrap;
+		}
+
+		.title{
+			width: 90px;
+			margin: 0 5px;
+		}
+	}
+}
+
+.two-body{
+	@extend %testflex;
+
+	>*:not(:last-child){
+		margin-bottom: 10px;
+	}
+
+	.part-1{
+	  padding: 10px 40px 20px;
+	  min-height: 50px;
+
+	  @extend %twobgred;
+	  @extend %tcenter;
+	}
+
+	.padding{
+		padding: 0 40px;
+	}
+
+	.part-title{
+		font-size: 3em;
+		font-weight: bold;
+		text-shadow: 3px 3px 1px rgba(0,0,0,.3);
+		margin: 0 -40px;
+
+		@extend %wnowrap;
+	}
+
+	.part-words{
+		font-weight: bold;
+		height: 18px;
+		color: rgba(0,0,0,.3);
+
+		@extend %ohidden;
+
+		.item{
+			@extend %inline-block;
+		}
+
+		.item:not(:last-child){
+			margin-right: 5px;
+		}
+	}
+
+	.part-2{
+		@extend %relative;
+
+		.table:before{
+			@extend %before-border;
+		}
+
+		.part-desc{
+			padding-right: 10px;
+
+			.title{
+				font-size: 1.8em;
+			  font-style: italic;
+			  font-weight: bold;
+			}
+
+			.desc{
+				@include ellipsisMul(7);
+			}
+		}
+
+		.part-avatar{
+			@extend %relative;
+
+			.img{
+				width: 80%;
+				padding-top: 75%;
+				border-radius: 5px;
+				opacity: .4;
+				margin: 0 auto;
+
+				@include bg;
+			}
+		}
+	}
+
+	.part-hobbys{
+		.item{
+			width: 40px;
+
+			@extend %tcenter;
+
+			svg{
+				fill: $twoRed;
+				width: 60%;
+			}
+		}
+	}
+
+	.part-3{
+		border-top: 1px dashed;
+
+		@extend %twofred; 
+		@extend %relative; 
+		@extend %before-border;
+
+		&:before{
+			height: calc(100% - 10px);
+		}
+
+		.part-skills{
+			padding: 20px 0 10px;
+		}
+	}
+
+	$twoWidth: 150px;
+	$twoNum: 0.8; 
+
+	.part-skills{
+		.part-skills-title{
+			padding: 1px 1px 1px 20px;
+			width: 150px;
+			max-width: 72%;
+			border-radius: 0 50px 10px 0;
+			margin-bottom: 5px;
+
+			@extend %twobgred;
+			@extend %relative;
+			@extend %inline-block;
+
+			>*{
+				@extend %inline-block;
+			}
+
+			.icon{
+				top: 50%;
+				left: 0%;
+			  width: 30px;
+			  height: 30px;
+			  border-radius: 50%;
+			  background-color: $twoColor1;
+			  transform: translate(-50%, -50%);
+			  border: 2px solid;
+			  color: $twoRed;
+			  font-size: 1.4em;
+
+				@extend %absolute;
+
+				&:before, &:after{
+					@extend %percenter;
+				}
+			}
+		}
+
+		.item{
+			margin-top: 3px;
+			padding: 0 5px;
+			width: $twoWidth/$twoNum;
+			max-width: 90%;
+			border-radius: 5px;
+			background-color: $twoLightGrey;
+			transform-origin: 0 50%;
+			transform: scale($twoNum);
+
+			@extend %twobgred; 
+			@extend %relative; 
+
+			.shadow{
+				content: '';
+				right: -2px;
+				top: 0;
+				height: 100%;
+				background: linear-gradient(to right, $twoLightGrey, $twoColor1);
+
+				@extend %absolute;
+			}
+		}
+	}
+
+	.part-info{
+		@extend %tcenter;
+		@extend %relative;
+
+		*{
+			@extend %wnowrap;
+		}
+
+		.part-info-body{
+			@extend %percenter;
+			@extend %tleft;
+			@extend %inline-block;
+		}
+
+		.part-info-title{
+			font-size: 1.2em;
+			font-weight: bold;
+			margin-bottom: 10px;
+			padding-left: 5px;
+		}
+
+		.item{
+			margin-top: 5px;
+			color: $twoLightGrey;
+
+			>* {
+				@extend %inline-block;
+				@extend %vmiddle;
+			}
+
+			.icon{
+				font-size: 1.2em;
+				width: 25px;
+
+				@extend %tcenter;
+			}
+		}
+	}
+
+	.part-footer{
+		background-color: $twoRedDeep;
+		color: $twoColor1;
+		padding: 5px;
+
+		@extend %tcenter;
+		@extend %relative;
+
+		&:before{
+			content: '';
+			transition: .5s;
+			top: 1px;
+			left: 50%;
+			width: 15px;
+			height: 15px;
+			transform: translate(-50%, -50%) rotate(45deg);
+			background-color: $twoRedDeep;
+
+			@extend %inline-block;
+			@extend %absolute;
+		}
+
+		.title{
+			@extend %z-1;
+			@extend %relative;
+		}
+	}
+}

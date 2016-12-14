@@ -1,0 +1,118 @@
+import React, { Component } from 'react'
+
+import Words from '../common/Words'
+import icons from '../../common/icons'
+
+
+export default class Two extends Component{
+	constructor(props){
+		super(props)
+	}
+
+	render(){
+		const { present } = this.props;
+
+		return(
+			<div className="resume-body two-body">
+			  <div className="wave part-1">
+			    <Words text="wanna be"/>
+			    <div className="part-title row">
+				    {present.wanna.val}&emsp;
+				    <span className="fightclub words init">
+				      <Words className="before init" animation="rotate" text="CLUB" textAfter="TALK"/>
+				      <Words className="after init" animation="rotate" text="FIGHT" textAfter="DONOT"/>
+				    </span>
+				    <span className="z-1">{present.name.val}</span>
+			    </div>
+			    <div className="part-words">
+			      { present.words.map(word => <span className="item" key={word.id}>{word.val}</span>) }
+			    </div>
+			  </div>
+
+			  <div className="part-2 padding">
+			    <div className="table center">
+				    <div className="part-desc equal" title={present.experience.val}>
+				      <div className="title">Hello world!</div>
+				      <div className="desc">{present.experience.val}</div>
+				    </div>
+				    <div className="part-avatar equal">
+				      <div className="img" style={{backgroundImage: `url(${present.avatar.val})`}}></div>
+				    </div>
+			    </div>
+			  </div>
+
+			  <div className="part-hobbys padding row">
+			    <div className="part-line table center words init">
+				    <div className="left-line">
+				      <Words className="top init" animation="fade" reverse={true} text="SOME YELLS STOP"/>
+					    <div className="line"></div>
+				      <Words className="bottom init" animation="fade" reverse={true} text="GOES LIMP"/>
+				    </div>
+				    <div className="title">
+				      <Words className="init" animation="rotate" middle={true} text="HOBBYS" textAfter="RULE 3"/>
+				    </div>
+				    <div className="right-line">
+				      <Words className="top init" animation="fade" text="TAPS OUT"/>
+					    <div className="line"></div>
+				      <Words className="bottom init" animation="fade" text="THE FIGHT IS OVER"/>
+				    </div>
+			    </div>
+          <div className="table center">
+				    {present.hobbys.slice(0, 8).map(item =>{ 
+	    			  const {icon, val} = item
+              const Svg = icons[icon]
+              return (<div className="item equal" key={item.id}>
+              	<Svg/>
+              	<div className="title">{val}</div>
+              </div>)}
+				    )}
+          </div>
+			  </div>
+
+			  <div className="part-3 padding">
+			    <div className="table center">
+			      <div className="part-skills equal">
+			        <div className="part-skills-title">
+			          <div className="icon fa fa-hand-rock-o"></div>
+			          <div className="desc">SKILLS</div>
+			        </div>
+					    {present.skills.slice(0, 5).map(item =>{ 
+	              return (<div className="item" key={item.id}>
+	              	<div className="shadow" style={{width: `${100 - item.score + 10}%`}}></div>
+	              	<div className="title">{item.val}</div>
+	              </div>)}
+					    )}
+				    </div>
+			      <div className="part-info equal">
+			        <div className="part-info-body">
+				        <div className="part-info-title">Hear from you soon?</div>
+				        <div className="item">
+				          <div className="icon fa fa-envelope-o"></div>
+				          <a className="desc">{present.email.val}</a>
+				        </div>
+				        <div className="item">
+				          <div className="icon fa fa-mobile"></div>
+				          <a className="desc">{present.phone.val}</a>
+				        </div>
+				        <div className="item">
+				          <div className="icon fa fa-birthday-cake"></div>
+				          <div className="desc">{present.birthday.val}</div>
+				        </div>
+				        <div className="item">
+				          <div className="icon fa fa-university"></div>
+				          <div className="desc">{present.education.val}&emsp;{present.school.val}</div>
+				        </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+
+			  <div className="part-footer">
+			    <div className="title">
+				    THANK YOU FOR LOOKING
+			    </div>
+			  </div>
+			</div>
+		)
+	}
+}

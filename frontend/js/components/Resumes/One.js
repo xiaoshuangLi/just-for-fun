@@ -3,6 +3,7 @@ import * as res from 'gsap'
 
 import icons from '../../common/icons'
 import Heart from '../common/Heart'
+import IconBody from '../common/IconBody'
 
 export default class One extends Component {
 	constructor(props){
@@ -15,9 +16,7 @@ export default class One extends Component {
 
 		return (
 			<div className={`resume-body one-body ${className}`}>
-
 			  <div className="left-part">
-
 				  <div className="part-1">
 				    <div className="name">
 				      { present.name.val }
@@ -93,23 +92,20 @@ export default class One extends Component {
 			    <div className="part-2">
 		        <div className="part-info-list">
 		         <div className="item">
-			         <div className="icon"></div>
-			          <a className="icon-body" href={`mailto:${present.email.val}`}>
-			            <i className=" fa fa-envelope-o"></i>
-			          </a>
-				        <a href={`mailto:${present.email.val}`} className="title">{present.email.val}</a>
-			         </div>
+		          <IconBody text="想你就写信" icon="fa fa-envelope-o"/>
+			        <a className="title" href={`mailto:${present.email.val}`}>{present.email.val}</a>
+		         </div>
 		         <div className="item">
-		           <div className="icon fa fa-mobile"></div>
+		           <IconBody text="慢慢听你的声音" icon="fa fa-mobile"/>
 			         <a href={`tel:${present.phone.val}`} className="title">{present.phone.val}</a>
 		         </div>
 		         <div className="item">
-			         <div className="icon fa fa-birthday-cake"></div><div className="title">{present.birthday.val}
-			         </div>
-			         </div>
+		           <IconBody text="闭眼许愿的安静" icon="fa fa-birthday-cake"/>
+			         <div className="title">{present.birthday.val}</div>
+			       </div>
 		         <div className="item">
-			         <div className="icon fa fa-graduation-cap"></div><div className="title">{present.education.val}&emsp;{present.school.val}
-			         </div>
+		           <IconBody text="伴有窗边的风铃" icon="fa fa-university"/>
+			         <div className="title">{present.education.val}&emsp;{present.school.val}</div>
 			         </div>
 		        </div>
 			    </div>
