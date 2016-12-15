@@ -25,8 +25,8 @@ export function loadAll(list = [], cb){
 		load(img, () => {
 			num++
 
-			if(num <= len) {
-				return cb && $.timeout(cb, 3000)
+			if(num >= len) {
+				return cb && $.timeout(cb, 500)
 			}
 		})
 	})
