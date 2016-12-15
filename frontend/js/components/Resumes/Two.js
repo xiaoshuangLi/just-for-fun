@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 
 import Words from '../common/Words'
+import Avatar from '../common/Avatar'
+import Info from '../common/Info'
 import icons from '../../common/icons'
-
 
 export default class Two extends Component{
 	constructor(props){
@@ -36,7 +37,7 @@ export default class Two extends Component{
 				      <div className="desc">{present.experience.val}</div>
 				    </div>
 				    <div className="part-avatar equal">
-				      <div className="img" style={{backgroundImage: `url(${present.avatar.val})`}}></div>
+				      <Avatar present={present}/>
 				    </div>
 			    </div>
 			  </div>
@@ -84,25 +85,9 @@ export default class Two extends Component{
 					    )}
 				    </div>
 			      <div className="part-info equal">
-			        <div className="part-info-body">
+			        <Info className="part-info-body" present={present}> 
 				        <div className="part-info-title">Hear from you soon?</div>
-				        <div className="item">
-				          <div className="icon fa fa-envelope-o"></div>
-				          <a className="desc">{present.email.val}</a>
-				        </div>
-				        <div className="item">
-				          <div className="icon fa fa-mobile"></div>
-				          <a className="desc">{present.phone.val}</a>
-				        </div>
-				        <div className="item">
-				          <div className="icon fa fa-birthday-cake"></div>
-				          <div className="desc">{present.birthday.val}</div>
-				        </div>
-				        <div className="item">
-				          <div className="icon fa fa-university"></div>
-				          <div className="desc">{present.education.val}&emsp;{present.school.val}</div>
-				        </div>
-			        </div>
+			        </Info>
 			      </div>
 			    </div>
 			  </div>

@@ -5,11 +5,173 @@ $threeBgColor: #181c1e;
 }
 
 %three-bg-color{
-	background-color: $threeBgColor !important;
+	background-color: rgba($threeBgColor, 0.95) !important;
 
 	@extend %fwhite;
 }
 
 .three-body{
+	padding: 30px;
+
 	@extend %three-bg-color;
+	@extend %testflex;
+
+	.part-1{
+		margin-bottom: 20px;
+
+		>*{
+			vertical-align: bottom;
+		}
+	}
+
+	.part-name{
+		line-height: 1.2;
+
+		.title{
+			font-size: 1.6em;
+		}
+	}
+
+	.part-wanna{
+		width: 100px;
+		line-height: 1.1;
+
+		@extend %tright;
+	}
+
+	.part{
+		padding: 5px 0;
+
+		&:not(:last-child){
+			border-bottom: 1px solid rgba(255,255,255,.15);
+		}
+
+		&+.part{
+			margin-top: 5px;
+		}
+
+		.part-title{
+			font-size: 1.1em;
+		}
+
+		.part-body{
+			&.margin{
+				margin-top: 5px;
+			}
+		}
+	}
+
+	.words{
+		padding-right: 5px;
+
+		&:not(:first-child){
+			padding-left: 5px;
+		} 
+
+		.item{
+			&:after{
+				content: ',';
+				margin-right: 2px;
+
+				@extend %inline-block;
+			}
+		}
+	}
+
+	.part-skills{
+		@extend %row;
+
+		.item{
+			width: 30%;
+			margin: 10px 5% 5px 0;
+
+			@extend %relative;
+			@extend %left;
+
+			&:nth-child(3n){
+				margin-right: 0;
+			}
+
+			&:before, .score{
+				content: '';
+				left: 0;
+				width: calc(100% - 20px);
+				bottom: -5px;
+				height: 2px;
+				opacity: .3;
+
+				@extend %absolute;
+				@extend %bgwhite;
+			}
+
+			.score{
+				opacity: 1;
+			}
+
+			.icon,.title{
+				@extend %inline-block;
+			}
+
+			.title{
+				max-width: calc(100% - 20px);
+
+				@extend %ellipsis;
+			}
+
+			.icon{
+				left: 0;
+				top: 50%;
+				transform: translate(calc(-100% - 5px), -50%);
+				opacity: .7;
+
+				@extend %absolute;
+			}
+		}
+	}
+
+	.part-avatar{
+		width: 90px;
+
+		@extend %relative;
+
+		.img{
+			width: 80px;
+			right: 0;
+			border: 2px solid white;
+			filter: grayscale(1);
+
+			@include bg;
+			@extend %fullheight;
+		}
+	}
+
+	.part-info{
+		@extend %row;
+
+		.item{
+			padding: 2px;
+			width: 50%;
+
+			@extend %relative;
+			@extend %left;
+			@extend %ellipsis;
+
+			*{
+				@extend %inline-block;
+				@extend %vmiddle;
+			}
+
+			.icon{
+				top: 50%;
+				left: 0%;
+				transform: translate(calc(-100% - 5px), -50%);
+
+				@extend %absolute;
+			}
+
+			.title{
+				margin-right: 10px;
+			}
+		}
+	}
 }

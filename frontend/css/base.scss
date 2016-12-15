@@ -258,7 +258,7 @@ $grey: #f3f3f3;
 
 %testflex-around{
   flex-direction: column;
-  
+
   @extend %dflex;
   @extend %j-space-around;
 }

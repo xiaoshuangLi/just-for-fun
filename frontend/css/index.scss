@@ -19,3 +19,20 @@ body{
 html{
 	@extend %noscroll;
 }
+
+
+@media all and (orientation: landscape) and (max-height: 480px) {
+
+	$mediaTime: 0.55;
+
+  .resume-body{
+    height: 100vh/$mediaTime;
+    width: 75vh/$mediaTime;
+
+    max-width: inherit;
+    max-height: inherit;
+
+  	transform: translate(-50%, 0) scale($mediaTime);
+  	transform-origin: 50% 0;
+  }
+}

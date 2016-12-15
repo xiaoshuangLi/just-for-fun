@@ -4,6 +4,7 @@ import * as res from 'gsap'
 import icons from '../../common/icons'
 import Heart from '../common/Heart'
 import IconBody from '../common/IconBody'
+import Avatar from '../common/Avatar'
 
 export default class One extends Component {
 	constructor(props){
@@ -58,7 +59,7 @@ export default class One extends Component {
 				  </div>
 
 				  <div className="part-desc">
-				    <div className="img" style={{ backgroundImage: `url(${present.avatar.val})` }}></div>
+				    <Avatar present={present} />
 				    {present.desc.val}
 				  </div>
 			  </div>
