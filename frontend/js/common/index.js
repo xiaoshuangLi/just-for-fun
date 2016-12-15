@@ -14,7 +14,7 @@ export function load(src = '', cb){
 export function loadAll(list = [], cb){
 	typeof list == 'string' && (list = [list])
 
-	if(!list[0]) {
+	if(!list.length) {
 		return cb && cb()
 	}
 
@@ -24,9 +24,11 @@ export function loadAll(list = [], cb){
 	list.map(img => {
 		load(img, () => {
 			num++
+			console.log(num)
 
 			if(num >= len) {
-				return cb && $.timeout(cb, 500)
+				console.log('res')
+				return cb && timeout(cb)
 			}
 		})
 	})
