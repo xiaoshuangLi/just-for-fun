@@ -20,6 +20,10 @@ import Style from '../../img/icon/style_inline.svg'
 
 // import Test from '../../img/icon/test_inline.svg'
 
+import Bird from '../../img/icon/bird_inline.svg'
+import Ship from '../../img/icon/ship_inline.svg'
+import Windmill from '../../img/icon/windmill_inline.svg'
+
 const icons = {
 	Bug,
 	Camera,
@@ -41,6 +45,9 @@ const icons = {
 	Resume,
 	Style,
 	// Test
+	Bird,
+	Ship,
+	Windmill
 }
 
 export default icons

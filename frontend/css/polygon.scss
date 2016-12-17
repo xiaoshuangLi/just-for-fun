@@ -1,0 +1,85 @@
+$pMaxNum: 10;
+$pR: 1em * 50/12;
+
+.polygon{
+	width: $pR * 2;
+	height: $pR * 2;
+
+	@extend %relative;
+	@extend %inline-block;
+
+	.item{
+		top: 50%;
+		left: 50%;
+		margin-left: -25%;
+		transform-origin: 50% 0;
+		border-bottom: 2px solid #333;
+		shape-outside: polygon(50% 0%, 0% 100%, 100% 100% );
+		clip-path: polygon(50% 0%, 0% 100%, 100% 100% );
+		transition: .3s;
+
+		@extend %absolute;
+		@extend %ohidden;
+		@extend %z-1;
+	}
+
+	.title{
+		@extend %percenter;
+	}
+
+	@for $i from 3 through $pMaxNum {
+		$angle: 180deg/ $i;
+		$aSin: sin($angle);
+		$aCos: cos($angle);
+		$halfACos: $aCos/2;
+
+		$perASin: percentage($aSin);
+		$perACos: percentage($halfACos);
+
+		$aWidh:  $perASin;
+		$aHeight:  $perACos ;
+
+		&[data-num='#{$i}'] {
+			@for $m from 1 through $i {
+				.item:nth-child(#{$m}) {
+					width: $aWidh;
+					height: $aHeight;
+
+					transform: rotate(#{$angle * $m * 2 });
+
+					&.boom{
+					  opacity: 0;
+						transform: rotate(#{$angle * $m * 2 }) translate(0, 100%);
+						transition-delay: #{0.1s * ($m - 1)}; 
+					}
+
+					&.fade{
+						.item-content{
+							transition: .5s;
+							opacity: 0;
+							transition-delay: #{0.1s * ($m - 1)}; 
+						}
+					}
+				}
+			}
+
+			&:hover, &.active{
+				@for $m from 1 through $i {
+					.item:nth-child(#{$m}) {
+
+						&.boom{
+							opacity: 1;
+							transform: rotate(#{$angle * $m * 2 });
+						}
+
+						&.fade{
+							.item-content{
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

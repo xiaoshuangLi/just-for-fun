@@ -389,13 +389,13 @@ $durden: '../img/resumes/Two/durden.svg';
 		}
 	}
 
-	$twoWidth: 150px;
+	$twoWidth: 12.5em;
 	$twoNum: 0.8; 
 
 	.part-skills{
 		.part-skills-title{
 			padding: 1px 1px 1px 20px;
-			width: 150px;
+			width: $twoWidth;
 			max-width: 72%;
 			border-radius: 0 50px 10px 0;
 			margin-bottom: 5px;

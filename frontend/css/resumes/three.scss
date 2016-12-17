@@ -69,7 +69,7 @@ $threeBgColor: #181c1e;
 		} 
 
 		.item{
-			&:after{
+			&:not(:last-child):after{
 				content: ',';
 				margin-right: 2px;
 

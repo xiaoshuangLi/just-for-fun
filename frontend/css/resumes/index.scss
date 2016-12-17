@@ -1,6 +1,7 @@
 @import "./one.scss";
 @import "./two.scss";
 @import "./three.scss";
+@import "./four.scss";
 
 $resumeWidth: 247.5px;
 $resumeBorderWidth: 5px;
@@ -104,4 +105,41 @@ $maxResume: 8;
   	right: 0;
   	bottom: 0;
   }	
+}
+
+@media (orientation: landscape) and (max-height: 480px) {
+  $mediaTime: 0.55;
+  .resume-body{
+    height: 100vh/$mediaTime;
+    width: 75vh/$mediaTime;
+
+    max-width: inherit;
+    max-height: inherit;
+
+    transform: translate(-50%, 0) scale($mediaTime);
+    transform-origin: 50% 0;
+  }
+}
+
+$fSizeNum: 12;
+$fMaxWidthNum: 1280;
+
+$fMinWidth: 360px;
+$fMaxWidth: $fMaxWidthNum * 1px;
+$fSize: $fSizeNum * 1px;
+
+@media (min-width: #{$fMaxWidth}) {
+  .detail-container{
+    .resume-body{
+      font-size: calc( #{$fSize} + #{$fSizeNum} * ((100vw - #{$fMaxWidth}) / #{$fMaxWidthNum} ) );
+    }
+  }
+}
+
+@media (max-width: #{$fMinWidth}) {
+  .detail-container{
+    .resume-body{
+      font-size: 8.5px;
+    }
+  }
 }

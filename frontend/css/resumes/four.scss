@@ -1,0 +1,232 @@
+$ed: '../img/ed.jpeg';
+
+$fourGreen: #b6d7c2;
+
+.four-body{
+	color: #888;
+	padding: 15px 20px;
+	border: 10px solid $fourGreen;
+
+	@extend %bgwhite;
+	@extend %testflex;
+	@extend %ohidden;
+
+	.ed{
+		width: 5em;
+		height: 5em;
+		margin: 0 30px;
+
+		.item-content{
+			@extend %full;
+
+			.item-title{
+				transform: scale(.5) translate(-50%, -50%);
+				transform-origin: 0% 80%;
+
+				@extend %percenter;
+			}
+		}
+	}
+
+	.windmill{
+		transition: 10s;
+
+		&:hover, &.active{
+			transform: rotate(720deg);
+		}
+	}
+
+	.ship{
+		@extend %inline-block;
+		@extend %z-1;
+		@extend %relative;
+
+		.icon{
+			animation-delay: .5s; 
+		}
+
+		&:hover, &.active{
+			transform: rotate(720deg);
+
+			.icon{
+				animation: 12s boat infinite;
+			}
+		}
+	}
+
+	.part-1{
+		margin-bottom: 5px;
+
+		>*{
+			@extend %vmiddle;
+		}
+
+		>.title{
+			color: #333;
+			font-size: 1.1em;
+			font-weight: bold;
+		}
+	}
+
+	.part{
+		margin-top: 10px;
+		@extend %tcenter;
+
+		.part-header{
+			margin-bottom: 3px;
+
+			.icon{
+				width: 2.5em;
+				height: 2.5em;
+			}
+		}
+
+		.part-body{
+			@extend %relative;
+
+			&:before{
+				content: '';
+			  height:  100%;
+			  border-left: 1px dotted;
+				@extend %percenter;
+			}
+
+			.part-title{
+				color: #333;
+				margin-bottom: 5px;
+			}
+
+			.part-desc{
+				.text-item{
+					word-break: break-all;
+					white-space: initial;
+				}
+
+				&+.part-title{
+					margin-top: 10px;
+				}
+			}
+
+			.part-left{
+				padding-right: 2em;
+				@extend %tright;
+			}
+
+			.part-right{
+				padding-left: 2em;
+				@extend %tleft;
+			}
+		}
+	}
+
+	.part-experience{
+		text-indent: 2em;
+
+		@include ellipsisMul(6);
+	}
+
+	.part-description{
+		@include ellipsisMul(3);
+	}
+
+	.part-avatar{
+		@extend %inline-block;
+		@extend %fixed;
+
+		.img{
+			width: 4.5em;
+			height: 4.5em;
+			border-radius: 50%;
+			filter: grayscale(1);
+
+			@include bg;
+		}
+	}
+
+	.part-words{
+		margin-top: 5px;
+
+		.item{
+			background-color: $fourGreen;
+			color: white;
+			padding: 1px 5px; 
+			border-radius: 3px;
+			transform: scale(0.8);
+			transform-origin: 0 0;
+
+			@extend %inline-block;
+		}
+	}
+
+	.part-hobbys{
+	  flex-wrap: wrap;
+	  height: 8em;
+	  flex-direction: column;
+		justify-content: flex-start;
+
+		@extend %dflex;
+
+		.item{
+			@extend %inline-block;
+		}
+	}
+
+	.part-skills{
+
+		.item{
+			@extend %relative;
+
+			&+.item{
+				margin-top: 2px;
+			}
+
+			>*{
+				@extend %inline-block;
+				@extend %vmiddle;
+			}
+		}
+
+		.desc{
+			margin-right: 5px;
+
+			@extend %ellipsis;
+		}
+
+		.shadow{
+			background-color: $fourGreen;
+			height: 1em;
+
+			@extend %fwhite;
+		}
+	}
+}
+
+@keyframes boat {
+	0%, 50%, 100%{
+		transform: translate(0, 0);
+	}
+
+	12.5%{
+		transform: translate(-10%, 10%);
+	}
+
+	25%{
+		transform: translate(-20%, 0%);
+	}
+
+	37.5%{
+		transform: translate(-10%, -10%);
+	}
+
+	62.5%{
+		transform: translate(10%, 10%);
+	}
+
+	75%{
+		transform: translate(20%, 0%);
+	}
+
+	87.5%{
+		transform: translate(10%, -10%);
+	}
+}

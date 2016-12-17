@@ -139,9 +139,9 @@ $oneImg: '../img/resumes/One/img.jpeg';
 				.icon{
 					font-size: 1.5em;
 					opacity: 1;
-					margin-left: calc(20% - 16px);
-					width: 15px;
-					height: 15px;
+					margin-left: calc(20% - 1.25em - 1px);
+					width: 1.25em;
+					height: 1.25em;
 
 					@extend %left;
 				}
@@ -153,7 +153,7 @@ $oneImg: '../img/resumes/One/img.jpeg';
 		text-indent: 1em;
 		margin-top: 5px;
 		line-height: 1.6em;
-		min-height: 100px;
+		min-height: #{ 1em * 100/12};
 
 		@include ellipsisMul(6);
 	}
@@ -193,13 +193,13 @@ $oneImg: '../img/resumes/One/img.jpeg';
 		@extend %tcenter;
 
 		.item{
-			width: 30px;
+			width: 2.5em;
 			margin-bottom: 5px;
 
 			@extend %left;
 
 			&:not(:nth-child(4n)){
-				margin-right: calc(33.33% - 40px);
+				margin-right: calc(33.33% - #{2.5em *4/ 3});
 			}
 
 			svg{
@@ -247,8 +247,8 @@ $oneImg: '../img/resumes/One/img.jpeg';
 			}
 
 			.icon{
-				width: 25px;
-				height: 24px;
+				width: calc(2em + 1px);
+				height: 2em;
 				border-radius: 50%;
 				border: 1px solid;
 				box-shadow: 0 0 1px $oneGreen;
@@ -269,11 +269,11 @@ $oneImg: '../img/resumes/One/img.jpeg';
 	}
 
 	.icon-body{
-		height: 100px;
-		width: 100px;
+		height: #{ 1em * 100/12};
+		width: #{ 1em * 100/12};
 		bottom: -1px;
 		left: 50%;
-		margin-left: -50px;
+		margin-left: #{ 0 - 0.5em * 100/12};
 
 		@extend %absolute;
 
@@ -296,12 +296,12 @@ $oneImg: '../img/resumes/One/img.jpeg';
 		}
 
 		>*{
-			width: 25px;
-			height: 24px;
+			width: calc(2em + 1px);
+			height: 2em;
 			bottom: 0%;
 			left: 50%;
 			border-radius: 50%;
-			transform-origin: 50% -25px;
+			transform-origin: 50% calc(0px - 2em - 1px);
 
 			@extend %absolute;
 

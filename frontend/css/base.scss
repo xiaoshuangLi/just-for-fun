@@ -337,6 +337,7 @@ body{
 
 .bg{
   @extend %bg;
+  z-index: -1;
 }
 
 .row{

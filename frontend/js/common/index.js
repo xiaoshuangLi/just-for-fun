@@ -24,10 +24,8 @@ export function loadAll(list = [], cb){
 	list.map(img => {
 		load(img, () => {
 			num++
-			console.log(num)
 
 			if(num >= len) {
-				console.log('res')
 				return cb && timeout(cb)
 			}
 		})
