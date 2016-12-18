@@ -11,10 +11,8 @@ import Angle from '../components/Angle'
 import Loading from '../components/Loading'
 import Personal from '../components/Personal'
 
-import { setState } from '../common'
+import { setState , icons, imgs} from '../common'
 import * as actions from '../actions'
-import icons from '../common/icons'
-import imgs from '../common/imgs'
 
 class App extends Component {
 	constructor(props) {

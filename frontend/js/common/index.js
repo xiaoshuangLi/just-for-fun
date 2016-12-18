@@ -1,4 +1,14 @@
-import { dWeb, resumes } from './data'
+import data from './data'
+import icons from './icons'
+import imgs from './imgs'
+
+const { dWeb, resumes } = data
+
+export {
+	data,
+	icons,
+	imgs
+}
 
 export function load(src = '', cb){
 	if(!src) {

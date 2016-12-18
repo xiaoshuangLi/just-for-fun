@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
-import Avatar from '../common/Avatar'
-import Info from '../common/Info'
+import {Avatar, Info, AttrList} from '../common'
 
 export default class Three extends Component {
 	constructor(props){
@@ -51,15 +50,11 @@ export default class Three extends Component {
 		    <div className="part table">
 		      <div className="equal words">
 		        <div className="part-title">种族天赋</div>
-		        <div className="part-body">
-		          {present.words.slice(0,8).map(item => <span className="item" key={item.id}>{item.val}</span>)}
-		        </div>
+	          <AttrList present={present} attr="words" className="part-body" init={true} max={8}/>
 		      </div>
 		      <div className="equal words">
 		        <div className="part-title">个人爱好</div>
-		        <div className="part-body">
-		          {present.hobbys.slice(0,8).map(item => <span className="item" key={item.id}>{item.val}</span>)}
-		        </div>
+	          <AttrList present={present} className="part-body" init={true} max={8}/>
 		      </div>
 		    </div>
 		    <div className="part">

@@ -69,11 +69,11 @@ $threeBgColor: #181c1e;
 		} 
 
 		.item{
+			@extend %inline-block;
+			
 			&:not(:last-child):after{
 				content: ',';
 				margin-right: 2px;
-
-				@extend %inline-block;
 			}
 		}
 	}

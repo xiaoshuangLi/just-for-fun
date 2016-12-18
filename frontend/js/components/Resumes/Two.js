@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 
-import Words from '../common/Words'
-import Avatar from '../common/Avatar'
-import Info from '../common/Info'
-import icons from '../../common/icons'
+import {Avatar, Words, Info, Hobbys} from '../common'
+
 
 export default class Two extends Component{
 	constructor(props){
@@ -58,16 +56,7 @@ export default class Two extends Component{
 				      <Words className="bottom init" animation="fade" text="THE FIGHT IS OVER"/>
 				    </div>
 			    </div>
-          <div className="table center">
-				    {present.hobbys.slice(0, 8).map(item =>{ 
-	    			  const {icon, val} = item
-              const Svg = icons[icon]
-              return (<div className="item equal" key={item.id}>
-              	<Svg/>
-              	<div className="title">{val}</div>
-              </div>)}
-				    )}
-          </div>
+	        <Hobbys max={8} present={present} className="table center"/>
 			  </div>
 
 			  <div className="part-3 padding">

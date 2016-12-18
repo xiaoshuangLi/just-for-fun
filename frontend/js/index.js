@@ -7,12 +7,11 @@ import { ActionCreators as UndoActionCreators } from 'redux-undo'
 import App from './containers/App'
 import configureStore from './store/configureStore'
 import {add, edit, toggle, valid} from './actions'
-import { getState } from './common'
-import data, {dWeb} from './common/data'
+import { getState , data} from './common'
 
 import '../css/index.scss'
 
-const {resumes } = data
+const {dWeb, resumes} = data
 
 let present = Object.assign({}, data, getState(), {web: dWeb, resumes}) 
 const store = configureStore({present})

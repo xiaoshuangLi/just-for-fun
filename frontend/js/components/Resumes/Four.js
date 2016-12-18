@@ -1,26 +1,11 @@
 import React, { Component } from 'react'
 
-import Avatar from '../common/Avatar'
-import Info from '../common/Info'
-import Polygon from '../common/Polygon'
-import AttrList from '../common/AttrList'
-
+import {Avatar, Info, Polygon, AttrList} from '../common'
 import icons from '../../common/icons'
 
 export default class Four extends Component {
 	constructor(props) {
 		super(props)
-	}
-
-	paragraph(attr = 'experience', max = 6){
-		const { present } = this.props 
-		let res = present[attr].val
-
-		res = res.split(/\,|\.|，|。/).slice(0, max).map((item, index) => 
-		  <div className="text-item" key={index}>{item}</div>
-		)
-
-		return res
 	}
 
 	render(){

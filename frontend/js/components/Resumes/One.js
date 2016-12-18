@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import * as res from 'gsap'
 
-import icons from '../../common/icons'
-import Heart from '../common/Heart'
-import IconBody from '../common/IconBody'
-import Avatar from '../common/Avatar'
+import {Avatar, IconBody, Heart, AttrList, Hobbys} from '../common'
 
 export default class One extends Component {
 	constructor(props){
@@ -23,11 +20,7 @@ export default class One extends Component {
 				      { present.name.val }
 				    </div>
 
-				    <div className="words-list">
-				      { present.words.slice(0,9).map((item, index) => 
-			      	  <div className="item" key={index}>{item.val}</div>
-			      	)}
-				    </div>
+	          <AttrList present={present} attr="words" className="words-list" init={true} max={9}/>
 				  </div>
 
 				  <div className="part">
@@ -73,18 +66,7 @@ export default class One extends Component {
 			    <div className="part part-hobby">
 			      <div className="title">个人爱好</div>
 			      <div className="content">
-			        <div className="hobbys-list">
-			          {present.hobbys.slice(0,8).map(item=> 
-		              {
-		              	const {icon, val} = item
-		              	const Svg = icons[icon]
-		              	return (<div className="item" key={item.id}>
-		              		<Svg/>
-		              		<span className="title">{val}</span>
-		              	</div>)
-        		      }
-			          )}
-			        </div>
+			        <Hobbys max={8} present={present} className="hobbys-list"/>
 			      </div>
 			    </div>
 
