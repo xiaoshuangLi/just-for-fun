@@ -8,7 +8,6 @@ export default class One extends Component {
 		super(props)
 	}
 
-
 	render(){
 		const { present, className} = this.props
 

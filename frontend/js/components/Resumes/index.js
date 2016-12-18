@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import Slowshow from '../animation/Slowshow'
 
 import list from './list'
+import Detail from './Detail'
+
+export {
+  Detail,
+  list
+}
 
 export default class Resumes extends Slowshow {
   constructor(props) {
