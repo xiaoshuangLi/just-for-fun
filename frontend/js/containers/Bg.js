@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { getBg } from '../../common/imgs'
+import { getBg } from '../common/imgs'
 
 export default class Resumes extends Component {
   constructor(props) {

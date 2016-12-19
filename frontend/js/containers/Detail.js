@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import Slowshow from '../animation/Slowshow'
 
-import { getFromArr } from '../../common'
-import list from './list'
+import { Slowshow } from '../components/animation'
+import list from '../components/Resumes'
+
+import { getFromArr } from '../common'
 
 export default class Resume extends Slowshow {
 	constructor(props) {

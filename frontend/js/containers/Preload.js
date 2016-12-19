@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Jelly from '../animation/Jelly'
+import {Jelly} from '../components/animation'
 
-import icons from '../../common/icons'
+import {icons} from '../common'
 
 
 class Preload extends Jelly {

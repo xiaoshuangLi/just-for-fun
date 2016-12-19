@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import Preload from '../components/Preload'
-import Bg from '../components/Bg'
+import Preload from './Preload'
+import Bg from './Bg'
 
-import Resumes, {Detail} from '../components/Resumes'
+import Personal from './Personal'
+import Resumes from './Resumes'
+import Detail from './Detail'
+
 import Angle from '../components/Angle'
 import Loading from '../components/Loading'
-import Personal from '../components/Personal'
 
 import { setState , icons, imgs} from '../common'
 import * as actions from '../actions'
