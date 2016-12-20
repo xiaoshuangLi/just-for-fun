@@ -1,0 +1,64 @@
+.icon-surround{
+	width: #{1em * 40/12};
+	height: #{1em * 40/12};
+
+	@extend %relative;
+
+	.icon{
+		&, &:before{
+			@extend %percenter;
+		}
+	}
+
+	.surround{
+		transition: 15s;
+
+		@extend %full;
+		@extend %tcenter;
+
+		span{
+			opacity: 0;
+			transition: 0.5s;
+
+			@extend %full;
+		}
+	}
+
+	&:hover, &.active{
+		.surround{
+			transform: rotate(720deg);
+		}
+	}
+
+	@for $i from 1 through 15{
+		&[data-num='#{$i}']{
+			$surroundAngle: 360deg/$i;
+
+	    .surround{
+	    	transition-delay: #{0.2s * $i};
+
+			  @for $m from 1 through $i {
+		    	span:nth-child(#{$m}){
+		    		transform: rotate(#{$surroundAngle * ($m - 1)}) scale(.6);
+		    		transition-delay: #{0.2s * ($m - 1)};
+		    	}
+			  }			
+	    }
+		}
+
+		&:hover, &.active{
+			&[data-num='#{$i}']{
+				$surroundAngle: 360deg/$i;
+
+		    .surround{
+				  @for $m from 1 through $i {
+			    	span:nth-child(#{$m}){
+			    		opacity: 1;
+			    		transform: rotate(#{$surroundAngle * ($m - 1)}) scale(.6) translate(0, -20px);
+			    	}
+				  }			
+		    }
+			}
+		}
+	}
+}

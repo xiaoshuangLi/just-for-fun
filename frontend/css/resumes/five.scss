@@ -1,0 +1,179 @@
+$bg: '../img/bg.jpg';
+// $bg: 'http://192.168.1.102:8000/star.jpeg';
+
+.five-body{
+	color: rgba(white, .7);
+	padding: 10px;
+	transform: translate3d(0,0,0);
+
+	@include bg(cover, $bg, 0%, 0);
+	@extend %testflex;
+
+	.part{
+		margin-top: 5px;
+
+		@extend %row;
+
+		&.no-border{
+			margin: 5px -10px 0;
+		}
+
+		&.part-right{
+			@extend %tright;
+
+			.part-title{
+				@extend %tleft;
+			}
+		}
+
+		.part-title{
+			width: 45%;
+			border-bottom: 1px solid rgba(white, .15);
+
+			@extend %tright;
+			@extend %inline-block;
+		}
+
+		.part-body{
+			width: 75%;
+			margin: 5px auto 0;
+
+			@extend %tleft;
+
+			.desc{
+				@include ellipsisMul(4);
+			}
+		}
+	}
+
+	.part-1{
+		.title{
+			opacity: .6;
+			transform: scale(.6);
+
+			@extend %tcenter;
+
+			&:before, &:after{
+				content: '·';
+				margin: 0 5px;
+				width: 10px;
+
+				@extend %vmiddle;
+				@extend %inline-block;
+			}
+
+			*>{
+				@extend %vmiddle;
+				@extend %inline-block;
+			}
+		}
+	}
+
+	.part-avatar{
+		margin-top: 5px;
+
+		.img{
+			border-radius: 50%;
+			height: #{1em * 75/12};
+			width: #{1em * 75/12};
+			margin: 0 auto;
+			opacity: .6;
+
+			@include bg;
+		}
+	}
+
+	.part-2{
+		@extend %tcenter;
+
+		.title{
+			color: rgba(white, .8);
+			font-size: 1.1em;
+		}
+	}
+
+	.part-3{
+		@extend %tcenter;
+
+		.icon-surround{
+			width: #{1em * 35/12};
+			height: #{1em * 35/12};
+
+			@extend %inline-block;
+
+			&+.icon-surround{
+				margin-left: 10px; 
+			}
+		}
+
+		.icon{
+			font-size: 1.1em;
+			color: rgba(white, .9);
+
+			&.fa-github{
+				font-size: 1.3em;
+			}
+		}
+	}
+
+	.part-info{
+		@extend %tcenter;
+
+		.item{
+			max-width: 20%;
+			word-break: break-all;
+			vertical-align: top;
+
+			@extend %inline-block;
+
+			.icon{
+				font-size: 1.1em;
+				color: rgba(white, .8);
+				margin-bottom: 5px;
+
+				@extend %block;
+
+				&.fa-mobile{
+					transform: scale(1.3);
+				}
+			}
+
+			&.item{
+				margin-left: 5%;
+			}
+
+			.desc{
+				transform: scale(.8);
+
+				@extend %inline-block;
+			}
+		}
+	}
+
+	.part-hobbys{
+		text-align: center !important;	
+
+		.item{
+			@extend %inline-block;
+
+			&:not(:last-child):after{
+				content: '·';
+			}
+		}
+	}
+
+	.part-skills{
+		@extend %tcenter;
+
+		.item{
+			margin-bottom: 10px;
+			padding-bottom: 2px;
+
+			@extend %inline-block;
+
+			&:not(:last-child) {
+				margin-right: 10px;
+			}
+		}
+	}
+}

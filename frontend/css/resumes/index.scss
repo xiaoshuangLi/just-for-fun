@@ -2,6 +2,7 @@
 @import "./two.scss";
 @import "./three.scss";
 @import "./four.scss";
+@import "./five.scss";
 
 $resumeWidth: 247.5px;
 $resumeBorderWidth: 5px;
@@ -28,7 +29,8 @@ $maxResume: 8;
 
 .detail-container{
 	@extend %full;
-	@extend %fixed;
+  @extend %fixed;
+	@extend %transparent;
 }
 
 .resume-list{

@@ -6,6 +6,7 @@ import Info from './Info'
 import Polygon from './Polygon'
 import Words from './Words'
 import Hobbys from './Hobbys'
+import IconSurround from './IconSurround'
 
 export {
 	AttrList,
@@ -15,5 +16,6 @@ export {
 	Info,
 	Polygon,
 	Words,
-	Hobbys
+	Hobbys,
+	IconSurround
 }

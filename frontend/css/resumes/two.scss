@@ -274,7 +274,7 @@ $durden: '../img/resumes/Two/durden.svg';
 		}
 
 		.title{
-			width: 90px;
+			width: #{ 1em * 90/12 };
 			margin: 0 5px;
 		}
 	}
