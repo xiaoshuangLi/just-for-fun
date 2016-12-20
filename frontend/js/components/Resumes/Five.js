@@ -54,7 +54,9 @@ export default class Five extends Component {
           <AttrList present={present} className="part-body part-hobbys" init={true} max={8}/>
 			  </div>
 
-        <AttrList present={present} attr="skills" className="part part-skills" init={true} max={8}/>
+        <AttrList present={present} attr="skills" className="part part-skills" init={true} max={8}>
+			    <IconSurround className="item" classParent="item" text="最美的那颗星"/>
+        </AttrList>
 			</div>
 		)
 	}

@@ -7,10 +7,10 @@ export default class IconSurround extends Component {
 
 
 	render(){
-		const { className = 'fa fa-github', text = '', content = ''} = this.props
+		const { className = 'fa fa-github', classParent = '',text = '', content = ''} = this.props
 
 		return (
-			<div className="icon-surround" data-num={text.length}>
+			<div className={`icon-surround ${classParent}`} data-num={text.length}>
 			  <div className={`icon ${className}`}>{content}</div>
 			  <div className="surround">
 			    {text.split('').map((item, index) => 

@@ -162,18 +162,106 @@ $bg: '../img/bg.jpg';
 		}
 	}
 
+
+	$starMax: 7;
+	$starList: (40%, 20%, 40%, 55%, 80%, 75%, 10%);
+	$starDelay: (.3s, .7s, 0s, 1s, 1.2s, .6s, .1s);
+
 	.part-skills{
+		margin: 0 #{1em * 40/12} #{1em * 10/12};
+	  height: #{1em * 100/12};
+
 		@extend %tcenter;
+		@extend %relative;
+		@extend %wnowrap;
 
 		.item{
-			margin-bottom: 10px;
-			padding-bottom: 2px;
+			transform: scale(.7) translate(-50%, 0);
+			color: rgba(white, .5);
 
 			@extend %inline-block;
+			@extend %absolute;
 
-			&:not(:last-child) {
-				margin-right: 10px;
+			&:before{
+				content: '';
+				background-color: rgba(white, .7);
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+				left: 50%;
+				top: -10px;
+				transform: translate(-50%, 0);
+				animation: starBlink 5s infinite;
+			  box-shadow: 0 0 5px rgba(white, .6);
+
+				@extend %inline-block;
+				@extend %absolute;
+
+			}
+
+			@for $i from 1 through $starMax {
+
+			  &:nth-child(#{$i}) {
+			  	$childNum: ($i - 1)/($starMax - 1);
+			  	$perChildNum: percentage($childNum);
+
+			  	left: $perChildNum;
+			  	top: nth($starList, $i);
+
+			  	&:before{
+			  		animation-delay: #{nth($starDelay, $i) * 2 };
+			  	}
+			  }				
 			}
 		}
+
+		.icon-surround{
+			&.item{
+				transform: translate(-50%, 0);
+				
+				&:before{
+					display: none;
+				}
+			}
+
+			.item{
+				left: 50%;
+				top: 50%;
+
+				@extend %percenter;
+
+				&:before{
+					transform: translate(-50%, -50%);
+					top: 50%;
+					left: 50%;
+					animation: starBlinkIcon 2s infinite;
+					animation-delay: #{nth($starDelay, $starMax) * 2 };
+				}
+			}
+		}
+	}
+}
+
+@keyframes starBlink {
+	0%, 100%{
+	  transform: translate(-50%, 0) scale(1);
+	  box-shadow: 0 0 5px rgba(white, .6);
+	}
+
+	50%{
+	  transform: translate(-50%, 0) scale(.5);
+	  box-shadow: 0 0 10px rgba(white, .6);
+	}
+}
+
+@keyframes starBlinkIcon {
+	0%, 100%{
+	  transform: translate(-50%, -50%) scale(1);
+	  box-shadow: 0 0 5px rgba(white, .6);
+	}
+
+	50%{
+	  transform: translate(-50%,  -50%) scale(.5);
+	  box-shadow: 0 0 10px rgba(white, .6);
 	}
 }

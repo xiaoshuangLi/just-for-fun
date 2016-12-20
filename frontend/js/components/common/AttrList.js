@@ -12,7 +12,7 @@ export default class Polygon extends Component {
 	}
 
 	render(){
-		const { attr= 'hobbys', max = 8, present = {}} = this.props
+		const { attr= 'hobbys', max = 8, present = {}, children} = this.props
 		const list = present[attr] ? present[attr]: []
 
 		return (
@@ -20,6 +20,8 @@ export default class Polygon extends Component {
 			  {list.slice(0, max).map(item =>
 					<div className = "item" key={item.id}>{item.val}</div>
 			  )}
+
+			  {children}
 			</div>
 		)
 	}
