@@ -14,12 +14,12 @@ export default class Words extends Component {
         <div className="item" title={present.email.val}>
           {icon && <div className="icon fa fa-envelope-o"></div>}
           {txt && <div className="title">邮箱</div>}
-          <a className="desc">{present.email.val}</a>
+          <a className="desc" href={`mailto:${present.email.val}`}>{present.email.val}</a>
         </div>
         <div className="item" title={present.phone.val}>
           {icon && <div className="icon fa fa-mobile"></div>}
           {txt && <div className="title">手机</div>}
-          <a className="desc">{present.phone.val}</a>
+          <a className="desc" href={`tel:${present.phone.val}`}>{present.phone.val}</a>
         </div>
         <div className="item" title={present.birthday.val}>
           {icon && <div className="icon fa fa-birthday-cake"></div>}
