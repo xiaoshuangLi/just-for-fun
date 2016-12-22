@@ -1,0 +1,39 @@
+.cube{
+	width: 2em;
+	height: 2em;
+	transition: .3s;
+
+	.before{
+	  transform-origin: 50% 50% -1em;
+		transition: .3s;
+
+		@extend %inline-block;
+		@extend %full;
+	}
+
+	.after{
+		transition: .3s;
+	  transform-origin: 50% 50% -1em;
+		transform: rotateX(-90deg);
+
+		@extend %inline-block;
+		@extend %full;
+
+		&:before{
+			content: attr(data-after);
+
+			@extend %percenter;
+			@extend %inline-block;
+		}
+	}
+
+	&:hover, &.active{
+		.before{
+			transform: rotateX(90deg);
+		}
+
+		.after{
+			transform: rotateX(0deg);
+		}
+	}
+}

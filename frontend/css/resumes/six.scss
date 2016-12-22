@@ -1,0 +1,264 @@
+$sixGrey: #bfbfbf;
+$sixGreyLight: #e8e8e8;
+
+$sixColor: #888;
+$sixColorDark: #444;
+
+$sixPink: #e0c6c7;
+
+$sixPadding: 0.8333em; /* 10/12 */
+$sixFooterHeight: 2.5000em; /* 30/12 */
+.six-body{
+	color: $sixColor;
+	padding: $sixPadding;
+
+	@extend %bgwhite;
+
+	.part-body{
+		padding: 1.2500em; /* 15/12 */
+		height: calc(100% - #{$sixFooterHeight}); /* 80/12 */ 
+		border: 2px solid $sixGreyLight;
+	}
+
+	.part-footer{
+		height: $sixFooterHeight; /* 65/12 */
+
+		@extend %tcenter;
+	}
+
+	.part-info{
+		@extend %relative;
+
+		$sixFooterScale: 0.7;
+		$sixFooterWidth: 0.25/$sixFooterScale;
+		$perSixFooterWidth: percentage($sixFooterWidth);
+
+		.item{
+			top: 0;
+			padding: 0.5000em 0 0.1667em; /* 6/12 */ /* 2/12 */
+			width: $perSixFooterWidth;
+			transform-origin: 50% 0;
+			transform: translate(-50%, 0%) scale(#{$sixFooterScale});
+			
+			@extend %percenter;
+			@extend %inline-block;
+
+			@for $i from 1 through 4{
+				$sixInfoLeft: 0.125 + 0.25 * ($i - 1);
+				$perSixInfoLeft: percentage($sixInfoLeft);
+
+				&:nth-child(#{$i}) {
+					left: $perSixInfoLeft;
+				}
+			}
+
+			&:not(:last-child){
+				&:after{
+					content: '';
+					width: 2px;
+					background-color: $sixGreyLight;
+					top: 0;
+					bottom: 0;
+					right: 0;
+
+					@extend %inline-block;
+					@extend %absolute;
+				}
+			}
+
+			.desc{
+				@extend %wnowrap;
+			}
+		}
+	}
+
+	.part-1{
+		width: 70%;
+		margin: 0 auto;
+		border: 2px solid $sixGrey;
+		padding: 0.8333em 2.0833em 1.5000em;   /* 10/12 */ /* 15/12 */ /* 18/12 */
+
+		@extend %tcenter;
+		@extend %bgwhite;
+	}
+
+	.part-2{
+		@extend %relative;
+
+		.part-left, .part-right{
+			padding-top: 0.5833em; /* 7/12 */
+			padding-bottom: 0.5833em; /* 7/12 */
+		}
+
+		.part-left{
+			padding-right: 0.8333em; /* 10/12 */
+		}
+
+		.part-right{
+			padding-left: 0.8333em; /* 10/12 */
+		}
+
+		&:before{
+			content: '';
+			width: 2px;
+			background-color: $sixGrey;
+			height: 100%;
+
+			@extend %inline-block;
+			@extend %percenter;
+		}
+	}
+
+	.part{
+		margin-top: 0.8333em; /* 10/12 */
+
+		@extend %tcenter;
+
+		.part-title{
+			color: $sixColorDark;
+		}
+
+		.part-desc{
+			margin-top: 0.4167em; /* 5/12 */
+		}
+	}
+
+	.part-avatar{
+		width: 6.2500em;  /* 75/12 */
+		height: 6.2500em;  /* 75/12 */
+		margin: 0.8333em auto 0; /* 10/12 */
+
+		.img{
+			border-radius: 50%;
+			width: 100%;
+			height: 100%;
+
+			@include bg;
+			@extend %inline-block;
+		}
+	}
+
+	.part-name{
+		margin-bottom: 0.2500em; /* 3/12 */
+		font-size: 1.8em;
+		color: $sixPink;
+		letter-spacing: 5px;
+
+		@extend %relative;
+
+		&:after{
+			content: '';
+
+			width: 25px;
+			height: 2px;
+			background-color: $sixGrey;
+			left: 50%;
+			bottom: -0.0833em; /* 1/12 */
+			transform: translate(-50%, 0);
+
+			@extend %inline-block;
+			@extend %absolute;
+		}
+	}
+
+	.part-wanna{
+		letter-spacing: 3px;
+		transform: scale(0.9);
+	}
+
+	.part-description{
+		margin-top: 1em;
+
+		@extend %tleft;
+		@include ellipsisMul(4);
+	}
+
+	.part-hobbys, .part-words{
+		.item{
+			margin: 0 0.2500em 0.2500em 0; /* 3/12 */ /* 3/12 */
+			@extend %inline-block;
+		}
+	}
+
+	.part-skills{
+		margin: 1.2500em 0; /* 15/12 */
+
+		@extend %row;
+		@extend %tleft;
+
+		.item{
+			width: 50%;
+			padding-right: 0.8333em; /* 10/12 */
+			margin-bottom: 0.8333em; /* 10/12 */
+
+			@extend %left;
+			@extend %relative;
+
+			.title{
+				transform-origin: 0% 50%;
+				transform: scale(.8);
+
+				@extend %wnowrap;
+			}
+
+			.desc{
+				height: 1.5000em; /* 18/12 */
+				border: 1px solid $sixGrey;
+
+				@extend %relative;
+
+				&:after{
+					content: '';
+					width: 90%;
+					height: 2px;
+					background-color: $sixGrey;
+
+					@extend %inline-block;
+					@extend %percenter;
+				}
+			}
+
+			$sixSquareWidht:  0.8333em;
+
+			.square{
+				width: $sixSquareWidht; /* 10/12 */
+				height: $sixSquareWidht; /* 10/12 */
+				border-radius: 1px;
+				top: 50%; /* 9/12 */
+
+				transform: translate(calc(100% - #{$sixSquareWidht + 1em}), -50%);
+
+				@extend %absolute;
+				@extend %z-1;
+
+				&.cube{
+					.before, .after{
+						transform-origin: 50% 50% #{0em - $sixSquareWidht/2};
+					}
+
+					.before{
+						background-color: $sixColorDark;
+					}
+
+					.after{
+						border: 1px solid $sixColorDark;
+
+						@extend %bgwhite;
+
+						&:before{
+							color: $sixColorDark;
+							font-weight: bold;
+							transform:translate(-50%, -50%) scale(.5);
+							transform-origin: 50% 50%;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.part-experience{
+		@include ellipsisMul(7);
+		@extend %tleft;
+	}
+}

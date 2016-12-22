@@ -9,13 +9,27 @@ $bg: '../img/bg.jpg';
   @include bg(cover, $bg, 50%, 100%);
 }
 
+$bgBorderWidth: 7px;
 
 .has-bg{
 	.resume-list{
 		.resume-item{
 			border-radius: 2px ;
-			border: 7px solid transparent;
+			border: $bgBorderWidth solid transparent;
 			background-color: rgba(255,255,255, 1);
+
+			.resume-body{
+				&.no-border{
+					border-radius: 2px;
+			    box-shadow: 0 0px 5px rgba(0,0,0, .2);
+					
+				  transform-origin: 50% #{-1px - $bgBorderWidth * 2};
+				  max-width: #{$resumeListBodyWidth + $bgBorderWidth * 4};
+				  width: #{$resumeListBodyWidth + $bgBorderWidth * 4};
+				  height: #{$resumeListBodyHeight + $bgBorderWidth * 4};
+				  max-height: #{$resumeListBodyHeight + $bgBorderWidth * 4};
+				}
+			}
 		}
 	}
 }

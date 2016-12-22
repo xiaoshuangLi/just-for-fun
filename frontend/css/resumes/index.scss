@@ -3,6 +3,7 @@
 @import "./three.scss";
 @import "./four.scss";
 @import "./five.scss";
+@import "./six.scss";
 
 $resumeWidth: 247.5px;
 $resumeBorderWidth: 5px;
@@ -49,10 +50,10 @@ $maxResume: 8;
     @extend %relative;
 
     .resume-body{
-      width: 450px;
-      max-width: 450px;
-      height: 600px;
-      max-height: 600px;
+      width: $resumeListBodyWidth;
+      max-width: $resumeListBodyWidth;
+      height: $resumeListBodyHeight;
+      max-height: $resumeListBodyHeight;
       transform-origin: 50% 0;
       transform: translate(-50%, 0) scale(0.5233334);
 
