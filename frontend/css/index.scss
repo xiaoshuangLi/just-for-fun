@@ -2,9 +2,11 @@ $resumeListBodyWidth: 450px;
 $resumeListBodyHeight: $resumeListBodyWidth / 0.75;
 
 @import "./base.scss";
+@import "./cone.scss";
 @import "./heart.scss";
 @import "./polygon.scss";
 @import "./cube.scss";
+@import "./canvasBg.scss";
 
 @import "./loading.scss";
 @import "./bg.scss";

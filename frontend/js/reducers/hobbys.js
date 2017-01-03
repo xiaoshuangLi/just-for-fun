@@ -1,6 +1,6 @@
 import creater, {createItem, createList} from './createReducer'
 
-const hobby = createItem('hobby', ['name', 'val', 'id', {
+const hobby = createItem('hobby', ['name', 'val', 'id', 'desc',{
 	name: 'icon',
 	dVal: ''
 }])

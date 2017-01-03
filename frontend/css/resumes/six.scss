@@ -18,6 +18,17 @@ $sixFooterHeight: 2.5000em; /* 30/12 */
 		padding: 1.2500em; /* 15/12 */
 		height: calc(100% - #{$sixFooterHeight}); /* 80/12 */ 
 		border: 2px solid $sixGreyLight;
+
+		@extend %relative;
+	}
+
+	.part-canvas{
+		top: 0;
+		left: 0;
+		right: 0;
+		padding-bottom: 60%;
+
+		@extend %absolute;
 	}
 
 	.part-footer{
@@ -77,17 +88,20 @@ $sixFooterHeight: 2.5000em; /* 30/12 */
 		margin: 0 auto;
 		border: 2px solid $sixGrey;
 		padding: 0.8333em 2.0833em 1.5000em;   /* 10/12 */ /* 15/12 */ /* 18/12 */
+	  background-color: rgba(255,255,255,.7);
 
 		@extend %tcenter;
-		@extend %bgwhite;
+		@extend %pnone;
+		@extend %z-1;
+		@extend %relative;
 	}
 
 	.part-2{
 		@extend %relative;
 
 		.part-left, .part-right{
-			padding-top: 0.5833em; /* 7/12 */
-			padding-bottom: 0.5833em; /* 7/12 */
+			padding-top: 0.4167em; /* 5/12 */
+			padding-bottom: 0.4167em; /* 5/12 */
 		}
 
 		.part-left{
@@ -129,12 +143,12 @@ $sixFooterHeight: 2.5000em; /* 30/12 */
 		margin: 0.8333em auto 0; /* 10/12 */
 
 		.img{
-			border-radius: 50%;
 			width: 100%;
 			height: 100%;
 
 			@include bg;
 			@extend %inline-block;
+			@extend %border-radius-50;
 		}
 	}
 
@@ -189,7 +203,10 @@ $sixFooterHeight: 2.5000em; /* 30/12 */
 		.item{
 			width: 50%;
 			padding-right: 0.8333em; /* 10/12 */
-			margin-bottom: 0.8333em; /* 10/12 */
+
+			&:not(:last-child, :nth-last-child(2)){
+				margin-bottom: 0.8333em; /* 10/12 */
+			}
 
 			@extend %left;
 			@extend %relative;

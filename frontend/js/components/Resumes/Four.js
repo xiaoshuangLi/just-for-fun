@@ -69,7 +69,7 @@ export default class Four extends Component {
 			          <div className="part-desc">
 				          {present.wanna.val}
 			          </div>
-			          <div className="part-title">个人介绍</div>
+			          <div className="part-title">自我介绍</div>
 			          <div className="part-desc part-description" title={present.desc.val}>
 				          {present.desc.val}
 			          </div>
@@ -87,7 +87,7 @@ export default class Four extends Component {
 			    <div className="part-body">
 			      <div className="table">
 			        <div className="equal part-left">
-			          <div className="part-title">种族天赋</div>
+			          <div className="part-title">专业技能</div>
 			          <div className="part-desc part-skills">
 			            {present.skills.slice(0, 5).map(item => 
 			            	<div className="item" key={item.id}>

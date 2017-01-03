@@ -73,13 +73,13 @@ $bg: '../img/bg.jpg';
 		margin-top: 5px;
 
 		.img{
-			border-radius: 50%;
 			height: #{1em * 75/12};
 			width: #{1em * 75/12};
 			margin: 0 auto;
 			opacity: .6;
 
 			@include bg;
+			@extend %border-radius-50;
 		}
 	}
 
@@ -187,7 +187,6 @@ $bg: '../img/bg.jpg';
 				background-color: rgba(white, .7);
 				width: 5px;
 				height: 5px;
-				border-radius: 50%;
 				left: 50%;
 				top: -10px;
 				transform: translate(-50%, 0);
@@ -196,7 +195,7 @@ $bg: '../img/bg.jpg';
 
 				@extend %inline-block;
 				@extend %absolute;
-
+				@extend %border-radius-50;
 			}
 
 			@for $i from 1 through $starMax {

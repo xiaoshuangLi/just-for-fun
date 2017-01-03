@@ -4,6 +4,7 @@
 @import "./four.scss";
 @import "./five.scss";
 @import "./six.scss";
+@import "./seven.scss";
 
 $resumeWidth: 247.5px;
 $resumeBorderWidth: 5px;
@@ -134,7 +135,7 @@ $fSize: $fSizeNum * 1px;
 @media (min-width: #{$fMaxWidth}) {
   .detail-container{
     .resume-body{
-      font-size: calc( #{$fSize} + #{$fSizeNum} * ((100vw - #{$fMaxWidth}) / #{$fMaxWidthNum} ) );
+      font-size: calc( #{$fSize} + #{$fSizeNum * 1.1} * ((100vw - #{$fMaxWidth}) / #{$fMaxWidthNum} ) );
     }
   }
 }

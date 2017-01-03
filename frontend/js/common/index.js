@@ -2,12 +2,17 @@ import data from './data'
 import icons from './icons'
 import imgs from './imgs'
 
+import SnowFlake from './SnowFlake'
+import canvas from './canvas'
+
 const { dWeb, resumes } = data
 
 export {
 	data,
 	icons,
-	imgs
+	imgs,
+	SnowFlake,
+	canvas
 }
 
 export function load(src = '', cb){
@@ -17,8 +22,12 @@ export function load(src = '', cb){
 	let img = new Image()
 	img.src = src
 
-	img.onload = cb;
-	img.onerror = cb;
+	img.onload = () => {
+		cb&&cb(img)
+	};
+	img.onerror = () => {
+		cb&&cb(img)
+	};
 }
 
 export function loadAll(list = [], cb){

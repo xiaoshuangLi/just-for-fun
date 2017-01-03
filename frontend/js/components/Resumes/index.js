@@ -4,6 +4,7 @@ import Three from './Three'
 import Four from './Four'
 import Five from './Five'
 import Six from './Six'
+import Seven from './Seven'
 
 const list = {
 	One,
@@ -11,7 +12,8 @@ const list = {
 	Three,
 	Four,
 	Five,
-	Six
+	Six,
+	Seven
 }
 
 export default list

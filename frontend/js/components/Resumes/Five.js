@@ -43,7 +43,7 @@ export default class Five extends Component {
 			  </div>
 
 			  <div className="part no-border">
-			    <div className="part-title">个人介绍</div>
+			    <div className="part-title">自我介绍</div>
 			    <div className="part-body" title={present.desc.val}>
 			      <div className="desc">{present.desc.val}</div>
 			    </div>

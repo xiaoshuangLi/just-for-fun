@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+import Phone from './Phone'
+import Email from './Email'
+
 export default class Words extends Component {
 	constructor(props) {
 		super(props)
@@ -7,20 +10,13 @@ export default class Words extends Component {
 
 	render(){
 		const {className = '', present, children, txt = false, icon = true} = this.props
+    const data = Object.assign({}, this.props, {className: ''})
 
 		return (
 			<div className = {className}>
 			  {children && children}
-        <div className="item" title={present.email.val}>
-          {icon && <div className="icon fa fa-envelope-o"></div>}
-          {txt && <div className="title">邮箱</div>}
-          <a className="desc" href={`mailto:${present.email.val}`}>{present.email.val}</a>
-        </div>
-        <div className="item" title={present.phone.val}>
-          {icon && <div className="icon fa fa-mobile"></div>}
-          {txt && <div className="title">手机</div>}
-          <a className="desc" href={`tel:${present.phone.val}`}>{present.phone.val}</a>
-        </div>
+        <Phone {...data}/>
+        <Email {...data}/>
         <div className="item" title={present.birthday.val}>
           {icon && <div className="icon fa fa-birthday-cake"></div>}
           {txt && <div className="title">生日</div>}

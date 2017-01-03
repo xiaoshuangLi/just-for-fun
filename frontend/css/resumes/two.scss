@@ -413,7 +413,6 @@ $durden: '../img/resumes/Two/durden.svg';
 				left: 0%;
 			  width: 30px;
 			  height: 30px;
-			  border-radius: 50%;
 			  background-color: $twoColor1;
 			  transform: translate(-50%, -50%);
 			  border: 2px solid;
@@ -421,6 +420,7 @@ $durden: '../img/resumes/Two/durden.svg';
 			  font-size: 1.4em;
 
 				@extend %absolute;
+				@extend %border-radius-50;
 
 				&:before, &:after{
 					@extend %percenter;

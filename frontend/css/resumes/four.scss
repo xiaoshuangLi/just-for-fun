@@ -136,10 +136,10 @@ $fourGreen: #b6d7c2;
 		.img{
 			width: 4.5em;
 			height: 4.5em;
-			border-radius: 50%;
 			filter: grayscale(1);
 
 			@include bg;
+			@extend %border-radius-50;
 		}
 	}
 

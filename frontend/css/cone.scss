@@ -1,0 +1,22 @@
+@mixin shape($a) {
+	shape-outside: $a;
+	-webkit-shape-outside: $a;
+  clip-path: $a;
+  -webkit-clip-path: $a;
+}
+
+%cone{
+	@include shape(polygon(50% 0%, 0% 100%, 100% 100%));
+}
+
+%cone-bottom{
+	@include shape(polygon(50% 100%, 0% 0%, 100% 0%));
+}
+
+.cone{
+	@extend %cone;
+}
+
+.cone-bottom{
+	@extend %cone-bottom;
+}

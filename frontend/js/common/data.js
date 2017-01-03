@@ -48,102 +48,119 @@ const data = {
 		"icon": "Camera",
 		"name": "摄像",
 		"val": "摄像",
+		"desc": "记录一些愿意回忆的心情",
 		"hide": true
 	}, {
 		"id": 1480951591080,
 		"icon": "Cook",
 		"name": "料理",
 		"val": "料理",
+		"desc": "自己做的菜哭着也要咽下去",
 		"hide": true
 	}, {
 		"id": 1480951591081,
 		"icon": "Gamepad",
 		"name": "游戏",
 		"val": "游戏",
+		"desc": "远比现实更有趣的地方",
 		"hide": false
 	}, {
 		"id": 1480951591083,
 		"icon": "Movie",
 		"name": "电影",
 		"val": "电影",
+		"desc": "一种另类方式的旅程",
 		"hide": false
 	}, {
 		"id": 1480951591084,
 		"icon": "Music",
 		"name": "听歌",
 		"val": "听歌",
+		"desc": "I see fire.Hollow in soul.",
 		"hide": false
 	}, {
 		"id": 1480951591085,
 		"icon": "Plant",
 		"name": "种植",
 		"val": "种植",
+		"desc": "没准哪天会碰到大波僵尸",
 		"hide": true
 	}, {
 		"id": 1480951591086,
 		"icon": "Read",
 		"name": "阅读",
 		"val": "阅读",
+		"desc": "纸张因文字散发不一样的味道",
 		"hide": false
 	}, {
 		"id": 1480951591087,
 		"icon": "Ride",
 		"name": "骑车",
 		"val": "骑车",
+		"desc": "阳光，林荫，听歌，单车。。",
 		"hide": false
 	}, {
 		"id": 1480951591089,
 		"icon": "Shopping",
 		"name": "血拼",
 		"val": "血拼",
+		"desc": "？？我的手怎么不见了",
 		"hide": true
 	}, {
 		"id": 1480951591090,
 		"icon": "Sing",
 		"name": "唱歌",
 		"val": "唱歌",
+		"desc": "动词打次，切克闹",
 		"hide": true
 	}, {
 		"id": 1480951591091,
 		"icon": "Sleep",
 		"name": "睡觉",
 		"val": "睡觉",
+		"desc": "我到底要不要上厕所呢",
 		"hide": false
 	}, {
 		"id": 1480951591093,
 		"icon": "Walk",
 		"name": "漫步",
 		"val": "漫步",
+		"desc": "下毛毛雨时我会在漫步",
 		"hide": false
 	}, {
 		"id": 1480951591077,
 		"icon": "Bug",
 		"name": "修Bug",
 		"val": "修Bug",
+		"desc": "这是个好Bug，可是该怎么修",
 		"hide": true
 	}, {
 		"id": 1480951591079,
 		"icon": "Computer",
 		"name": "修电脑",
 		"val": "修电脑",
+		"desc": "修好了，我就不留下过夜了",
 		"hide": true
 	}, {
 		"id": 1480951591082,
 		"icon": "Google",
 		"name": "股沟",
 		"val": "股沟",
+		"desc": "现实中的保护伞",
 		"hide": false
 	}, {
 		"id": 1480951591088,
 		"icon": "Science",
 		"name": "科学",
 		"val": "科学",
+		"desc": "也许科学的最后是克苏鲁",
 		"hide": false
 	}, {
 		"id": 1480951591092,
 		"icon": "SM",
 		"name": "SM",
 		"val": "SM",
+		"desc": "我不是变态，我只是女权主义者",
 		"hide": false
 	}],
 	"words": [{
@@ -249,6 +266,11 @@ const data = {
 		"val": "Six",
 		"id": 1480951591178,
 		"hide": false
+	},{
+		"name": "No.7",
+		"val": "Seven",
+		"id": 1480951591179,
+		"hide": true
 	}],
 	"web": {
 		"isLoaded": true,

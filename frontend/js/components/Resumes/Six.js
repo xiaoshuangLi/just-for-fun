@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {Avatar, IconSurround, Info, Hobbys, AttrList} from '../common'
+import {Avatar, IconSurround, Info, Hobbys, AttrList, CanvasBg} from '../common'
 
 export default class Six extends Component {
 	constructor(props) {
@@ -8,12 +8,13 @@ export default class Six extends Component {
 	}
 
 	render(){
-		const {present} = this.props
-		const bless = 'DUOVEM'
+		const {present, detail} = this.props
+		const bless = 'DOVEME'
 
 		return(
 			<div className="resume-body six-body no-border">
 			  <div className="part-body">
+			    <CanvasBg className="part-canvas" present={present} stop={detail.id != present.web.detail}/>
 			    <div className="part-1">
 			      <div className="part-name">{present.name.val}</div>
 			      <div className="part-wanna">
@@ -65,7 +66,6 @@ export default class Six extends Component {
 			          <div className="part-desc part-experience" title={present.experience.val}>{present.experience.val}</div>
 			        </div>
 			      </div>
-
 			    </div>
 			  </div>
 			  

@@ -14,10 +14,9 @@ $pR: 1em * 50/12;
 		margin-left: -25%;
 		transform-origin: 50% 0;
 		border-bottom: 2px solid #333;
-		shape-outside: polygon(50% 0%, 0% 100%, 100% 100% );
-		clip-path: polygon(50% 0%, 0% 100%, 100% 100% );
 		transition: .3s;
 
+    @include shape(polygon(50% 0%, 0% 100%, 100% 100% ));
 		@extend %absolute;
 		@extend %ohidden;
 		@extend %z-1;
