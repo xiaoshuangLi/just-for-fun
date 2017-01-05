@@ -145,6 +145,7 @@ $durden: '../img/resumes/Two/durden.svg';
 					@for $i from 0 through 10{
 						&[data-index='#{$i}']{
 							&:before, &:after{
+								will-change: opacity, transform;
 								transition-delay: ($twoRotateTime - 0.45s)*($i);
 							}
 						}
@@ -153,6 +154,8 @@ $durden: '../img/resumes/Two/durden.svg';
 					&:before{
 						opacity: 0;
 						transform:rotateY(180deg);
+
+						will-change: opacity, transform;
 					}
 
 					&:after{
@@ -519,4 +522,10 @@ $durden: '../img/resumes/Two/durden.svg';
 			@extend %relative;
 		}
 	}
+}
+
+@media (max-aspect-ratio: 4/5) {
+  .part-line{
+  	pointer-events: none;
+  }
 }

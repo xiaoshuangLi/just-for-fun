@@ -14,6 +14,7 @@ $resumeHeight: 1px + $resumeBorderTwice + ($resumeWidth - $resumeBorderTwice)/0.
 $calcResumeWidth: $resumeWidth + 50px;
 
 $maxResume: 8;
+$maskFadeNum: 1.5;
 
 .resume-conatiner{
 	padding: 20px 40px 70px;
@@ -33,6 +34,22 @@ $maxResume: 8;
 	@extend %full;
   @extend %fixed;
 	@extend %transparent;
+
+  .resume-body{
+    &.fade-out{
+      animation: maskFadeOut #{1s * $maskFadeNum};
+    }
+    &.fade-out-reverse{
+      animation: maskFadeOutReverse #{1s * $maskFadeNum};
+    }
+    &.fade-in{
+      // animation: maskFadeIn #{1s * $maskFadeNum} infinite alternate;
+      animation: maskFadeIn #{1s * $maskFadeNum};
+    }
+    &.fade-in-reverse{
+      animation: maskFadeInReverse #{1s * $maskFadeNum};
+    }
+  }
 }
 
 .resume-list{
@@ -144,6 +161,85 @@ $fSize: $fSizeNum * 1px;
   .detail-container{
     .resume-body{
       font-size: 8.5px;
+    }
+  }
+}
+
+$maskMax: $maskFadeNum * 36;
+
+@keyframes maskFadeOut{
+  @for $i from 1 through $maskMax {
+    $fadeOutNum: 0.5 * ($i - 1)/($maskMax - 1);
+    $fadeOutNumHalf: 0.5 + $fadeOutNum;
+    $perFadeOutNum: percentage($fadeOutNum);
+    $perFadeOutNumHalf: percentage($fadeOutNumHalf);
+
+    $maskOpacity: 1 - $fadeOutNum*2;
+
+    #{$perFadeOutNum} {
+      -webkit-mask-image: -webkit-gradient(linear, 0 0, 100% 100%, from(rgba(0,0,0, $maskOpacity)), to(rgba(0,0,0,1)));
+    }
+
+    #{$perFadeOutNumHalf} {
+      -webkit-mask-image: -webkit-gradient(linear, $perFadeOutNum * 2 $perFadeOutNum * 2, 100% 100%, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+    }
+  }
+}
+
+@keyframes maskFadeOutReverse{
+  @for $i from 1 through $maskMax {
+    $fadeOutNum: 0.5 * ($i - 1)/($maskMax - 1);
+    $fadeOutNumHalf: 0.5 + $fadeOutNum;
+    $reverseFadeOutNum: 1 - $fadeOutNum * 2;
+    $perFadeOutNum: percentage($fadeOutNum);
+    $perFadeOutNumHalf: percentage($fadeOutNumHalf);
+    $perReverseFadeOutNum: percentage($reverseFadeOutNum);
+
+    $maskOpacity: 1 - $fadeOutNum*2;
+
+    #{$perFadeOutNum} {
+      -webkit-mask-image: -webkit-gradient(linear, 0 0, 100% 100%, from(rgba(0,0,0, 1)), to(rgba(0,0,0, $maskOpacity)));
+    }
+
+    #{$perFadeOutNumHalf} {
+      -webkit-mask-image: -webkit-gradient(linear, 0 0,  $perReverseFadeOutNum  $perReverseFadeOutNum, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    }
+  }
+}
+
+@keyframes maskFadeIn{
+  @for $i from 1 through $maskMax {
+    $fadeOutNum: 0.5 * ($i - 1)/($maskMax - 1);
+    $fadeOutNumHalf: 0.5 + $fadeOutNum;
+    $perFadeOutNum: percentage($fadeOutNum);
+    $perFadeOutNumHalf: percentage($fadeOutNumHalf);
+
+    #{$perFadeOutNum} {
+      -webkit-mask-image: -webkit-gradient(linear, 0 0, $perFadeOutNum * 2 $perFadeOutNum * 2, from(rgba(0,0,0,$fadeOutNum * 2)), to(rgba(0,0,0, 0)));
+    }
+
+    #{$perFadeOutNumHalf} {
+      -webkit-mask-image: -webkit-gradient(linear, 0 0, 100% 100%, from(rgba(0,0,0,1)), to(rgba(0,0,0, $fadeOutNum * 2)));
+    }
+  }
+}
+
+@keyframes maskFadeInReverse{
+  @for $i from 1 through $maskMax {
+    $fadeOutNum: 0.5 * ($i - 1)/($maskMax - 1);
+    $fadeOutNumHalf: 0.5 + $fadeOutNum;
+    $reverseFadeOutNum: 1 - $fadeOutNum * 2;
+
+    $perFadeOutNum: percentage($fadeOutNum);
+    $perFadeOutNumHalf: percentage($fadeOutNumHalf);
+    $perReverseFadeOutNum: percentage($reverseFadeOutNum);
+
+    #{$perFadeOutNum} {
+      -webkit-mask-image: -webkit-gradient(linear, $perReverseFadeOutNum $perReverseFadeOutNum, 100% 100%, from(rgba(0,0,0, 0)), to(rgba(0,0,0, 1)));
+    }
+
+    #{$perFadeOutNumHalf} {
+      -webkit-mask-image: -webkit-gradient(linear, 0 0, 100% 100%, from(rgba(0,0,0, $fadeOutNum * 2)), to(rgba(0,0,0, 1)));
     }
   }
 }

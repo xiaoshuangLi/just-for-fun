@@ -391,6 +391,10 @@ body{
   opacity: 0;
 }
 
+.mask-hide{
+  -webkit-mask-image: -webkit-gradient(linear, 0 0, 0 0, from(rgba(0,0,0,0)), to(rgba(0,0,0,0)));
+}
+
 .table{
   display: table;
   @extend %w100;
