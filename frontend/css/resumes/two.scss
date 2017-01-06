@@ -313,12 +313,13 @@ $durden: '../img/resumes/Two/durden.svg';
 
 	.part-words{
 		font-weight: bold;
-		height: 18px;
+		height: 1.5em;
 		color: rgba(0,0,0,.3);
 
 		@extend %ohidden;
 
 		.item{
+			margin-bottom: 5px;
 			@extend %inline-block;
 		}
 

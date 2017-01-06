@@ -145,7 +145,7 @@ $maskFadeNum: 1.5;
 $fSizeNum: 12;
 $fMaxWidthNum: 1280;
 
-$fMinWidth: 360px;
+$fMinWidth: 359px;
 $fMaxWidth: $fMaxWidthNum * 1px;
 $fSize: $fSizeNum * 1px;
 
@@ -157,7 +157,7 @@ $fSize: $fSizeNum * 1px;
   }
 }
 
-@media (max-width: #{$fMinWidth}) {
+@media (max-width: #{$fMinWidth}){
   .detail-container{
     .resume-body{
       font-size: 8.5px;
