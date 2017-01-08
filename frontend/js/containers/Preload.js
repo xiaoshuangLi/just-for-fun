@@ -10,7 +10,7 @@ class Preload extends Jelly {
 
 		return (
 			<div className="loading-container">
-			  <Resume width="50%" height="50%"/>
+			  <Resume width="60px" height="60px"/>
 			</div>
 		)
 	}

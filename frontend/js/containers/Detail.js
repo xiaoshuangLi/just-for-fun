@@ -5,7 +5,7 @@ import { TweenMax } from 'gsap'
 import { Slowshow } from '../components/animation'
 import list from '../components/Resumes'
 
-import { getFromArr, getChildrenByLevel, timeout} from '../common'
+import { getFromArr, getChildrenByLevel, timeout, getStyles} from '../common'
 
 export default class Resume extends Slowshow {
 	constructor(props) {
@@ -42,29 +42,33 @@ export default class Resume extends Slowshow {
 
 	className(ani = 'fade-out', hide = true, reverse = false){
 		let ele = findDOMNode(this.refs.container)
+		let res = `${ani}${reverse?'-reverse':''}`;
 
 		this.anis.map(className => {
 			ele.classList.remove(className)
 		})
 
-		ele.classList.add(`${ani}${reverse?'-reverse':''}`)
+		res && ele.classList.add(`${ani}${reverse?'-reverse':''}`)
 		hide && ele.classList.add('mask-hide')
 	}
 
 	animate(reverse = false, cb){
 		let self = this
 		let ele = findDOMNode(self.refs.container)
+		let duration = parseFloat(getStyles(ele, 'animationDuration')) || 1
 
 		self.className('fade-out', true, reverse)
+		duration *= 1000
 
     timeout(function(){
     	cb&&cb();
 			self.className('fade-in', false, reverse)
-    }, 1500)
+    }, duration)
 
     timeout(function(){
     	self.animating = false
-    }, 3000)
+			self.className('', false)
+    }, duration * 2)
 	}
 
 	switch(index = 0) {

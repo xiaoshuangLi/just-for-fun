@@ -1,4 +1,4 @@
-import { loadAll } from '../common' 
+import { loadAll , timeout} from '../common' 
 import { Valid, Invalid } from './types'
 
 import {
@@ -60,7 +60,7 @@ export function loads(list = []) {
 
 		const urls = list.map((item = '') => (item.url || item))
 		loadAll(urls, () => {
-			return setTimeout(() => {
+			return timeout(() => {
 				dispatch({ type: `${Ed}_web`, val: { isLoaded: true }})
 			}, 1000)
 		})

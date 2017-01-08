@@ -18,8 +18,6 @@ import Walk from '../../img/icon/walk_inline.svg'
 import Resume from '../../img/icon/resume_inline.svg'
 import Style from '../../img/icon/style_inline.svg'
 
-// import Test from '../../img/icon/test_inline.svg'
-
 import Bird from '../../img/icon/bird_inline.svg'
 import Ship from '../../img/icon/ship_inline.svg'
 import Windmill from '../../img/icon/windmill_inline.svg'

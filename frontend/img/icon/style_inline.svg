@@ -4,5 +4,11 @@
       <stop offset="0%"   stop-color="#05a"/>
       <stop offset="100%" stop-color="#0a5"/>
     </linearGradient>
+
+    <filter id="bubble">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="bubble" />
+      <feComposite in="SourceGraphic" in2="bubble" operator="atop"/>
+    </filter>
   </defs>
 </svg>

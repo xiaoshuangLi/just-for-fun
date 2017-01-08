@@ -2,6 +2,8 @@ import react, { Component } from 'react'
 import { findDOMNode } from 'react-dom'
 import { TweenMax } from 'gsap'
 
+import { getStyles, timeout } from '../../common'
+
 export default class Slowshow extends Component {
 	constructor(props) {
 		super(props)
@@ -9,10 +11,15 @@ export default class Slowshow extends Component {
 
 	componentWillEnter(cb){
 		const el = findDOMNode(this)
-		TweenMax.to(el, .5, { 
-			opacity: 1,
-			onComplete: cb
-		})
+		el.classList.add('opacity-active')
+
+		let duration = getStyles(el, 'transitionDuration')
+		duration = parseFloat(duration) * 1000
+
+		timeout(() => {
+			cb()
+			el.style.opacity = 1
+		}, duration)
 	}
 
 	componentWillLeave(cb) {

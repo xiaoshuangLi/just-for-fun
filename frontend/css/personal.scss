@@ -1,4 +1,5 @@
 $bodyMinWidth: 260px;
+$bodyMinHeight: 540px;
 $contentWidth: $bodyMinWidth - 20px;
 
 .personal-container{
@@ -31,6 +32,7 @@ $contentWidth: $bodyMinWidth - 20px;
 
 	.input-list-body{
 		min-width: $bodyMinWidth;
+		min-height: $bodyMinHeight;
 		margin-bottom: 30px;
 	}
 }

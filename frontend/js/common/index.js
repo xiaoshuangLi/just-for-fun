@@ -155,6 +155,21 @@ export function timeout(cb, time) {
 	}, time)
 }
 
+export function getStyles(ele = '', attr = '') {
+	if(!ele || !attr) {
+		return '';
+	}
+	let view = ele.ownerDocument.defaultView
+
+	if ( !view || !view.opener ) {
+		view = window
+	}
+
+	let res = view.getComputedStyle(ele)
+
+	return res[attr] || ''
+}
+
 export const validAttrs = {
   name: {
   	minLength: 0,
