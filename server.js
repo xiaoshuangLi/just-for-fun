@@ -7,7 +7,7 @@ var webpackHotMiddleware = require('webpack-hot-middleware')
 var config = require('./webpack.config')
 
 var app = new (require('express'))()
-var port = 8082;
+var port = 8111;
 var isPro = global.env == 'production';
 
 if(!isPro) {
