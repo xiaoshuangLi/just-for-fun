@@ -11,7 +11,7 @@ export default class Res extends Component {
 
 		return (
 			<TransitionGroup>
-				{ show && children }
+				{ show ? children : null }
 			</TransitionGroup>
 		)
 	}

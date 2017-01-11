@@ -1,3 +1,4 @@
+import Item from './Item'
 import One from './One'
 import Two from './Two'
 import Three from './Three'
@@ -7,6 +8,7 @@ import Six from './Six'
 import Seven from './Seven'
 
 const list = {
+	Item,
 	One,
 	Two,
 	Three,

@@ -404,9 +404,8 @@ body{
   -webkit-mask-image: -webkit-gradient(linear, 0 0, 0 0, from(rgba(0,0,0,0)), to(rgba(0,0,0,0)));
 }
 
-.opacity-active{
-  opacity: 1;
-  transition: 0.5s linear;
+.opacity-ani{
+  animation: opacityFade 0.7s ease-in;
 }
 
 .table{
@@ -442,5 +441,15 @@ body{
       width: 100%;
       padding: 0 15px;
     }
+  }
+}
+
+@keyframes opacityFade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

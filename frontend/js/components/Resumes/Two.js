@@ -9,10 +9,10 @@ export default class Two extends Component{
 	}
 
 	render(){
-		const { present } = this.props;
+		const { present, className = '' } = this.props;
 
 		return(
-			<div className="resume-body two-body">
+			<div className={`resume-body two-body ${className}`}>
 			  <div className="wave part-1">
 			    <Words text="wanna be"/>
 			    <div className="part-title row">

@@ -9,10 +9,10 @@ export default class Five extends Component {
 	}
 
 	render(){
-		const {present} = this.props
+		const {present, className = ''} = this.props
 
 		return (
-			<div className="resume-body five-body">
+			<div className={`resume-body five-body ${className}`}>
 			  <div className="part-1">
 			    <div className="title">
 			      <div>JSUT FOR FUN</div>

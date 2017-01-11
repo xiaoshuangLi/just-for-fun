@@ -16,17 +16,19 @@ export default class Resume extends Slowshow {
 		this.touchStart = this.touchStart.bind(this)
 		this.touchMove = this.touchMove.bind(this)
 
+    this.animating = false,
+		this.start = {x: 0, y: 0}
+    this.anis = ['fade-in', 'fade-in-reverse', 'fade-out', 'fade-out-reverse']
 		this.keys = [
 			{ val: 1, code: [39, 40]},
 			{ val: -1, code: [37, 38]}
 		]
 
-		this.start = {x: 0, y: 0}
-    
-    this.anis = ['fade-in', 'fade-in-reverse', 'fade-out', 'fade-out-reverse']
-    this.animating = false
-		this.mAnimation = false
-		this.mHide = false
+		this.state = {
+			animation: '',
+			animationReverse: false,
+			hide: false
+		}
 	}
 
 	edit(){
@@ -40,16 +42,12 @@ export default class Resume extends Slowshow {
 		ele.focus()
 	}
 
-	className(ani = 'fade-out', hide = true, reverse = false){
-		let ele = findDOMNode(this.refs.container)
-		let res = `${ani}${reverse?'-reverse':''}`;
-
-		this.anis.map(className => {
-			ele.classList.remove(className)
+	className(animation = 'fade-out', hide = true, animationReverse = false){
+		this.setState({
+			animation,
+			animationReverse,
+			hide
 		})
-
-		res && ele.classList.add(`${ani}${reverse?'-reverse':''}`)
-		hide && ele.classList.add('mask-hide')
 	}
 
 	animate(reverse = false, cb){
@@ -89,7 +87,7 @@ export default class Resume extends Slowshow {
 		let len = list.length
 
 		curr = (index + curr + len)%len
-		this.animate(index < 0, function(){
+		this.animate(index < 0, () => {
 			actions.edit({detail: list[curr].id}, 'web')
 		})
 	}
@@ -126,6 +124,7 @@ export default class Resume extends Slowshow {
 
 	render(){
 		const { present } = this.props
+		const { hide, animation, animationReverse } = this.state
 		const { web, resumes} = present
 
 		const item = getFromArr(resumes, 'id', web.detail)
@@ -134,7 +133,7 @@ export default class Resume extends Slowshow {
 		return (
 			<div className="detail-container" tabIndex="1" onTouchMove={e => this.touchMove(e)} onTouchStart={e => this.touchStart(e)} onKeyDown={e => this.keyDown(e)}>
 			  <div className="bg" onClick={this.edit}></div>
-			  <Resume present={present} className='fight' detail={item} ref='container'/>
+			  <Resume present={present} className={`fight ${animation}${animationReverse?'-reverse':''} ${hide?'-reverse':''} `} detail={item} ref='container'/>
 			</div>
 		)
 	}

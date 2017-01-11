@@ -9,7 +9,7 @@ export default class One extends Component {
 	}
 
 	render(){
-		const { present, className} = this.props
+		const { present, className = ''} = this.props
 
 		return (
 			<div className={`resume-body one-body ${className}`}>

@@ -8,10 +8,10 @@ export default class Six extends Component {
 	}
 
 	render(){
-		const {present, detail} = this.props
+		const {present, detail, className = ''} = this.props
 
 		return(
-			<div className="resume-body seven-body no-border">
+			<div className={`resume-body seven-body no-border ${className}`}>
 			  <div className="part-1">
 			    <div className="part-avatar">
 				    <Avatar present= {present}/>

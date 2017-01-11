@@ -12,10 +12,10 @@ export default class Four extends Component {
 		const { Bird, Ship, Windmill } = icons
 		const list = ['music', 'love', 'happy', 'movie', 'game', 'friend']
 
-		const { present } = this.props 
+		const { present, className = '' } = this.props 
 		
 		return (
-			<div className="resume-body four-body">
+			<div className={`resume-body four-body ${className}`}>
 			  <div className="part-1 text-center">
 			    <span className="title">JSUT</span>
 			    <Polygon list={list}  text='FOR' className="ed" animation="fade"/>

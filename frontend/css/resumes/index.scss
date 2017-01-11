@@ -21,7 +21,6 @@ $maskFadeNum: 1;
 	transition: .5s;
 	filter: blur(0px);
 
-	@extend %transparent;
 	@extend %transitionlight;
 
 	&.blur{
@@ -33,7 +32,6 @@ $maskFadeNum: 1;
 .detail-container{
 	@extend %full;
   @extend %fixed;
-	@extend %transparent;
 
   .resume-body{
     &.fade-out{
@@ -45,7 +43,6 @@ $maskFadeNum: 1;
       animation-fill-mode: forwards;
     }
     &.fade-in{
-      // animation: maskFadeIn #{1s * $maskFadeNum} infinite alternate;
       animation: maskFadeIn #{1s * $maskFadeNum};
     }
     &.fade-in-reverse{

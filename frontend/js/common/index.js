@@ -170,6 +170,36 @@ export function getStyles(ele = '', attr = '') {
 	return res[attr] || ''
 }
 
+export class Animate {
+	constructor(props) {
+		const { func, stopFunc, cb } = props
+
+		this.func = func
+		this.stopFunc = stopFunc
+		this.cb = cb
+
+		this.start = this.start.bind(this)
+	}
+
+	start(){
+		let self = this
+		const { func, stopFunc, cb, start, id} = self
+		let stop = stopFunc()
+
+		func && func()
+
+		if(stop && id) {
+			cb && cb()
+			window.cancelAnimationFrame(id)
+			self = null
+
+			return
+		}
+
+		this.id = window.requestAnimationFrame(start)
+	}
+}
+
 export const validAttrs = {
   name: {
   	minLength: 0,

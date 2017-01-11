@@ -10,6 +10,7 @@ import Words from './Words'
 import Hobbys from './Hobbys'
 import IconSurround from './IconSurround'
 import CanvasBg from './CanvasBg'
+import Delay from './Delay'
 
 export {
 	AttrList,
@@ -23,5 +24,6 @@ export {
 	Words,
 	Hobbys,
 	IconSurround,
-	CanvasBg
+	CanvasBg,
+	Delay
 }

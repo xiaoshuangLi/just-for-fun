@@ -6,7 +6,6 @@ $contentWidth: $bodyMinWidth - 20px;
 	overflow-y: scroll;
 
 	@extend %bg;
-  @extend %transparent;
   @extend %noscroll;
 }
 

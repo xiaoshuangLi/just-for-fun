@@ -1,33 +1,44 @@
 import React, { Component } from 'react'
-import {Slowshow} from '../components/animation'
 
+import {Delay} from '../components/common'
+import Loading from '../components/Loading'
 import list from '../components/Resumes'
 
-export default class Resumes extends Slowshow {
+const {Item} = list
+
+export default class Resumes extends Component {
   constructor(props) {
     super(props)
 
-    this.detail = this.detail.bind(this);
+    this.showDetail = this.showDetail.bind(this)
   }
 
-  detail(id){
+  showDetail(id){
     const { actions, present } = this.props
     actions.edit({detail: id}, 'web')
   }
 
   render(){
-  	const { present } = this.props;
+    const { showDetail, props} = this
+  	const { present } = props;
     const { web, resumes } = present
     const { isEditing, detail } = web
   	
   	return(
       <div className={`resume-conatiner ${(isEditing || detail)&&'blur'} ${web.bg && 'has-bg'}`}>
         <div className="resume-list">
-          { resumes.filter(item => !item.hide).map(item => {
+          { resumes.filter(item => !item.hide).map((item, index) => {
             const Resume = list[item.val]
-            return (<div className="resume-item" onClick={(e) => this.detail(item.id)} key={item.id}>
-              <Resume present={present} detail={item}/>
-            </div>)
+
+            return (
+              <Delay key={item.id} wait={index * 150}>
+                <Loading show={true}>
+                  <Item click={()=>{ showDetail(item.id)}} ready={true}>
+                    <Resume present={present} detail={item}/>
+                  </Item>
+                </Loading>
+              </Delay>
+            )
           }) }
         </div>
       </div>

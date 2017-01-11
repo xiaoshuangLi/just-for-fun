@@ -8,11 +8,11 @@ export default class Six extends Component {
 	}
 
 	render(){
-		const {present, detail} = this.props
+		const {present, detail, className = ''} = this.props
 		const bless = 'DOVEME'
 
 		return(
-			<div className="resume-body six-body no-border">
+			<div className={`resume-body six-body no-body ${className}`}>
 			  <div className="part-body">
 			    <CanvasBg className="part-canvas" present={present} stop={detail.id != present.web.detail}/>
 			    <div className="part-1">
