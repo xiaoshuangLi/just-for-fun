@@ -245,35 +245,38 @@ $maskMax: $maskFadeNum * 36;
       -webkit-mask-image: -webkit-gradient(linear, 0 0, 100% 100%, from(rgba(0,0,0, $fadeOutNum * 2)), to(rgba(0,0,0, 1)));
     }
   }
-}
+}  
 
-@supports not (-webkit-mask-image: -webkit-gradient(linear, 0 0, 0 0, from(rgba(0,0,0,0)), to(rgba(0,0,0,0)))) {
-  @mixin maskFade($a: 1, $b: 0) {
-    0%{
-      opacity: $a;
-    }
-    100%{
-      opacity: $b;
-    }
-  }
-
+@mixin maskAnimation{
   .mask-hide{
     opacity: 0;
   }
 
   @keyframes maskFadeOut{
-    @include maskFade;
+    @include opacityFade;
   } 
 
   @keyframes maskFadeOutReverse{
-    @include maskFade;
+    @include opacityFade;
   }
 
   @keyframes maskFadeIn{
-    @include maskFade(0, 1);
+    @include opacityFade(0, 1);
   } 
 
   @keyframes maskFadeInReverse{
-    @include maskFade(0, 1);
+    @include opacityFade(0, 1);
   }
+}
+
+@supports not (-webkit-mask-image: -webkit-gradient(linear, 0 0, 0 0, from(rgba(0,0,0,0)), to(rgba(0,0,0,0)))) {
+  @include maskAnimation;
+}
+
+@media (max-aspect-ratio: 4/5) {
+  @include maskAnimation;
+}
+
+@media (orientation: landscape) and (max-height: 480px) {
+  @include maskAnimation;
 }

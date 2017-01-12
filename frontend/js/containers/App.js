@@ -25,6 +25,7 @@ class App extends Component {
 	componentDidMount() {
 		this.start()
 		this.loads()
+		this.disableMobileTouch()
 	}
 
 	start(){
@@ -38,6 +39,15 @@ class App extends Component {
 		imgs.push(present.avatar.val)
 		present.web.bg && !!~present.web.bg.indexOf('http') && imgs.push(present.web.bg)
 		actions.loads(imgs)
+	}
+
+	disableMobileTouch(){
+		document.addEventListener('touchmove', function(e){
+			if(window.disableTouch) {
+				e.preventDefault()
+				return
+			}
+		}, false)
 	}
 
 	leftClick(){

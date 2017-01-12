@@ -58,6 +58,15 @@ $grey: #f3f3f3;
   margin-left: $ml;
 }
 
+@mixin opacityFade($a: 1, $b: 0) {
+  0%{
+    opacity: $a;
+  }
+  100%{
+    opacity: $b;
+  }
+}
+
 // Public Attr
 %absolute{
   position: absolute;
@@ -445,11 +454,5 @@ body{
 }
 
 @keyframes opacityFade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  @include opacityFade(0, 1);
 }

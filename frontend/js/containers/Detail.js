@@ -15,6 +15,7 @@ export default class Resume extends Slowshow {
 		this.keyDown = this.keyDown.bind(this)
 		this.touchStart = this.touchStart.bind(this)
 		this.touchMove = this.touchMove.bind(this)
+		this.touchEnd = this.touchEnd.bind(this)
 
     this.animating = false,
 		this.start = {x: 0, y: 0}
@@ -104,7 +105,12 @@ export default class Resume extends Slowshow {
 	}
 
 	touchStart(e){
+		window.disableTouch = true
 		this.start = {x: e.touches[0].clientX, y: e.touches[0].clientY}
+	}
+
+	touchEnd(e) {
+		window.disableTouch = false
 	}
 
 	touchMove(e){
