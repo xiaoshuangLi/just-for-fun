@@ -11,6 +11,7 @@ import Hobbys from './Hobbys'
 import IconSurround from './IconSurround'
 import CanvasBg from './CanvasBg'
 import Delay from './Delay'
+import MaskFade from './MaskFade'
 
 export {
 	AttrList,
@@ -25,5 +26,6 @@ export {
 	Hobbys,
 	IconSurround,
 	CanvasBg,
-	Delay
+	Delay,
+	MaskFade
 }

@@ -2,14 +2,11 @@ $peroffset: (pow(2, 0.5) - 1)/2;
 $offset: percentage($peroffset);
 $offsetPX: 0px;
 
-.left-icon{
+%angleIcon{
 	width: 45px;
 	height: 45px;
-	border-radius: 0 0 5px 0;
   box-shadow: 1px 1px 5px rgba(0,0,0, .2);
   z-index: 5;
-  left: 0;
-  top: 0;
 
 	@extend %fixed;
 	@extend %inline-block;
@@ -19,7 +16,7 @@ $offsetPX: 0px;
 	.top,.bottom{
 		width: 200%;
     height: 200%;
-    transform: rotate(45deg);
+
 		@extend %absolute;
 
 		.icon{
@@ -28,18 +25,10 @@ $offsetPX: 0px;
 
 			@extend %absolute;
 
-			&:first-child{
-		    top: 50%;
-			}
-		}
+			&:before{
+		    transition: .2s;
 
-		&:hover{
-			.icon{
-		    transform: translate(-50%, -50%) rotate(-45deg);
-
-		    &.fa-times-circle{
-			    transform: translate(-50%, -50%) rotate(45deg);
-		    }
+				@extend %inline-block;
 			}
 		}
 
@@ -54,6 +43,36 @@ $offsetPX: 0px;
 			
 			.icon{
 				@extend %ifred;
+			}
+		}
+  }
+}
+
+%leftIcon {
+	border-radius: 0 0 5px 0;
+  left: 0;
+  top: 0;
+
+	@extend %angleIcon;
+
+	.top,.bottom{
+    transform: rotate(45deg);
+
+		.icon{
+			&:first-child{
+		    top: 50%;
+			}
+		}
+
+		&:hover{
+			.icon{
+				&:before{
+			    transform: rotate(-45deg);
+				}
+
+		    &.fa-times-circle:before{
+			    transform: rotate(45deg);
+		    }
 			}
 		}
 	}
@@ -97,4 +116,86 @@ $offsetPX: 0px;
 	    right: 75%;
     }
 	}
+}
+
+%rightIcon{
+	border-radius: 0 0 0 5px;
+  right: 0;
+  top: 0;
+
+	@extend %angleIcon;
+
+	.top,.bottom{
+    transform: rotate(135deg);
+
+		.icon{
+			&:first-child{
+		    top: 50%;
+			}
+
+			&:before{
+				transform: rotate(90deg)
+			}
+		}
+
+		&:hover{
+			.icon{
+				&:before{
+			    transform: rotate(225deg);
+				}
+
+		    &.fa-times-circle:before{
+			    transform: rotate(45deg);
+		    }
+			}
+		}
+	}
+
+	.top{
+    left: calc(#{$offset} + #{$offsetPX});
+    bottom: calc(#{$offset} + #{$offsetPX});
+    transition: .6s;
+
+    &.rotate{
+    	transform: rotate(225deg);
+    }
+
+    .icon:first-child{
+	    left: 85%;
+    }
+
+    .icon:nth-child(2){
+	    top: 15%;
+	    left: 50%;
+
+	    &.fa-times-circle{
+	    	&:before{
+				  font-size: 1.1em;
+	    		width: 11.5px;
+	    		height: 11.5px;
+
+	    		@extend %inline-block;
+	    	}
+	    }
+    }
+	}
+
+	.bottom{
+		background-color: white;
+
+    top: calc(#{$offset} + #{$offsetPX});
+    right: calc(#{$offset} + #{$offsetPX});
+
+    .icon{
+	    right: 75%;
+    }
+	}
+}
+
+.left-icon{
+	@extend %leftIcon;
+}
+
+.right-icon{
+	@extend %rightIcon;
 }

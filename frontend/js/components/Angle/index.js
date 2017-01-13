@@ -8,13 +8,15 @@ export default class Angle extends Flod {
 		const {isEditing, valid, detail} = web
 
 		return (
-			<div className="left-icon angle">
-				{left && <div className={`top pointer ${(isEditing || detail)&&'active'} ${detail&&'rotate'} ${!valid&&'invalid'}`} onClick={leftClick}>
-					<div className="icon fa fa-pencil-square"></div>
-					<div className="icon fa fa-times-circle"></div>
-				</div>}
-				{right && <div onClick={rightClick} className="bottom"></div>}
-      </div>
+			<div>
+				<div className="left-icon angle">
+					{left && <div className={`top pointer ${(isEditing || detail)?'active':''} ${detail?'rotate':''} ${!valid?'invalid':''}`} onClick={leftClick}>
+						<div className="icon fa fa-pencil-square"></div>
+						<div className="icon fa fa-times-circle"></div>
+					</div>}
+					{right && <div onClick={rightClick} className="bottom"></div>}
+	      </div>
+			</div>
 		)
 	}
 }
