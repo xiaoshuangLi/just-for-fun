@@ -35,8 +35,17 @@ export function createItem(name = 'fun', attrs = ['name', 'val', 'id']){
 			})
 		},
 		[`${Ed}_${name}`](state, action) {
-			if(state.id != action.id) {
+			let { id, valAsId, val } = state
+			let validVal = valAsId && val == action.id
+
+			if(id != action.id && !validVal) {
 				return state
+			}
+
+			if(validVal) {
+				let aVal = action.val
+				aVal.val = aVal.id
+				delete aVal.id
 			}
 
 			return Object.assign({}, state, action.val)

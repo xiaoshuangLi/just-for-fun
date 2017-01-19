@@ -1,27 +1,28 @@
 import React, { Component } from 'react'
 import { findDOMNode } from 'react-dom'
-import { TweenMax } from 'gsap'
+import { TweenLite } from 'gsap'
 
 import Common from './Common'
 
-export default class Jelly extends Common {
+export default class Slide extends Common {
   constructor(props) {
     super(props)
   }
 
   aIn(cb){
     const el = findDOMNode(this)
-    TweenMax.from(el, 1, {
-      ease: Elastic.easeOut.config(1, 0.6), 
-      css: { scale: 0 },
+    TweenLite.fromTo(el, 0.5, {
+      x: '100%',
+    },{
+      x: '0%',
       onComplete: cb
     })
   }
 
   aOut(cb){
     const el = findDOMNode(this);
-    TweenMax.to(el, 0.3, {
-      opacity:  0,
+    TweenLite.to(el, 0.5, {
+      x: '100%',
       onComplete: cb
     })
   }

@@ -41,19 +41,7 @@ export function del(id, name = 'fun') {
 	}
 }
 
-function load(url, cb) {
-	if (!url || !cb) {
-		return cb && cb()
-	}
-
-	let img = new Image()
-	img.src = url
-
-	img.onload = cb
-	img.onerror = cb
-}
-
-export function loads(list = []) {
+export function loads(list = [], cb) {
 	return (dispatch, getState) => {
 		let num = 0
 		list = list instanceof Array ? list : [list]
@@ -62,6 +50,7 @@ export function loads(list = []) {
 		loadAll(urls, () => {
 			return timeout(() => {
 				dispatch({ type: `${Ed}_web`, val: { isLoaded: true }})
+				cb && cb()
 			}, 1000)
 		})
 	}

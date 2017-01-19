@@ -1,11 +1,11 @@
-import data from './data'
+import data, { dWeb, dPrizeOpts } from './data'
 import icons from './icons'
 import imgs from './imgs'
 
 import SnowFlake from './SnowFlake'
 import canvas from './canvas'
 
-const { dWeb, resumes } = data
+const { resumes } = data
 
 export {
 	data,
@@ -51,14 +51,41 @@ export function loadAll(list = [], cb){
 	})
 }
 
+export function getExtendPrizes(state, data){
+	return data.prizes.map(item => {
+		let res = getFromArr(state.prizes, 'id', item.id)
+		return res.id ? res : item
+	})
+}
+
+export function getDefaultOpts(full, state, data){
+	let count = state.prizeOpts ? state.prizeOpts.count : 0
+	let prizeOpts = Object.assign({}, dPrizeOpts, {count, curr: new Set()})
+
+	let res = {
+		web: dWeb,
+		resumes,
+		prizeOpts
+	}
+  
+  full && (res.prizes = getExtendPrizes(state, data))
+
+  return res 
+}
+
 export function getState(){
 	let data = window.localStorage.getItem('JFF')
 	return  JSON.parse(data || '{}')
 }
 
 export function setState(data = {}){
-	data = Object.assign({}, data, {web: dWeb, resumes})
+	data = Object.assign({}, data, getDefaultOpts(false, data))
 	window.localStorage.setItem('JFF', JSON.stringify(data))
+}
+
+export function getPresent(){
+	const state = getState()
+	return Object.assign({}, data, state, getDefaultOpts(true, state, data))
 }
 
 export function isUndefined(val, dVal = '') {
@@ -133,8 +160,9 @@ export function getChildrenByLevel(ele = document, level = 1, parent = 0) {
 
 export function getFromArr(arr = [],attr = 'id', val = '', index = false ) {
 
-	for( let v = 0, l = arr.length; v <= l; v++ ) {
+	for( let v = 0, l = arr.length; v < l; v++ ) {
 		let item = arr[v]
+
 		if(item[attr] === val) {
 			return index ? v : item
 		}
@@ -168,6 +196,16 @@ export function getStyles(ele = '', attr = '') {
 	let res = view.getComputedStyle(ele)
 
 	return res[attr] || ''
+}
+
+export function winPrize(val = '', list = [], cb) {
+	let item = getFromArr(list, 'val', val)
+
+	if(!item.id || item.got) {
+		return;
+	}
+
+	cb && cb(item)
 }
 
 export class Animate {

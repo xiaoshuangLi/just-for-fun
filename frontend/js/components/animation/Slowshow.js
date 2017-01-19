@@ -3,17 +3,18 @@ import { findDOMNode } from 'react-dom'
 import { TweenLite} from 'gsap'
 
 import { getStyles, timeout, Animate} from '../../common'
+import Common from './Common'
 
-export default class Slowshow extends Component {
+export default class Slowshow extends Common {
 	constructor(props) {
 		super(props)
 	}
 
-	fadeIn(cb){
+	aIn(cb){
 		const el = findDOMNode(this)
 
 		el.classList.add('opacity-ani')
-		let duration = getStyles(el, 'animateDuration')
+		let duration = getStyles(el, 'animationDuration')
 		duration = parseFloat(duration) * 1000
 
 		timeout(() => {
@@ -21,15 +22,7 @@ export default class Slowshow extends Component {
 		}, duration)
 	}
 
-	componentWillEnter(cb){
-		this.fadeIn(cb)
-	}
-
-	componentDidMount(cb){
-		this.props.ready && this.fadeIn(cb)
-	}
-
-	componentWillLeave(cb) {
+	aOut(cb){
 		const el = findDOMNode(this)
 
 		TweenLite.to(el, .5, { 

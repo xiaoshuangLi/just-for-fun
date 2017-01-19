@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Flod from '../animation/Flod'
+import { Flod } from '../components/animation'
 
 export default class Angle extends Flod {
 	render(){

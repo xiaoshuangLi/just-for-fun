@@ -1,7 +1,7 @@
 import { Ed } from '../actions/types'
-import { dWeb } from '../common/data'
+import { dPrizeOpts } from '../common/data'
 
-const web = (state = dWeb, action) => {
+const prizeOpts = (state = dPrizeOpts, action) => {
 	const { val } = action
 
 	if(typeof val != 'object') {
@@ -9,11 +9,11 @@ const web = (state = dWeb, action) => {
 	}
 	
 	switch (action.type) {
-		case `${Ed}_web`: 
+		case `${Ed}_prizeOpts`: 
 		  return Object.assign({}, state, val)
 		default: 
 		  return state
 	}
 }
 
-export default web
+export default prizeOpts

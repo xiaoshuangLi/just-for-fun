@@ -21,7 +21,7 @@ export default class HobbyItem extends Component {
 		const Svg = icons[icon]
 
 		return (
-			<div className={`hobby-item ${!data.hide && 'active'}`} onClick={this.toggle}>
+			<div className={`hobby-item ${!data.hide && 'active'}`} onClick={this.toggle} title={data.name}>
 			  <Svg width="50%" height="50%"/>
 			</div>
 		)

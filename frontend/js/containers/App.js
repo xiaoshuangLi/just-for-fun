@@ -5,21 +5,25 @@ import { bindActionCreators } from 'redux'
 import Preload from './Preload'
 import Bg from './Bg'
 
+import AppExtend from './AppExtend'
 import Personal from './Personal'
 import Resumes from './Resumes'
 import Detail from './Detail'
+import Angle from './Angle'
+import Prizes from './Prizes'
 
-import Angle from '../components/Angle'
 import Loading from '../components/Loading'
 
-import { setState , icons, imgs} from '../common'
+import { setState , icons, imgs, timeout, getFromArr} from '../common'
 import * as actions from '../actions'
 
-class App extends Component {
+class App extends AppExtend {
 	constructor(props) {
 		super(props);
-
+    
+    this.setPrize = this.setPrize.bind(this)
 		this.leftClick = this.leftClick.bind(this)
+		this.disableMobileTouch = this.disableMobileTouch.bind(this)
 	}
 
 	componentDidMount() {
@@ -29,16 +33,18 @@ class App extends Component {
 	}
 
 	start(){
-		const { actions } = this.props
+		const { actions , present} = this.props
 		actions.edit({isLoaded: false},	 'web')
 	}
 
 	loads(){
-		const { actions , present} = this.props
+		let self = this
 		let imgs = [...imgs];
+		const { actions , present} = self.props
+
 		imgs.push(present.avatar.val)
 		present.web.bg && !!~present.web.bg.indexOf('http') && imgs.push(present.web.bg)
-		actions.loads(imgs)
+		actions.loads(imgs, self.init)
 	}
 
 	disableMobileTouch(){
@@ -61,6 +67,7 @@ class App extends Component {
 
 		if(isEditing && valid) {
 			setState(present)
+			this.prizePersonal()
 		}
 
 		actions.edit({isEditing: !isEditing},	 'web')
@@ -88,15 +95,17 @@ class App extends Component {
 				</Loading>
 
 				<Loading show={web.detail}>
-					<Detail present={present} actions={actions}/>
+					<Detail present={present} actions={actions} setPrize={this.setPrize}/>
 				</Loading>
 
 				<Loading show={isLoaded}>
-					<Angle left={true} right={true} leftClick={this.leftClick} present={present} />
+					<Angle left={true} right={true} leftClick={this.leftClick} present={present}/>
 				</Loading>
 
+				<Prizes  present={present} actions={actions}/>
+
 				<Loading show={isEditing}>
-				  <Personal present={present} actions={actions}/> 
+				  <Personal present={present} actions={actions} setPrize={this.setPrize}/> 
 				</Loading>
 			</div>
 		)

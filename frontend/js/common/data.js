@@ -239,6 +239,7 @@ const data = {
 	"resumes": [{
 		"name": "第一份简历",
 		"val": "One",
+		"prize": 'Special',
 		"id": 1480951591173,
 		"hide": false
 	},{
@@ -272,11 +273,124 @@ const data = {
 		"id": 1480951591179,
 		"hide": true
 	}],
+	"prizes": [
+	  {
+	  	"id": 1480951591180,
+	  	"val": "Programmer",
+	  	"name": "程序猿",
+	  	"desc": "输入第一个指令",
+	  	"got": false,
+	  	"icon": "Monkey",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591181,
+	  	"val": "Special",
+	  	"name": "有点不一样",
+	  	"desc": "",
+	  	"got": false,
+	  	"icon": "Study",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591182,
+	  	"val": "Name",
+	  	"name": "Hey, 基友",
+	  	"desc": "编辑输入你的名字",
+	  	"got": false,
+	  	"icon": "ListenMusic",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591183,
+	  	"val": "First",
+	  	"name": "初见",
+	  	"desc": "第一次打开简历",
+	  	"got": false,
+	  	"icon": "Screen",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591184,
+	  	"val": "Birthday",
+	  	"name": "生日快乐",
+	  	"desc": "Happy birthday to you.",
+	  	"got": false,
+	  	"icon": "Cake",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591185,
+	  	"val": "MyBirthday",
+	  	"name": "晓爽的生日",
+	  	"desc": "Happy birthday to 晓爽.",
+	  	"got": false,
+	  	"icon": "Muffin",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591186,
+	  	"val": "FuckIE",
+	  	"name": "IE这个挨刀的",
+	  	"desc": "使用IE或者Edge打开",
+	  	"got": false,
+	  	"icon": "Knife",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591187,
+	  	"val": "Friend",
+	  	"name": "我们是朋友吗",
+	  	"desc": "第十次打开网页",
+	  	"got": false,
+	  	"icon": "HandSpock",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591188,
+	  	"val": "Eat",
+	  	"name": "吃了没",
+	  	"desc": "下午六七点打开网页",
+	  	"got": false,
+	  	"icon": "Food",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591189,
+	  	"val": "Morning",
+	  	"name": "早安",
+	  	"desc": "早上八九点打开网页",
+	  	"got": false,
+	  	"icon": "Sun",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591190,
+	  	"val": "Night",
+	  	"name": "早点休息吧",
+	  	"desc": "半夜一两点打开网页",
+	  	"got": false,
+	  	"icon": "Moon",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591191,
+	  	"val": "SM",
+	  	"name": "抖S还是抖M",
+	  	"desc": "选择SM兴趣",
+	  	"got": false,
+	  	"icon": "Nurse",
+	  	"hide": false,
+	  }, {
+	  	"id": 1480951591192,
+	  	"val": "Welcome",
+	  	"name": "Hello world",
+	  	"desc": "第一次打开这个网站",
+	  	"got": false,
+	  	"icon": "",
+	  	"hide": false,
+	  }
+	],
 	"web": {
 		"isLoaded": true,
 		"isEditing": false,
 		"valid": true,
 		"detail": ""
+	},
+	"prizeOpts": {
+		"count": 0,
+		"curr": new Set(),
+		"birthday": "1993-07-05",
+		"name": "晓爽"
 	}
 }
 
@@ -286,6 +400,14 @@ export const dWeb = {
 	valid: true,
 	detail: '',
 	bg: '../img/bg.jpg'
+}
+
+export const dPrizeOpts = {
+	count: 0,
+	curr: new Set(),
+	birthday: "1993-07-05",
+	name: "晓爽",
+	code: 'https://github.com/xiaoshuangLi/just-for-fun'
 }
 
 export default data

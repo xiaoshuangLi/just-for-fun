@@ -7,14 +7,11 @@ import { ActionCreators as UndoActionCreators } from 'redux-undo'
 import App from './containers/App'
 import configureStore from './store/configureStore'
 import {add, edit, toggle, valid} from './actions'
-import { getState , data} from './common'
+import {getPresent} from './common'
 
 import '../css/index.scss'
 
-const {dWeb, resumes} = data
-
-let present = Object.assign({}, data, getState(), {web: dWeb, resumes}) 
-const store = configureStore({present})
+const store = configureStore({present: getPresent()})
 
 // let unsubscribe = store.subscribe(() =>
 // 	console.log(store.getState().present.web)

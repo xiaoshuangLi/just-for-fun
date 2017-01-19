@@ -1,0 +1,60 @@
+.prize-list{
+	top: 0;
+	right: 0;
+	z-index: 6;
+
+	@extend %fixed;
+	@extend %pnone;
+}
+
+.prize-container{
+	margin-top: 5px;
+	width: 200px;
+	padding: 5px 10px;
+	background-color: rgba(white, 0.9);
+	box-shadow: 0 0 3px rgba(0,0,0, .2);
+	border-radius: 5px 0 0 5px;
+
+	.icon{
+		width: 40px;
+		min-width: 40px;
+		height: 40px;
+		background-color: white;
+
+		@extend %relative;
+		@extend %border-radius-50;
+
+		.svg{
+			width: 60%;
+			height: 60%;
+
+			@extend %percenter;
+		}
+	}
+
+	.info{
+		padding-left: 10px;
+
+		.title, .desc{
+			@extend %ellipsis;
+		}
+
+		.desc{
+			opacity: .8;
+			transform: scale(.8);
+			transform-origin: 0 50%;
+		}
+	}
+}
+
+@media (max-aspect-ratio: 4/5) {
+  .prize-container{
+    display: none !important;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 480px) {
+  .prize-container{
+    display: none !important;
+  }
+}

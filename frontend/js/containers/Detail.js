@@ -15,6 +15,19 @@ export default class Resume extends MaskFade(Slowshow) {
 		this.init()
 	}
 
+	componentDidEnter(){
+		const { present, setPrize } = this.props;
+		const { resumes, web } = present
+
+		let item = getFromArr(resumes, 'id', web.detail)
+
+		if(!item.id) {
+			return;
+		}
+
+		item.prize && setPrize(item.prize)
+	}
+
 	edit(){
 		const { actions } = this.props;
 

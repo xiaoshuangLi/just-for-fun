@@ -6,6 +6,34 @@ import {InputItem, SkillItem, HobbyList, WordList} from '../components/Personal'
 
 import {validAttrs, validInput} from '../common'
 
+let attrs = {
+	list: [
+		{ actionType: 'name', lg: true},
+		'avatar',
+		'birthday',
+		'phone',
+		{ type: 'email', actionType: 'email' },
+		'education',
+		'school',
+		{ actionType: 'desc', text: true }
+	],
+	experience: { actionType: 'experience', text: true },
+	editing: { actionType: 'editing' },
+	skill: {
+		data: {
+			val: '专业技能',
+			name: '天赋加点'
+		},
+
+		attrs: {
+			lg: true,
+			disabled: true,
+			actionType: 'skill'
+		}
+	},
+	wanna: {lg: true}
+}
+
 export default class Personal extends Slowshow{
 	constructor(props) {
 		super(props)
@@ -36,34 +64,6 @@ export default class Personal extends Slowshow{
 	render(){
 		const { present, actions} = this.props
 		const { skills } = present
-
-		const attrs = {
-			list: [
-				{ actionType: 'name', lg: true},
-				'avatar',
-				'birthday',
-				'phone',
-				{ type: 'email', actionType: 'email' },
-				'education',
-				'school',
-				{ actionType: 'desc', text: true }
-			],
-			experience: { actionType: 'experience', text: true },
-			editing: { actionType: 'editing' },
-			skill: {
-				data: {
-					val: '专业技能',
-					name: '天赋加点'
-				},
-
-				attrs: {
-					lg: true,
-					disabled: true,
-					actionType: 'skill'
-				}
-			},
-			wanna: {lg: true}
-		}
 
 		return (
 			<div className="personal-container row">
