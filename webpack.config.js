@@ -123,7 +123,7 @@ module.exports = {
   plugins: gPlugins(),
 
   postcss: [
-    require('autoprefixer'),
+    require('autoprefixer')({ browsers: ['last 4 versions'] }),
     require('cssnano')
   ],
 }
