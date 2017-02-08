@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { findDOMNode } from 'react-dom'
-import { TweenMax } from 'gsap'
+import { TweenLite } from 'gsap'
 
 export default class Flod extends Component {
 	constructor(props) {

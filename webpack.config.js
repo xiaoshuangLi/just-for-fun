@@ -15,7 +15,29 @@ if( !global.env){
 function gPlugins(){
   var res = [
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("css/[name].css", {
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        // postcss: function(webpack){
+        //   return [
+        //     require('postcss-smart-import')({
+        //       addDependencyTo: webpack
+        //     }),
+        //     require('autoprefixer')({
+        //       browsers: ['last 4 version']
+        //     }),
+        //     require('cssnano')()
+        //   ];
+        // },
+        postcss: [ 
+          require('autoprefixer')({
+            browsers: ['last 4 version']
+          }),
+          require('cssnano')(),
+        ]
+      }
+    }),
+    new ExtractTextPlugin({
+      filename: "css/[name].css",
       allChunks: true
     }),
     new webpack.DefinePlugin({
@@ -37,7 +59,13 @@ function gPlugins(){
 
   if(pro) {
     res.push(new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false }
+      compress: {
+        warnings: false,
+        collapse_vars: true,
+        reduce_vars: true,
+      },
+      beautify: false,
+      comments: false
     }));
   }
 
@@ -45,8 +73,8 @@ function gPlugins(){
 }
 
 module.exports = {
-  devtool: pro ? 'cheap-module-source-map' : 'source-map',
-  // devtool: 'source-map',
+  // devtool: pro ? 'cheap-module-source-map' : 'source-map',
+  devtool: 'source-map',
 
  //  entry: { 
  //    app: './frontend/js/index.js',
@@ -54,7 +82,7 @@ module.exports = {
  //    dev: 'webpack-hot-middleware/client'
  // },
  
-  entry: pro ? ['./frontend/js/index.js'] : [
+  entry: pro ? './frontend/js/index.js' : [
     'webpack-hot-middleware/client', 
     'webpack/hot/only-dev-server',
     './frontend/js/index.js'
@@ -65,6 +93,10 @@ module.exports = {
     publicPath: '/'
   },
 
+  resolveLoader: {
+    moduleExtensions: ["-loader"]
+  },
+
   // entry: './frontend/html/index.html',
   // output: {
   //   path: __dirname + '/public/html',
@@ -72,17 +104,9 @@ module.exports = {
   //   publicPath: '/public/'
   // },
 
-  devServer: {
-    contentBase: './public',
-    colors: true,
-    historyApiFallBack: true,
-    inline: true,
-    hot: true,
-    compress: true
-  },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -109,21 +133,21 @@ module.exports = {
           'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
       },
-      {
-        test: /\.css$/,
-        loader: pro ? ExtractTextPlugin.extract('style-loader', 'css!postcss') : 'style!css!postcss'
-      },
+      // {
+      //   test: /\.css$/,
+      //   loader: pro ? ExtractTextPlugin.extract('style', 'css!postcss') : 'style!css!postcss'
+      // },
       {
         test: /\.scss$/,
-        loader: pro ? ExtractTextPlugin.extract('style-loader', 'css!sass!postcss') : 'style!css!sass!postcss'
+        use: pro ? ExtractTextPlugin.extract({
+          fallback: 'style', 
+          loader: ['css?minimize', 'sass']
+        }) 
+        : ['style', 'css?minimize', 'sass']
       }
     ]
   },
 
-  plugins: gPlugins(),
 
-  postcss: [
-    require('autoprefixer')({ browsers: ['last 4 versions'] }),
-    require('cssnano')
-  ],
+  plugins: gPlugins()
 }
