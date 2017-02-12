@@ -34,7 +34,6 @@ $maskFadeNum: 1;
   @extend %fixed;
 
   .resume-body{
-    font-size: 1rem;
 
     &.fade-out{
       animation: maskFadeOut #{1s * $maskFadeNum};
@@ -51,6 +50,10 @@ $maskFadeNum: 1;
       animation: maskFadeInReverse #{1s * $maskFadeNum};
     }
   }
+}
+
+.resume-body{
+  font-size: 1rem;
 }
 
 .resume-list{
@@ -149,6 +152,10 @@ $fMaxWidthNum: 1280;
 $fMinWidth: 359px;
 $fMaxWidth: $fMaxWidthNum * 1px;
 $fSize: $fSizeNum * 1px;
+
+html{
+  font-size: 12px;
+}
 
 @media (min-width: #{$fMaxWidth}) {
   html{
