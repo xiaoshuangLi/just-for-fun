@@ -34,6 +34,8 @@ $maskFadeNum: 1;
   @extend %fixed;
 
   .resume-body{
+    font-size: 1rem;
+
     &.fade-out{
       animation: maskFadeOut #{1s * $maskFadeNum};
       animation-fill-mode: forwards;
@@ -149,18 +151,14 @@ $fMaxWidth: $fMaxWidthNum * 1px;
 $fSize: $fSizeNum * 1px;
 
 @media (min-width: #{$fMaxWidth}) {
-  .detail-container{
-    .resume-body{
-      font-size: calc( #{$fSize} + #{$fSizeNum * 1.1} * ((100vw - #{$fMaxWidth}) / #{$fMaxWidthNum} ) );
-    }
+  html{
+    font-size: calc( #{$fSize} + #{$fSizeNum * 1.1} * ((100vw - #{$fMaxWidth}) / #{$fMaxWidthNum} ) );
   }
 }
 
 @media (max-width: #{$fMinWidth}){
-  .detail-container{
-    .resume-body{
-      font-size: 8.5px;
-    }
+  html{
+    font-size: 8.5px;
   }
 }
 
