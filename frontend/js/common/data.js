@@ -43,7 +43,7 @@ const data = {
 		"name": "Wanna Be",
 		"val": "千段攻城狮"
 	},
-	"hobbys": [{
+	"hobbies": [{
 		"id": 1480951591078,
 		"icon": "Camera",
 		"name": "摄像",

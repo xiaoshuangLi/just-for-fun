@@ -92,7 +92,7 @@ export default class Personal extends Slowshow{
 							</div>
 							<div className="input-list-body  fw-30">
 							  <InputItem actionType="wanna" edit={this.edit} data={present.wanna} {...validAttrs.wanna}/>
-							  <HobbyList data={present.hobbys} toggle={actions.toggle}></HobbyList>
+							  <HobbyList data={present.hobbies} toggle={actions.toggle}></HobbyList>
 							  <InputItem enter={this.addWord} edit={this.edit} {...attrs.editing} data={present['editing']} {...validAttrs.editing}/>
 							  <WordList del={this.del} data={present.words}></WordList>
 							</div>

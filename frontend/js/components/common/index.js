@@ -7,7 +7,7 @@ import Phone from './Phone'
 import Email from './Email'
 import Polygon from './Polygon'
 import Words from './Words'
-import Hobbys from './Hobbys'
+import Hobbies from './Hobbies'
 import IconSurround from './IconSurround'
 import CanvasBg from './CanvasBg'
 import Delay from './Delay'
@@ -23,7 +23,7 @@ export {
 	Email,
 	Polygon,
 	Words,
-	Hobbys,
+	Hobbies,
 	IconSurround,
 	CanvasBg,
 	Delay,

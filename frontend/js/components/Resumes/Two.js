@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {Avatar, Words, Info, Hobbys} from '../common'
+import {Avatar, Words, Info, Hobbies} from '../common'
 
 
 export default class Two extends Component{
@@ -40,7 +40,7 @@ export default class Two extends Component{
 			    </div>
 			  </div>
 
-			  <div className="part-hobbys padding row">
+			  <div className="part-hobbies padding row">
 			    <div className="part-line table center words init">
 				    <div className="left-line">
 				      <Words className="top init" animation="fade" reverse={true} text="SOME YELLS STOP"/>
@@ -48,7 +48,7 @@ export default class Two extends Component{
 				      <Words className="bottom init" animation="fade" reverse={true} text="GOES LIMP"/>
 				    </div>
 				    <div className="title">
-				      <Words className="init" animation="rotate" middle={true} text="HOBBYS" textAfter="RULE 3"/>
+				      <Words className="init" animation="rotate" middle={true} text="HOBBIES" textAfter="RULE  3"/>
 				    </div>
 				    <div className="right-line">
 				      <Words className="top init" animation="fade" text="TAPS OUT"/>
@@ -56,7 +56,7 @@ export default class Two extends Component{
 				      <Words className="bottom init" animation="fade" text="THE FIGHT IS OVER"/>
 				    </div>
 			    </div>
-	        <Hobbys max={8} present={present} className="table center"/>
+	        <Hobbies max={8} present={present} className="table center"/>
 			  </div>
 
 			  <div className="part-3 padding">

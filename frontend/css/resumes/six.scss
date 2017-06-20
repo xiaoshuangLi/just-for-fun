@@ -187,7 +187,7 @@ $sixFooterHeight: 2.5000em; /* 30/12 */
 		@include ellipsisMul(4);
 	}
 
-	.part-hobbys, .part-words{
+	.part-hobbies, .part-words{
 		.item{
 			margin: 0 0.2500em 0.2500em 0; /* 3/12 */ /* 3/12 */
 			@extend %inline-block;

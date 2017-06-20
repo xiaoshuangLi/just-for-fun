@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as res from 'gsap'
 
-import {Avatar, IconBody, Heart, AttrList, Hobbys} from '../common'
+import {Avatar, IconBody, Heart, AttrList, Hobbies} from '../common'
 
 export default class One extends Component {
 	constructor(props){
@@ -65,7 +65,7 @@ export default class One extends Component {
 			    <div className="part part-hobby">
 			      <div className="title">个人爱好</div>
 			      <div className="content">
-			        <Hobbys max={8} present={present} className="hobbys-list"/>
+			        <Hobbies max={8} present={present} className="hobbies-list"/>
 			      </div>
 			    </div>
 

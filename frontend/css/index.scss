@@ -3,10 +3,6 @@ $resumeListBodyHeight: $resumeListBodyWidth / 0.75;
 
 @import "./base.scss";
 
-.test{
-	transform: scale(.2);
-}
-
 @import "./common/cone.scss";
 @import "./common/heart.scss";
 @import "./common/polygon.scss";

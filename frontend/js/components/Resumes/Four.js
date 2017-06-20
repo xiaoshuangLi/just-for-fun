@@ -99,7 +99,7 @@ export default class Four extends Component {
 			        </div>
 			        <div className="equal part-right">
 			          <div className="part-title">个人爱好</div>
-			          <AttrList present={present} className="part-desc part-hobbys" max={20}/>
+			          <AttrList present={present} className="part-desc part-hobbies" max={20}/>
 			        </div>
 			      </div>
 			    </div>

@@ -11,7 +11,7 @@ export default class Words extends Component {
 
 		return (
 			<div className = {className}>
-        {present.hobbys.slice(0, max).map(item => 
+        {present.hobbies.slice(0, max).map(item => 
         	{ 
         		const Svg = icons[item.icon]
         		return (<div className="item" key={item.id}>

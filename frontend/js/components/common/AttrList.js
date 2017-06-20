@@ -6,13 +6,13 @@ export default class Polygon extends Component {
 	}
 
 	className(){
-		const { className = '', init = false , attr = 'hobbys'} = this.props
+		const { className = '', init = false , attr = 'hobbies'} = this.props
 
 		return init ? className : `part-desc part-${attr} ${className}`;
 	}
 
 	render(){
-		const { attr= 'hobbys', max = 8, present = {}, children} = this.props
+		const { attr= 'hobbies', max = 8, present = {}, children} = this.props
 		const list = present[attr] ? present[attr]: []
 
 		return (

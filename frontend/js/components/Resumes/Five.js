@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {Avatar, IconSurround, Info, Hobbys, AttrList} from '../common'
+import {Avatar, IconSurround, Info, Hobbies, AttrList} from '../common'
 
 
 export default class Five extends Component {
@@ -51,7 +51,7 @@ export default class Five extends Component {
 
 			  <div className="part part-right no-border">
 			    <div className="part-title">爱好·技能</div>
-          <AttrList present={present} className="part-body part-hobbys" init={true} max={8}/>
+          <AttrList present={present} className="part-body part-hobbies" init={true} max={8}/>
 			  </div>
 
         <AttrList present={present} attr="skills" className="part part-skills" init={true} max={8}>

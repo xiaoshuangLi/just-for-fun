@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {Avatar, Phone, Email, Hobbys, AttrList} from '../common'
+import {Avatar, Phone, Email, Hobbies, AttrList} from '../common'
 
 export default class Six extends Component {
 	constructor(props) {

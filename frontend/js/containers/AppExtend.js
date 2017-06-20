@@ -176,9 +176,9 @@ export default class PrizeExtend extends Component{
 	}
 
 	prizeSM(){
-		const { hobbys } = this.props.present
+		const { hobbies } = this.props.present
 
-		let item = getFromArr(hobbys, 'val', 'SM')
+		let item = getFromArr(hobbies, 'val', 'SM')
 
 		if(item.id && !item.hide){
 			this.setPrize('SM')

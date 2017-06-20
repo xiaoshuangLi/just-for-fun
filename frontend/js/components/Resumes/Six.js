@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {Avatar, IconSurround, Info, Hobbys, AttrList, CanvasBg} from '../common'
+import {Avatar, IconSurround, Info, Hobbies, AttrList, CanvasBg} from '../common'
 
 export default class Six extends Component {
 	constructor(props) {
@@ -35,7 +35,7 @@ export default class Six extends Component {
 			      <div className="equal part-left">
 			        <div className="part">
 			          <div className="part-title">个人爱好</div>
-			          <Hobbys className="part-desc part-hobbys" max={12} svg={false} present={present}/>
+			          <Hobbies className="part-desc part-hobbies" max={12} svg={false} present={present}/>
 			        </div>
 
 			        <div className="part">

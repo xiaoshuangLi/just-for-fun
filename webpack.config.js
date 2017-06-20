@@ -17,17 +17,6 @@ function gPlugins(){
     new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       options: {
-        // postcss: function(webpack){
-        //   return [
-        //     require('postcss-smart-import')({
-        //       addDependencyTo: webpack
-        //     }),
-        //     require('autoprefixer')({
-        //       browsers: ['last 4 version']
-        //     }),
-        //     require('cssnano')()
-        //   ];
-        // },
         postcss: [ 
           require('autoprefixer')({
             browsers: ['last 4 version']
@@ -73,8 +62,8 @@ function gPlugins(){
 }
 
 module.exports = {
-  // devtool: pro ? 'cheap-module-source-map' : 'source-map',
-  devtool: 'source-map',
+  devtool: pro ? 'hidden-source-map' : 'source-map',
+  // devtool: 'source-map',
 
  //  entry: { 
  //    app: './frontend/js/index.js',
