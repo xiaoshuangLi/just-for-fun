@@ -88,6 +88,11 @@ $maskFadeNum: 1;
 	}
 }
 
+.git-link {
+  opacity: 0.45;
+  transition: 0.2s;
+}
+
 @for $i from 1 through 8 {
 	@media (min-width: #{ 141px + $calcResumeWidth * $i }) and (max-width: #{ 140px + $calcResumeWidth * ($i + 1) }) {
 		$width: 1/($i + 1);
@@ -281,9 +286,19 @@ $maskMax: $maskFadeNum * 36;
 }
 
 @media (max-aspect-ratio: 4/5) {
+  .git-link {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   @include maskAnimation;
 }
 
 @media (orientation: landscape) and (max-height: 480px) {
+  .git-link {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   @include maskAnimation;
 }

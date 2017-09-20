@@ -43,3 +43,6 @@ webpack/publicj
 # ignore for frontend
 public
 
+#package-lock
+package-lock.json
+
