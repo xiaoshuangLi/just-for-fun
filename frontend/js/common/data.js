@@ -213,13 +213,13 @@ const data = {
 		"hide": false
 	}, {
 		"name": "",
-		"val": "CSS / Canvas 动画",
+		"val": "Animation",
 		"id": 1480951591075,
 		"score": "75",
 		"hide": false
 	}, {
 		"name": "",
-		"val": "Node / Express",
+		"val": "Node.js",
 		"id": 1480951591076,
 		"score": "60",
 		"hide": false
