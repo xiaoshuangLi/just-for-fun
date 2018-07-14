@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "mv frontend/img/logo.png public/img/ && webpack && postcss -c postcss.json",
     "dev": "node server.js"
   },
   "keywords": [
