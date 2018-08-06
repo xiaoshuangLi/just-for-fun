@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 var webpackDevMiddleware = require('webpack-dev-middleware')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var htmlMinify = require('html-minifier');
 var pro = false;
@@ -47,14 +48,18 @@ function gPlugins(){
   ];
 
   if(pro) {
-    res.push(new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        collapse_vars: true,
-        reduce_vars: true,
+    res.push(new UglifyJSPlugin({
+      uglifyOptions: {
+        output: {
+          beautify: false,
+          comments: false,
+        },
+        compress: {
+          warnings: false,
+          collapse_vars: true,
+          reduce_vars: true,
+        },
       },
-      beautify: false,
-      comments: false
     }));
   }
 
