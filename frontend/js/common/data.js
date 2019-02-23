@@ -201,15 +201,15 @@ const data = {
 	}],
 	"skills": [{
 		"name": "",
-		"val": "CSS3 HTML5",
-		"id": 1480951591073,
-		"score": "80",
+		"val": "React",
+		"id": 1480951591074,
+		"score": "85",
 		"hide": false
 	}, {
 		"name": "",
-		"val": "React",
-		"id": 1480951591074,
-		"score": "75",
+		"val": "CSS3 HTML5",
+		"id": 1480951591073,
+		"score": "80",
 		"hide": false
 	}, {
 		"name": "",
@@ -222,12 +222,6 @@ const data = {
 		"val": "Node.js",
 		"id": 1480951591076,
 		"score": "60",
-		"hide": false
-	}, {
-		"name": "",
-		"val": "Webgl",
-		"id": 1480951591077,
-		"score": "55",
 		"hide": false
 	}, {
 		"name": "",
