@@ -33,7 +33,7 @@ const data = {
 	},
 	"avatar": {
 		"name": "头像",
-		"val": "http://oi9dcgq2m.bkt.clouddn.com/me.jpeg"
+		"val": "https://raw.githubusercontent.com/xiaoshuangLi/files/master/cdn/me.jpeg"
 	},
 	"editing": {
 		"name": "种族天赋",
