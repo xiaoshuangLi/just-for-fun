@@ -43,7 +43,7 @@ function gPlugins(){
       dev: !pro,
       // chunks: ['app'],
       // excludeChunks: ['dev'],
-      filename: 'html/index.html'
+      filename: 'index.html'
     })
   ];
 
@@ -84,7 +84,7 @@ module.exports = {
   output: {
     path: __dirname + '/public/',
     filename: 'js/index.js',
-    publicPath: '/'
+    publicPath: '/web-just-for-fun/'
   },
 
   resolveLoader: {
